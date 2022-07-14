@@ -19,4 +19,4 @@ While we figure that out, feel free to ping [Juri on Twitter](https://twitter.co
 🥚 [Free Egghead course](https://egghead.io/courses/scale-react-development-with-nx-4038)  
 🧐 [Need help with Angular, React, Monorepos, Lerna or Nx? Talk to us 😃](https://nrwl.io/contact-us)
 
-Also, make sure to follow [Juri](https://twitter.com/juristr) and [Nx](https://twitter.com/nxdevtools) on Twitter for more!
+Also, make sure to follow [Nx](https://twitter.com/nxdevtools) on Twitter for more!
