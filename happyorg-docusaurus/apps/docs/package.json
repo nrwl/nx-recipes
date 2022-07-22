@@ -39,5 +39,18 @@
   },
   "engines": {
     "node": ">=16.14"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "inputs": [
+          "{projectRoot}/docs/*.(md|mdx)",
+          "{projectRoot}/docs/**/*.(md|mdx)"
+        ],
+        "outputs": [
+          "apps/docs/build"
+        ]
+      }
+    }
   }
 }
