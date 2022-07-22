@@ -2,9 +2,29 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "ui": "libs/ui",
     "docs": {
       "root": "apps/docs"
-    }
+    },
+    "plugin-docs": {
+      "root": "apps/plugin-docs",
+      "projectType": "application",
+      "sourceRoot": "apps/plugin-docs/src",
+      "targets": {
+        "build": {
+          "executor": "@nx-plus/docusaurus:browser",
+          "options": {
+            "outputPath": "dist/apps/plugin-docs"
+          }
+        },
+        "serve": {
+          "executor": "@nx-plus/docusaurus:dev-server",
+          "options": {
+            "port": 3000
+          }
+        }
+      },
+      "tags": []
+    },
+    "ui": "libs/ui"
   }
 }
