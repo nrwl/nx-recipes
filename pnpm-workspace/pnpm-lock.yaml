@@ -4,9 +4,9 @@ importers:
 
   .:
     specifiers:
-      nx: ^14.4.2
+      nx: ^14.5.4
     devDependencies:
-      nx: 14.4.2
+      nx: 14.5.4
 
   apps/my-remix-app:
     specifiers:
@@ -1494,20 +1494,20 @@ packages:
       json-parse-even-better-errors: 2.3.1
     dev: true
 
-  /@nrwl/cli/14.4.2:
-    resolution: {integrity: sha512-JNV4kP9goZD4BlTQGKdKhCRc1bhiWYp1TaDJHdk4ZfhiLt1NzXNxxgc/eX2obFZ3Hw+KdM/gM5F7KfWBbtSGSw==}
+  /@nrwl/cli/14.5.4:
+    resolution: {integrity: sha512-UYr14hxeYV8p/zt6D6z33hljZJQROJAVxSC+mm72fyVvy88Gt0sQNLfMmOARXur0p/73PSLM0jJ2Sr7Ftsuu+A==}
     dependencies:
-      nx: 14.4.2
+      nx: 14.5.4
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
     dev: true
 
-  /@nrwl/tao/14.4.2:
-    resolution: {integrity: sha512-Ygw3skKZfFhi4MBHZKQ8A67pDQxeyDdY78tFWViMN0SEn9ExL41Q8V9aSMfir8VZYGca6ZOXX5MRhbeHdcgMLQ==}
+  /@nrwl/tao/14.5.4:
+    resolution: {integrity: sha512-a2GCuSE8WghjehuU3GVO63KZEnZXXQiqEg137yN/Na+PxwSu68XeaX53SLyzRskTV120YwBBy1YCTNzAZxxsjg==}
     hasBin: true
     dependencies:
-      nx: 14.4.2
+      nx: 14.5.4
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -5768,8 +5768,8 @@ packages:
       path-key: 3.1.1
     dev: true
 
-  /nx/14.4.2:
-    resolution: {integrity: sha512-bYO//HuwQL4X8y+2BjUPtkPLDiYI1zMejQo6+uJl3+VdYPcsjwW/ca581tBPHiPH95XnHiBartnMrMJtn11grw==}
+  /nx/14.5.4:
+    resolution: {integrity: sha512-xv1nTaQP6kqVDE4PXcB1tLlgzNAPUHE/2vlqSLgxjNb6colKf0vrEZhVTjhnbqBeJiTb33gUx50bBXkurCkN5w==}
     hasBin: true
     requiresBuild: true
     peerDependencies:
@@ -5781,8 +5781,8 @@ packages:
       '@swc/core':
         optional: true
     dependencies:
-      '@nrwl/cli': 14.4.2
-      '@nrwl/tao': 14.4.2
+      '@nrwl/cli': 14.5.4
+      '@nrwl/tao': 14.5.4
       '@parcel/watcher': 2.0.4
       chalk: 4.1.0
       chokidar: 3.5.3
