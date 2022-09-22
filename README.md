@@ -6,9 +6,7 @@ Here you'll find various examples to use Nx to achieve a particular goal.
 
 ## Contributing
 
-Absolutely!! We're going to have some proper instructions soon how to best submit new examples.
-
-While we figure that out, feel free to ping [Juri on Twitter](https://twitter.com/juristr) or send an email to `devrel@nrwl.io`
+That'd be amazing. Check the [Contributing](./CONTRIBUTING.md) guide for more information.
 
 ## Learn more
 
