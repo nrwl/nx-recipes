@@ -1,5 +1,9 @@
 # Using Nx to speed up a PNPM workspace monorepo
 
+[![package-based monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=package%20based&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
+
+[![package-based monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+
 This example shows how to add Nx to an existing PNPM workspace for the purpose of providing an improved developer experience and obviously speed via caching and incremental task execution.
 
 ## What's inside?
