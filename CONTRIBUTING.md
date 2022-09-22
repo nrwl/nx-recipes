@@ -41,10 +41,10 @@ Add a badge to your example README that defines the type of monorepo:
 [![package-based monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=package%20based&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
 ```
 
-[![package-based monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+[![integrated monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
 
 ```
-[![package-based monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+[![integrated monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
 ```
 
 ## Questions?
