@@ -1,0 +1,55 @@
+{
+  "name": "my-btn",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/my-btn/src",
+  "prefix": "nx-sb-compo",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/my-btn"],
+      "options": {
+        "jestConfig": "libs/my-btn/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/my-btn/**/*.ts", "libs/my-btn/**/*.html"]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/my-btn/.storybook",
+        "browserTarget": "my-btn:build-storybook",
+        "compodoc": true,
+        "compodocArgs": ["-e", "json", "-d", "libs/my-btn"]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/my-btn",
+        "configDir": "libs/my-btn/.storybook",
+        "browserTarget": "my-btn:build-storybook",
+        "compodoc": true,
+        "compodocArgs": ["-e", "json", "-d", "libs/my-btn"]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
