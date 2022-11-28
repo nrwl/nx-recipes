@@ -1,0 +1,54 @@
+{
+  "name": "web-vite",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/web-vite/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/web-vite"
+      },
+      "configurations": {
+        "production": {
+          "sourceMap": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/web-vite/src/environments/environment.ts",
+              "with": "apps/web-vite/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "options": {
+        "buildTarget": "web-vite:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "web-vite:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/web-vite/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/web-vite/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

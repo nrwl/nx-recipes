@@ -1,0 +1,16 @@
+.sea {
+  height: 100px;
+  width: 100px;
+}
+
+.cont {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 50px;
+}
