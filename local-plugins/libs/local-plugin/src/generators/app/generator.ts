@@ -1,4 +1,10 @@
-import { generateFiles, names, offsetFromRoot, Tree } from '@nrwl/devkit';
+import {
+  generateFiles,
+  names,
+  offsetFromRoot,
+  Tree,
+  updateJson,
+} from '@nrwl/devkit';
 import { applicationGenerator as expressAppGenerator } from '@nrwl/express/src/generators/application/application';
 import { libraryGenerator as jsLibGenerator } from '@nrwl/js/src/generators/library/library';
 import { applicationGenerator as reactAppGenerator } from '@nrwl/react/src/generators/application/application';
@@ -125,7 +131,11 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     optionsWithDefaults.name,
     optionsWithDefaults.backendPort
   );
-  createAppTsxBoilerPlate(tree, optionsWithDefaults.name);
+  createAppTsxBoilerPlate(
+    tree,
+    optionsWithDefaults.name,
+    optionsWithDefaults.frontendPort
+  );
   createTrpcClientBoilerPlate(tree, optionsWithDefaults.name);
 }
 
@@ -184,7 +194,11 @@ server.on('error', console.error);
   );
 }
 
-function createAppTsxBoilerPlate(tree: Tree, name: string) {
+function createAppTsxBoilerPlate(
+  tree: Tree,
+  name: string,
+  frontendPort: number
+) {
   const { className, fileName } = names(name);
   const appTsxBoilerPlate = `import { create${className}TrpcClient } from '@acme-webdev/${fileName}-trpc-client';
 import { useEffect, useState } from 'react';
@@ -206,6 +220,19 @@ export function App() {
 export default App;
 `;
   tree.write(`apps/${fileName}-web/src/app/app.tsx`, appTsxBoilerPlate);
+  updateJson(tree, `apps/${fileName}-web/project.json`, (json) => ({
+    ...json,
+    targets: {
+      ...json.targets,
+      serve: {
+        ...json.targets.serve,
+        options: {
+          ...json.targets.serve.options,
+          port: frontendPort,
+        },
+      },
+    },
+  }));
 }
 
 function createTrpcClientBoilerPlate(tree: Tree, name: string) {
