@@ -1,21 +1,10 @@
-import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  getWorkspaceLayout,
-  names,
-  offsetFromRoot,
-  readJson,
-  Tree,
-  updateJson,
-  updateProjectConfiguration,
-} from '@nrwl/devkit';
-import * as path from 'path';
-import { AppGeneratorSchema } from './schema';
-import { applicationGenerator as reactAppGenerator } from '@nrwl/react/src/generators/application/application';
-import { setupTailwindGenerator } from '@nrwl/react/src/generators/setup-tailwind/setup-tailwind';
+import { generateFiles, names, offsetFromRoot, Tree } from '@nrwl/devkit';
 import { applicationGenerator as expressAppGenerator } from '@nrwl/express/src/generators/application/application';
 import { libraryGenerator as jsLibGenerator } from '@nrwl/js/src/generators/library/library';
+import { applicationGenerator as reactAppGenerator } from '@nrwl/react/src/generators/application/application';
+import { setupTailwindGenerator } from '@nrwl/react/src/generators/setup-tailwind/setup-tailwind';
+import * as path from 'path';
+import { AppGeneratorSchema } from './schema';
 
 import { Linter } from '@nrwl/linter';
 
@@ -137,6 +126,7 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     optionsWithDefaults.backendPort
   );
   createAppTsxBoilerPlate(tree, optionsWithDefaults.name);
+  createTrpcClientBoilerPlate(tree, optionsWithDefaults.name);
 }
 
 function createTrpcServerBoilerPlate(tree: Tree, name: string) {
@@ -151,7 +141,7 @@ export const trpcRouter = t.router({
   })),
 });
 
-export type ${className}TrpcRouter = typeof t.router;
+export type ${className}TrpcRouter = typeof trpcRouter;
 `;
   tree.write(`libs/${name}-trpc-server/src/index.ts`, trpcServerBoilerPlate);
 }
@@ -174,7 +164,7 @@ import { environment } from './environments/environment';
 
 const app = express();
 
-app.get('/api', trpcExpress.createExpressMiddleware({ router: trpcRouter }));
+app.use('/api', trpcExpress.createExpressMiddleware({ router: trpcRouter }));
 
 const port = environment.port;
 const server = app.listen(port, () => {
@@ -216,4 +206,20 @@ export function App() {
 export default App;
 `;
   tree.write(`apps/${fileName}-web/src/app/app.tsx`, appTsxBoilerPlate);
+}
+
+function createTrpcClientBoilerPlate(tree: Tree, name: string) {
+  const { className, fileName } = names(name);
+  const trpcClientBoilerPlate = `import { ${className}TrpcRouter } from '@acme-webdev/test-trpc-server';
+import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
+
+export const create${className}TrpcClient = () =>
+  createTRPCProxyClient<${className}TrpcRouter>({
+    links: [httpBatchLink({ url: '/api' })],
+  } as any);
+`;
+  tree.write(
+    `libs/${fileName}-trpc-client/src/index.ts`,
+    trpcClientBoilerPlate
+  );
 }
