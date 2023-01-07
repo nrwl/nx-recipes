@@ -5,7 +5,10 @@ import {
   getWorkspaceLayout,
   names,
   offsetFromRoot,
+  readJson,
   Tree,
+  updateJson,
+  updateProjectConfiguration,
 } from '@nrwl/devkit';
 import * as path from 'path';
 import { AppGeneratorSchema } from './schema';
@@ -105,23 +108,29 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
   await setupTailwindGenerator(tree, { project: webAppName });
   await expressAppGenerator(tree, {
     name: serverName,
-    js: true,
+    js: false,
     linter: Linter.EsLint,
     unitTestRunner: 'none',
     pascalCaseFiles: false,
     skipFormat: true,
     skipPackageJson: false,
   });
+  await updateJson(tree, `apps/${serverName}/project.json`, (projectJson) => ({
+    ...projectJson,
+    targets: {
+      ...projectJson.targets,
+      serve: {
+        ...projectJson.targets.serve,
+        port: optionsWithDefaults.backendPort,
+      },
+    },
+  }));
   await jsLibGenerator(tree, { name: trpcServerName });
   await jsLibGenerator(tree, {
     name: trpcClientName,
   });
   createTrpcServerBoilerPlate(tree, optionsWithDefaults.name);
-  // createServerBoilerPlate(
-  //   tree,
-  //   optionsWithDefaults.name,
-  //   optionsWithDefaults.backendPort
-  // );
+  createServerBoilerPlate(tree, optionsWithDefaults.name);
 }
 
 function createTrpcServerBoilerPlate(tree: Tree, name: string) {
@@ -141,18 +150,26 @@ export type ${className}TrpcRouter = typeof t.router;
   tree.write(`libs/${name}-trpc-server/src/index.ts`, trpcServerBoilerPlate);
 }
 
-function createServerBoilerPlate(
-  tree: Tree,
-  name: string,
-  backendPort: number
-) {
-  const serverBoilerPlate = `import * as trpcExpress from '@trpc/server/adapters/express';
+function createServerBoilerPlate(tree: Tree, name: string) {
+  const serverBoilerPlate = `/**
+ * This is not a production server yet!
+ * This is only a minimal backend to get started.
+ */
+
+import * as express from 'express';
+import * as trpcExpress from '@trpc/server/adapters/express';
 import { trpcRouter } from '@acme-webdev/${name}-trpc-server';
-import express from 'express';
 
 const app = express();
-app.use('/api', trpcExpress.createExpressRouter(trpcRouter));
-app.listen(${backendPort});
+
+app.get('/api', trpcExpress.createExpressMiddleware(trpcRouter));
+
+const port = process.env.port;
+const server = app.listen(port, () => {
+  console.log(\`Listening at http://localhost:\${port}/api\`);
+});
+server.on('error', console.error);
+
 `;
   tree.write(`apps/${name}-server/src/main.ts`, serverBoilerPlate);
 }
