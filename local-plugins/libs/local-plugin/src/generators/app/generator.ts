@@ -114,23 +114,29 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     pascalCaseFiles: false,
     skipFormat: true,
     skipPackageJson: false,
+    frontendProject: webAppName,
   });
-  await updateJson(tree, `apps/${serverName}/project.json`, (projectJson) => ({
-    ...projectJson,
-    targets: {
-      ...projectJson.targets,
-      serve: {
-        ...projectJson.targets.serve,
-        port: optionsWithDefaults.backendPort,
-      },
-    },
-  }));
+  // await updateJson(tree, `apps/${serverName}/project.json`, (projectJson) => ({
+  //   ...projectJson,
+  //   targets: {
+  //     ...projectJson.targets,
+  //     serve: {
+  //       ...projectJson.targets.serve,
+  //       port: optionsWithDefaults.backendPort,
+  //     },
+  //   },
+  // }));
   await jsLibGenerator(tree, { name: trpcServerName });
   await jsLibGenerator(tree, {
     name: trpcClientName,
   });
   createTrpcServerBoilerPlate(tree, optionsWithDefaults.name);
-  createServerBoilerPlate(tree, optionsWithDefaults.name);
+  createServerBoilerPlate(
+    tree,
+    optionsWithDefaults.name,
+    optionsWithDefaults.backendPort
+  );
+  createAppTsxBoilerPlate(tree, optionsWithDefaults.name);
 }
 
 function createTrpcServerBoilerPlate(tree: Tree, name: string) {
@@ -150,7 +156,12 @@ export type ${className}TrpcRouter = typeof t.router;
   tree.write(`libs/${name}-trpc-server/src/index.ts`, trpcServerBoilerPlate);
 }
 
-function createServerBoilerPlate(tree: Tree, name: string) {
+function createServerBoilerPlate(
+  tree: Tree,
+  name: string,
+  backendPort: number
+) {
+  const { fileName } = names(name);
   const serverBoilerPlate = `/**
  * This is not a production server yet!
  * This is only a minimal backend to get started.
@@ -158,11 +169,11 @@ function createServerBoilerPlate(tree: Tree, name: string) {
 
 import * as express from 'express';
 import * as trpcExpress from '@trpc/server/adapters/express';
-import { trpcRouter } from '@acme-webdev/${name}-trpc-server';
+import { trpcRouter } from '@acme-webdev/${fileName}-trpc-server';
 
 const app = express();
 
-app.get('/api', trpcExpress.createExpressMiddleware(trpcRouter));
+app.get('/api', trpcExpress.createExpressMiddleware({ router: trpcRouter }));
 
 const port = process.env.port;
 const server = app.listen(port, () => {
@@ -172,4 +183,36 @@ server.on('error', console.error);
 
 `;
   tree.write(`apps/${name}-server/src/main.ts`, serverBoilerPlate);
+  tree.write(
+    `apps/${name}-server/src/environments/environment.ts`,
+    `export const environment = {
+  production: false,
+  port: ${backendPort},
+};
+`
+  );
+}
+
+function createAppTsxBoilerPlate(tree: Tree, name: string) {
+  const { className, fileName } = names(name);
+  const appTsxBoilerPlate = `import { create${className}TrpcClient } from '@acme-webdev/${fileName}-trpc-client';
+import { useEffect, useState } from 'react';
+
+export function App() {
+  const [welcomeMessage, setWelcomeMessage] = useState('');
+  useEffect(() => {
+    create${className}TrpcClient()
+      .welcomeMessage.query()
+      .then(({ welcomeMessage }) => setWelcomeMessage(welcomeMessage));
+  }, []);
+  return (
+    <>
+      <h1>{welcomeMessage}</h1>
+    </>
+  );
+}
+
+export default App;
+`;
+  tree.write(`apps/${fileName}-web/src/app/app.tsx`, appTsxBoilerPlate);
 }
