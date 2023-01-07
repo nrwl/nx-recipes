@@ -170,12 +170,13 @@ function createServerBoilerPlate(
 import * as express from 'express';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { trpcRouter } from '@acme-webdev/${fileName}-trpc-server';
+import { environment } from './environments/environment';
 
 const app = express();
 
 app.get('/api', trpcExpress.createExpressMiddleware({ router: trpcRouter }));
 
-const port = process.env.port;
+const port = environment.port;
 const server = app.listen(port, () => {
   console.log(\`Listening at http://localhost:\${port}/api\`);
 });
