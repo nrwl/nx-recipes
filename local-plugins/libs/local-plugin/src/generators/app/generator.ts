@@ -11,7 +11,7 @@ import * as path from 'path';
 import { AppGeneratorSchema } from './schema';
 import { applicationGenerator as reactAppGenerator } from '@nrwl/react/src/generators/application/application';
 import { setupTailwindGenerator } from '@nrwl/react/src/generators/setup-tailwind/setup-tailwind';
-import { applicationGenerator as nodeAppGenerator } from '@nrwl/node/src/generators/application/application';
+import { applicationGenerator as expressAppGenerator } from '@nrwl/express/src/generators/application/application';
 import { libraryGenerator as jsLibGenerator } from '@nrwl/js/src/generators/library/library';
 
 import { Linter } from '@nrwl/linter';
@@ -103,20 +103,25 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     devServerPort: optionsWithDefaults.frontendPort,
   });
   await setupTailwindGenerator(tree, { project: webAppName });
-  await nodeAppGenerator(tree, {
+  await expressAppGenerator(tree, {
     name: serverName,
-    frontendProject: webAppName,
+    js: true,
+    linter: Linter.EsLint,
+    unitTestRunner: 'none',
+    pascalCaseFiles: false,
+    skipFormat: true,
+    skipPackageJson: false,
   });
   await jsLibGenerator(tree, { name: trpcServerName });
   await jsLibGenerator(tree, {
     name: trpcClientName,
   });
   createTrpcServerBoilerPlate(tree, optionsWithDefaults.name);
-  createServerBoilerPlate(
-    tree,
-    optionsWithDefaults.name,
-    optionsWithDefaults.backendPort
-  );
+  // createServerBoilerPlate(
+  //   tree,
+  //   optionsWithDefaults.name,
+  //   optionsWithDefaults.backendPort
+  // );
 }
 
 function createTrpcServerBoilerPlate(tree: Tree, name: string) {
