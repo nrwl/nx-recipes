@@ -1,0 +1,17 @@
+{
+  "name": "local-plugin-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/local-plugin-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/nx-plugin:e2e",
+      "options": {
+        "target": "local-plugin:build",
+        "jestConfig": "apps/local-plugin-e2e/jest.config.ts"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["local-plugin"]
+}
