@@ -90,7 +90,8 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     ...options,
   };
   const webAppName = `${optionsWithDefaults.name}-web`;
-  const trpcServerName = `${optionsWithDefaults.name}-server`;
+  const serverName = `${optionsWithDefaults.name}-server`;
+  const trpcServerName = `${optionsWithDefaults.name}-trpc-server`;
   const trpcClientName = `${optionsWithDefaults.name}-trpc-client`;
   await reactAppGenerator(tree, {
     name: webAppName,
@@ -103,10 +104,46 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
   });
   await setupTailwindGenerator(tree, { project: webAppName });
   await nodeAppGenerator(tree, {
-    name: trpcServerName,
+    name: serverName,
     frontendProject: webAppName,
   });
+  await jsLibGenerator(tree, { name: trpcServerName });
   await jsLibGenerator(tree, {
     name: trpcClientName,
   });
+  createTrpcServerBoilerPlate(tree, optionsWithDefaults.name);
+  createServerBoilerPlate(tree, serverName);
+}
+
+function createTrpcServerBoilerPlate(tree: Tree, name: string) {
+  const { className, propertyName } = names(name);
+  const trpcServerBoilerPlate = `import { initTRPC } from '@trpc/server';
+
+const t = initTRPC.create();
+  
+export const trpcRouter = t.router({
+  welcomeMessage: t.procedure.query((req) => ({
+    welcomeMessage: \`Welcome to ${name}!\`,
+  })),
+});
+
+export type ${className}TrpcRouter = typeof t.router;
+`;
+  tree.write(`libs/${name}-trpc-server/src/index.ts`, trpcServerBoilerPlate);
+}
+
+function createServerBoilerPlate(
+  tree: Tree,
+  name: string,
+  backendPort: number
+) {
+  const serverBoilerPlate = `import * as trpcExpress from '@trpc/server/adapters/express';
+import { trpcRouter } from '@acme-webdev/${name}-trpc-server';
+import express from 'express';
+
+const app = express();
+app.use('/api', trpcExpress.createExpressRouter(trpcRouter));
+app.listen(${backendPort});
+`;
+  tree.write(`apps/${name}-server/src/main.ts`, serverBoilerPlate);
 }
