@@ -1,1 +1,4 @@
-export interface ServeFullstackExecutorSchema {} // eslint-disable-line
+export interface ServeFullstackExecutorSchema {
+  frontendProject: string;
+  backendProject: string;
+} // eslint-disable-line

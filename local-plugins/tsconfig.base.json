@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@acme-webdev/local-plugin": ["libs/local-plugin/src/index.ts"]
+      "@acme-webdev/local-plugin": ["libs/local-plugin/src/index.ts"],
+      "@acme-webdev/test-trpc-client": ["libs/test-trpc-client/src/index.ts"],
+      "@acme-webdev/test-trpc-server": ["libs/test-trpc-server/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

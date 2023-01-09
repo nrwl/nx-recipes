@@ -5,6 +5,15 @@
   "title": "ServeFullstack executor",
   "description": "",
   "type": "object",
-  "properties": {},
-  "required": []
+  "properties": {
+    "frontendProject": {
+      "type": "string",
+      "description": "The name of the frontend project to serve."
+    },
+    "backendProject": {
+      "type": "string",
+      "description": "The name of the backend project to serve."
+    }
+  },
+  "required": ["frontendProject", "backendProject"]
 }
