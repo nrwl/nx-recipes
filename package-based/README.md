@@ -1,8 +1,9 @@
 # Tutorial: Package-based Monorepo
 
-[![package-based monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=package%20based&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
+[![package-based monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=package%20based monorepo&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
 
 Source code for the package-based monorepo tutorial on the Nx docs:
+
 - Tutorial: https://nx.dev/getting-started/package-based-repo-tutorial
 - Video: https://youtu.be/hzTMKuE3CDw
 

@@ -1,6 +1,6 @@
 # Tutorial: Integrated Monorepo
 
-[![integrated monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+[![integrated monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=integrated%20monorepo&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
 
 Source code for the integrated monorepo tutorial on the Nx docs:
 

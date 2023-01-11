@@ -1,6 +1,6 @@
 # Publishing strategies for Storybook in Single-Framework Nx workspaces
 
-[![integrated monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+[![integrated monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=integrated%20monorepo&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
 
 This repository contains a sample Nx workspace that demonstrates how to publish Storybook making the best out of Nx's capabilities.
 

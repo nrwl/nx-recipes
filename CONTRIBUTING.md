@@ -33,18 +33,24 @@ Describe how to run the examples. Like specific Nx commands the viewer might wan
 This is a section of bullet points with more info, pointing to Nx docs, blog posts, videos etc.
 ```
 
-Add a badge to your example README that defines the type of monorepo:
+Add a badge to your example README that defines the type of Nx workspace setup:
 
-[![package-based monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=package%20based&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
-
-```
-[![package-based monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=package%20based&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
-```
-
-[![integrated monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+[![package-based monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=package%20based monorepo&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
 
 ```
-[![integrated monorepo](https://img.shields.io/static/v1?label=monorepo%20type&message=integrated&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+[![package-based monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=package%20based monorepo&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
+```
+
+[![integrated monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=integrated%20monorepo&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+
+```
+[![integrated monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=integrated%20monorepo&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
+```
+
+[![standalone application](https://img.shields.io/static/v1?label=Nx%20setup&message=standalone%20app&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#standalone-applications)
+
+```
+[![standalone application](https://img.shields.io/static/v1?label=Nx%20setup&message=standalone%20app&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#standalone-applications)
 ```
 
 ## Questions?
