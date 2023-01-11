@@ -35,10 +35,10 @@ This is a section of bullet points with more info, pointing to Nx docs, blog pos
 
 Add a badge to your example README that defines the type of Nx workspace setup:
 
-[![package-based monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=package%20based monorepo&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
+[![package-based monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=package-based%20monorepo&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
 
 ```
-[![package-based monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=package%20based monorepo&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
+[![package-based monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=package-based%20monorepo&color=orange)](https://nx.dev/concepts/integrated-vs-package-based#package-based-repos)
 ```
 
 [![integrated monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=integrated%20monorepo&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
