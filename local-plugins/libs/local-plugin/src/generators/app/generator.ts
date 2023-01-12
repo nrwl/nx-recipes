@@ -157,7 +157,7 @@ export default App;
 
 function createTrpcClientBoilerPlate(tree: Tree, name: string) {
   const { className, fileName } = names(name);
-  const trpcClientBoilerPlate = `import { ${className}TrpcRouter } from '@acme-webdev/test-trpc-server';
+  const trpcClientBoilerPlate = `import { ${className}TrpcRouter } from '@acme-webdev/${fileName}-trpc-server';
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 
 export const create${className}TrpcClient = () =>
