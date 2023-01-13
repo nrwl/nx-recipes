@@ -23,8 +23,8 @@ async function startBackendServer(
     const childProcess = exec(`npx nx serve ${options.backendProject}`, {
       maxBuffer: LARGE_BUFFER,
     });
-    childProcess.on('exit', () => childProcess.kill());
-    childProcess.on('SIGTERM', () => childProcess.kill());
+    process.on('exit', () => childProcess.kill());
+    process.on('SIGTERM', () => childProcess.kill());
     prefixTerminalOutput(
       childProcess,
       chalk.bgGreen(padTargetName(options.backendProject, targetPadSize))
@@ -46,9 +46,8 @@ async function startFrontendServer(
     const childProcess = exec(`npx nx serve ${frontendProject}`, {
       maxBuffer: LARGE_BUFFER,
     });
-    childProcess.on('exit', () => childProcess.kill());
-    childProcess.on('SIGTERM', () => childProcess.kill());
-    childProcess.on('message', (message) => console.log(message));
+    process.on('exit', () => childProcess.kill());
+    process.on('SIGTERM', () => childProcess.kill());
     prefixTerminalOutput(
       childProcess,
       chalk.bgBlue(padTargetName(frontendProject, targetPadSize))

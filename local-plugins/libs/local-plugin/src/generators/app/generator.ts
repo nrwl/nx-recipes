@@ -1,10 +1,9 @@
 import { names, Tree, updateJson } from '@nrwl/devkit';
-import { applicationGenerator as expressAppGenerator } from '@nrwl/node/src/generators/application/application';
+import { applicationGenerator as nodeAppGenerator } from '@nrwl/node/src/generators/application/application';
 import { libraryGenerator as jsLibGenerator } from '@nrwl/js/src/generators/library/library';
 import { applicationGenerator as reactAppGenerator } from '@nrwl/react/src/generators/application/application';
 import { setupTailwindGenerator } from '@nrwl/react/src/generators/setup-tailwind/setup-tailwind';
 import { AppGeneratorSchema } from './schema';
-
 import { Linter } from '@nrwl/linter';
 
 const defaultPorts = {
@@ -17,10 +16,11 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     ...defaultPorts,
     ...options,
   };
-  const webAppName = `${optionsWithDefaults.name}-web`;
-  const serverName = `${optionsWithDefaults.name}-server`;
-  const trpcServerName = `${optionsWithDefaults.name}-trpc-server`;
-  const trpcClientName = `${optionsWithDefaults.name}-trpc-client`;
+  const kebobCaseName = names(optionsWithDefaults.name).fileName;
+  const webAppName = `${kebobCaseName}-web`;
+  const serverName = `${kebobCaseName}-server`;
+  const trpcServerName = `${kebobCaseName}-trpc-server`;
+  const trpcClientName = `${kebobCaseName}-trpc-client`;
   await reactAppGenerator(tree, {
     name: webAppName,
     linter: Linter.EsLint,
@@ -31,7 +31,7 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     devServerPort: optionsWithDefaults.frontendPort,
   });
   await setupTailwindGenerator(tree, { project: webAppName });
-  await expressAppGenerator(tree, {
+  await nodeAppGenerator(tree, {
     name: serverName,
     js: false,
     linter: Linter.EsLint,
@@ -57,12 +57,12 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     optionsWithDefaults.name,
     optionsWithDefaults.backendPort
   );
+  createTrpcClientBoilerPlate(tree, optionsWithDefaults.name);
   createAppTsxBoilerPlate(
     tree,
     optionsWithDefaults.name,
     optionsWithDefaults.frontendPort
   );
-  createTrpcClientBoilerPlate(tree, optionsWithDefaults.name);
   addFullstackServeTarget(tree, optionsWithDefaults);
   addSourceRoot(tree, trpcServerName);
   addSourceRoot(tree, trpcClientName);
