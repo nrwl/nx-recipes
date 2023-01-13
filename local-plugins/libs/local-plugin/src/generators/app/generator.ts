@@ -1,5 +1,5 @@
 import { names, Tree, updateJson } from '@nrwl/devkit';
-import { applicationGenerator as expressAppGenerator } from '@nrwl/express/src/generators/application/application';
+import { applicationGenerator as expressAppGenerator } from '@nrwl/node/src/generators/application/application';
 import { libraryGenerator as jsLibGenerator } from '@nrwl/js/src/generators/library/library';
 import { applicationGenerator as reactAppGenerator } from '@nrwl/react/src/generators/application/application';
 import { setupTailwindGenerator } from '@nrwl/react/src/generators/setup-tailwind/setup-tailwind';
