@@ -64,8 +64,6 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     optionsWithDefaults.frontendPort
   );
   addFullstackServeTarget(tree, optionsWithDefaults);
-  addSourceRoot(tree, trpcServerName);
-  addSourceRoot(tree, trpcClientName);
 }
 
 function createTrpcServerBoilerPlate(tree: Tree, name: string) {
@@ -194,15 +192,6 @@ function addFullstackServeTarget(tree: Tree, options: AppGeneratorSchema) {
           },
         },
       },
-    };
-  });
-}
-
-function addSourceRoot(tree: Tree, projectName: string) {
-  updateJson(tree, `libs/${projectName}/project.json`, (json) => {
-    return {
-      ...json,
-      sourceRoot: `libs/${projectName}/src`,
     };
   });
 }
