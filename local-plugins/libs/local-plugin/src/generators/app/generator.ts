@@ -41,9 +41,15 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     skipPackageJson: false,
     frontendProject: webAppName,
   });
-  await jsLibGenerator(tree, { name: trpcServerName });
+  await jsLibGenerator(tree, {
+    name: trpcServerName,
+    bundler: 'vite',
+    unitTestRunner: 'vitest',
+  });
   await jsLibGenerator(tree, {
     name: trpcClientName,
+    bundler: 'vite',
+    unitTestRunner: 'none',
   });
   createTrpcServerBoilerPlate(tree, optionsWithDefaults.name);
   createServerBoilerPlate(
@@ -132,9 +138,7 @@ export function App() {
       .then(({ welcomeMessage }) => setWelcomeMessage(welcomeMessage));
   }, []);
   return (
-    <>
-      <h1>{welcomeMessage}</h1>
-    </>
+    <h1 className="text-2xl">{welcomeMessage}</h1>
   );
 }
 
