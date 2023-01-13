@@ -70,16 +70,8 @@ function prefixTerminalOutput(cp: ChildProcess, prefix: string) {
   }
   cp.stdout.on('data', logWithPrefix);
   cp.stdout.on('error', logWithPrefix);
-  cp.stdout.on('pause', logWithPrefix);
-  cp.stdout.on('resume', logWithPrefix);
-  cp.stdout.on('readable', logWithPrefix);
-  cp.stdout.on('close', logWithPrefix);
   cp.stderr.on('data', logWithPrefix);
   cp.stderr.on('error', logWithPrefix);
-  cp.stderr.on('pause', logWithPrefix);
-  cp.stderr.on('resume', logWithPrefix);
-  cp.stderr.on('readable', logWithPrefix);
-  cp.stderr.on('close', logWithPrefix);
 }
 
 function padTargetName(name: string, targetSize: number) {
