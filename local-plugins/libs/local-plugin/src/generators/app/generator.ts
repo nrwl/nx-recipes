@@ -57,6 +57,7 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     optionsWithDefaults.frontendPort
   );
   createTrpcClientBoilerPlate(tree, optionsWithDefaults.name);
+  addFullstackServeTarget(tree, optionsWithDefaults);
 }
 
 function createTrpcServerBoilerPlate(tree: Tree, name: string) {
@@ -169,4 +170,24 @@ export const create${className}TrpcClient = () =>
     `libs/${fileName}-trpc-client/src/index.ts`,
     trpcClientBoilerPlate
   );
+}
+
+function addFullstackServeTarget(tree: Tree, options: AppGeneratorSchema) {
+  const { fileName: frontEndKabobCase } = names(`${options.name}-web`);
+  const { fileName: backEndKabobCase } = names(`${options.name}-server`);
+  updateJson(tree, `apps/${frontEndKabobCase}/project.json`, (json) => {
+    return {
+      ...json,
+      targets: {
+        ...json.targets,
+        'serve-fullstack': {
+          executor: '@acme-webdev/local-plugin:serve-fullstack',
+          options: {
+            frontendProject: frontEndKabobCase,
+            backendProject: backEndKabobCase,
+          },
+        },
+      },
+    };
+  });
 }

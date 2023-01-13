@@ -1,34 +1,85 @@
 import { ServeFullstackExecutorSchema } from './schema';
-// import viteDevServerExecutor from '@nrwl/vite/src/executors/dev-server/dev-server.impl';
-import nodeServerExecutor from '@nrwl/js/src/executors/node/node.impl';
-
 import { ExecutorContext } from '@nrwl/devkit';
+import { ChildProcess, exec } from 'child_process';
+import * as chalk from 'chalk';
+
+const LARGE_BUFFER = 1024 * 1000000;
 
 export default async function runExecutor(
   options: ServeFullstackExecutorSchema,
-  context: ExecutorContext
+  _context: ExecutorContext
 ) {
-  const { default: viteDevServerExecutor } = await import(
-    '@nrwl/vite/src/executors/dev-server/dev-server.impl.js'
-  );
-  return {
-    async *[Symbol.asyncIterator]() {
-      let serverStarted = false;
-      for await (const serverMessage of nodeServerExecutor(
-        { buildTarget: `${options.backendProject}:build` } as any,
-        context
-      )) {
-        yield serverMessage;
-        if (!serverStarted && serverMessage.success) {
-          serverStarted = true;
-          for await (const frontendMessage of viteDevServerExecutor(
-            { buildTarget: `${options.frontendProject}:build` },
-            context
-          )) {
-            yield frontendMessage;
-          }
-        }
+  const prefixSize =
+    Math.max(options.backendProject.length, options.frontendProject.length) + 3;
+  await startBackendServer(options, prefixSize);
+}
+
+async function startBackendServer(
+  options: ServeFullstackExecutorSchema,
+  targetPadSize: number
+) {
+  let frontendServerStarted = false;
+  return new Promise(() => {
+    const childProcess = exec(`npx nx serve ${options.backendProject}`, {
+      maxBuffer: LARGE_BUFFER,
+    });
+    childProcess.on('exit', () => childProcess.kill());
+    childProcess.on('SIGTERM', () => childProcess.kill());
+    prefixTerminalOutput(
+      childProcess,
+      chalk.bgGreen(padTargetName(options.backendProject, targetPadSize))
+    );
+    childProcess.stdout.on('data', (data) => {
+      if (!frontendServerStarted && data.includes('No errors found.')) {
+        startFrontendServer(options.frontendProject, targetPadSize);
+        frontendServerStarted = true;
       }
-    },
-  };
+    });
+  });
+}
+
+async function startFrontendServer(
+  frontendProject: string,
+  targetPadSize: number
+) {
+  return new Promise(() => {
+    const childProcess = exec(`npx nx serve ${frontendProject}`, {
+      maxBuffer: LARGE_BUFFER,
+    });
+    childProcess.on('exit', () => childProcess.kill());
+    childProcess.on('SIGTERM', () => childProcess.kill());
+    childProcess.on('message', (message) => console.log(message));
+    prefixTerminalOutput(
+      childProcess,
+      chalk.bgBlue(padTargetName(frontendProject, targetPadSize))
+    );
+  });
+}
+
+function prefixTerminalOutput(cp: ChildProcess, prefix: string) {
+  cp.stdout.on('data', (data) => {
+    console.log(
+      data
+        .split('\n')
+        .map((line) => `${prefix} ${line}`)
+        .join('\n')
+    );
+  });
+  cp.stdout.on('error', (data) => {
+    console.log(
+      data
+        .toString()
+        .split('\n')
+        .map((line) => `${prefix} ${line}`)
+        .join('\n')
+    );
+  });
+}
+
+function padTargetName(name: string, targetSize: number) {
+  const builder = [`${name}`];
+  builder.push(' '.repeat(Math.floor((targetSize - name.length) / 2)));
+  builder.unshift(' '.repeat(Math.ceil((targetSize - name.length) / 2)));
+  builder.push(' ');
+  return builder.join('');
 }
