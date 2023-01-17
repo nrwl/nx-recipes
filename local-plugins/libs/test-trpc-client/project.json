@@ -2,6 +2,7 @@
   "name": "test-trpc-client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "tags": [],
+  "sourceRoot": "libs/test-trpc-client/src",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",

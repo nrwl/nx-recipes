@@ -1,6 +1,7 @@
 {
   "name": "test-trpc-server",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/test-trpc-server/src",
   "tags": [],
   "targets": {
     "lint": {
