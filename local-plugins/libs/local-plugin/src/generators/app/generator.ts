@@ -1,8 +1,10 @@
 import { names, Tree, updateJson } from '@nrwl/devkit';
-import { applicationGenerator as nodeAppGenerator } from '@nrwl/node/src/generators/application/application';
-import { libraryGenerator as jsLibGenerator } from '@nrwl/js/src/generators/library/library';
-import { applicationGenerator as reactAppGenerator } from '@nrwl/react/src/generators/application/application';
-import { setupTailwindGenerator } from '@nrwl/react/src/generators/setup-tailwind/setup-tailwind';
+import { applicationGenerator as nodeAppGenerator } from '@nrwl/node';
+import { libraryGenerator as jsLibGenerator } from '@nrwl/js';
+import {
+  applicationGenerator as reactAppGenerator,
+  setupTailwindGenerator,
+} from '@nrwl/react';
 import { AppGeneratorSchema } from './schema';
 import { Linter } from '@nrwl/linter';
 
