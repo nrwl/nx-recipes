@@ -7,7 +7,6 @@ export default defineConfig({
   server: {
     port: 4200,
     host: 'localhost',
-    hmr: false,
   },
   plugins: [
     react(),
