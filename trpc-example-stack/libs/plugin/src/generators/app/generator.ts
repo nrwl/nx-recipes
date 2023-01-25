@@ -1,4 +1,4 @@
-import { names, Tree, updateJson } from '@nrwl/devkit';
+import { getWorkspaceLayout, names, Tree, updateJson } from '@nrwl/devkit';
 import { applicationGenerator as nodeAppGenerator } from '@nrwl/node';
 import { libraryGenerator as jsLibGenerator } from '@nrwl/js';
 import {
@@ -49,8 +49,50 @@ async function createReactApplication(
     devServerPort: options.frontendPort,
   });
   await setupTailwindGenerator(tree, { project: webAppName });
-  createAppTsxBoilerPlate(tree, options.name, options.frontendPort);
+  createAppTsxBoilerPlate(tree, options.name);
+  adjustDefaultDevPort(tree, options);
   addFullstackServeTarget(tree, options);
+}
+
+function createAppTsxBoilerPlate(tree: Tree, name: string) {
+  const { className, fileName } = names(name);
+  const { npmScope } = getWorkspaceLayout(tree);
+
+  const appTsxBoilerPlate = `import { create${className}TrpcClient } from '@${npmScope}/${fileName}-trpc-client';
+import { useEffect, useState } from 'react';
+
+export function App() {
+  const [welcomeMessage, setWelcomeMessage] = useState('');
+  useEffect(() => {
+    create${className}TrpcClient()
+      .welcomeMessage.query()
+      .then(({ welcomeMessage }) => setWelcomeMessage(welcomeMessage));
+  }, []);
+  return (
+    <h1 className="text-2xl">{welcomeMessage}</h1>
+  );
+}
+
+export default App;
+`;
+  tree.write(`apps/${fileName}-web/src/app/app.tsx`, appTsxBoilerPlate);
+}
+
+function adjustDefaultDevPort(tree: Tree, options: AppGeneratorSchema) {
+  const { fileName } = names(options.name);
+  updateJson(tree, `apps/${fileName}-web/project.json`, (json) => ({
+    ...json,
+    targets: {
+      ...json.targets,
+      serve: {
+        ...json.targets.serve,
+        options: {
+          ...json.targets.serve.options,
+          port: options.frontendPort,
+        },
+      },
+    },
+  }));
 }
 
 async function createNodeApplication(
@@ -132,6 +174,7 @@ function createServerBoilerPlate(
   backendPort: number
 ) {
   const { fileName } = names(name);
+  const { npmScope } = getWorkspaceLayout(tree);
   const serverBoilerPlate = `/**
  * This is not a production server yet!
  * This is only a minimal backend to get started.
@@ -139,7 +182,7 @@ function createServerBoilerPlate(
 
 import express from 'express';
 import * as trpcExpress from '@trpc/server/adapters/express';
-import { trpcRouter } from '@trpc-example-stack/${fileName}-trpc-server';
+import { trpcRouter } from '@${npmScope}/${fileName}-trpc-server';
 import { environment } from './environments/environment';
 
 const app = express();
@@ -164,48 +207,10 @@ server.on('error', console.error);
   );
 }
 
-function createAppTsxBoilerPlate(
-  tree: Tree,
-  name: string,
-  frontendPort: number
-) {
-  const { className, fileName } = names(name);
-  const appTsxBoilerPlate = `import { create${className}TrpcClient } from '@trpc-example-stack/${fileName}-trpc-client';
-import { useEffect, useState } from 'react';
-
-export function App() {
-  const [welcomeMessage, setWelcomeMessage] = useState('');
-  useEffect(() => {
-    create${className}TrpcClient()
-      .welcomeMessage.query()
-      .then(({ welcomeMessage }) => setWelcomeMessage(welcomeMessage));
-  }, []);
-  return (
-    <h1 className="text-2xl">{welcomeMessage}</h1>
-  );
-}
-
-export default App;
-`;
-  tree.write(`apps/${fileName}-web/src/app/app.tsx`, appTsxBoilerPlate);
-  updateJson(tree, `apps/${fileName}-web/project.json`, (json) => ({
-    ...json,
-    targets: {
-      ...json.targets,
-      serve: {
-        ...json.targets.serve,
-        options: {
-          ...json.targets.serve.options,
-          port: frontendPort,
-        },
-      },
-    },
-  }));
-}
-
 function createTrpcClientBoilerPlate(tree: Tree, name: string) {
   const { className, fileName } = names(name);
-  const trpcClientBoilerPlate = `import { ${className}TrpcRouter } from '@trpc-example-stack/${fileName}-trpc-server';
+  const { npmScope } = getWorkspaceLayout(tree);
+  const trpcClientBoilerPlate = `import { ${className}TrpcRouter } from '@${npmScope}/${fileName}-trpc-server';
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 
 export const create${className}TrpcClient = () =>
