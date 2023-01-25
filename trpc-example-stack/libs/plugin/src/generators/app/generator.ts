@@ -7,6 +7,7 @@ import {
 } from '@nrwl/react';
 import { AppGeneratorSchema } from './schema';
 import { Linter } from '@nrwl/linter';
+import { createNode } from 'typescript';
 
 const defaultPorts = {
   frontendPort: 3000,
@@ -23,6 +24,22 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
   const serverName = `${kebobCaseName}-server`;
   const trpcServerName = `${kebobCaseName}-trpc-server`;
   const trpcClientName = `${kebobCaseName}-trpc-client`;
+  await createReactApplication(tree, optionsWithDefaults, webAppName);
+  await createNodeApplication(
+    tree,
+    optionsWithDefaults,
+    serverName,
+    webAppName
+  );
+  await createTrpcServerLibrary(tree, optionsWithDefaults, trpcServerName);
+  await createTrpcClientLibrary(tree, optionsWithDefaults, trpcClientName);
+}
+
+async function createReactApplication(
+  tree: Tree,
+  options: AppGeneratorSchema,
+  webAppName: string
+) {
   await reactAppGenerator(tree, {
     name: webAppName,
     linter: Linter.EsLint,
@@ -30,9 +47,19 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     e2eTestRunner: 'none',
     unitTestRunner: 'vitest',
     bundler: 'vite',
-    devServerPort: optionsWithDefaults.frontendPort,
+    devServerPort: options.frontendPort,
   });
   await setupTailwindGenerator(tree, { project: webAppName });
+  createAppTsxBoilerPlate(tree, options.name, options.frontendPort);
+  addFullstackServeTarget(tree, options);
+}
+
+async function createNodeApplication(
+  tree: Tree,
+  options: AppGeneratorSchema,
+  serverName: string,
+  webAppName: string
+) {
   await nodeAppGenerator(tree, {
     name: serverName,
     js: false,
@@ -43,29 +70,36 @@ export default async function (tree: Tree, options: AppGeneratorSchema) {
     skipPackageJson: false,
     frontendProject: webAppName,
   });
+  createServerBoilerPlate(tree, options.name, options.backendPort);
+}
+
+async function createTrpcServerLibrary(
+  tree: Tree,
+  options: AppGeneratorSchema,
+  trpcServerName: string
+) {
   await jsLibGenerator(tree, {
     name: trpcServerName,
     bundler: 'vite',
     unitTestRunner: 'vitest',
   });
+  createTrpcServerBoilerPlate(tree, options.name);
+  tree.delete(`libs/${trpcServerName}/src/lib/${trpcServerName}.ts`);
+  tree.delete(`libs/${trpcServerName}/src/lib/${trpcServerName}.spec.ts`);
+}
+
+async function createTrpcClientLibrary(
+  tree: Tree,
+  options: AppGeneratorSchema,
+  trpcClientName: string
+) {
   await jsLibGenerator(tree, {
     name: trpcClientName,
     bundler: 'vite',
     unitTestRunner: 'none',
   });
-  createTrpcServerBoilerPlate(tree, optionsWithDefaults.name);
-  createServerBoilerPlate(
-    tree,
-    optionsWithDefaults.name,
-    optionsWithDefaults.backendPort
-  );
-  createTrpcClientBoilerPlate(tree, optionsWithDefaults.name);
-  createAppTsxBoilerPlate(
-    tree,
-    optionsWithDefaults.name,
-    optionsWithDefaults.frontendPort
-  );
-  addFullstackServeTarget(tree, optionsWithDefaults);
+  createTrpcClientBoilerPlate(tree, options.name);
+  tree.delete(`libs/${trpcClientName}/src/lib/${trpcClientName}.ts`);
 }
 
 function createTrpcServerBoilerPlate(tree: Tree, name: string) {
