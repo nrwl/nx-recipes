@@ -96,7 +96,7 @@ function createServerBoilerPlate(
  * This is only a minimal backend to get started.
  */
 
-import * as express from 'express';
+import express from 'express';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { trpcRouter } from '@trpc-example-stack/${fileName}-trpc-server';
 import { environment } from './environments/environment';

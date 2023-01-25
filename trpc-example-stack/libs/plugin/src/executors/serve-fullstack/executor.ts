@@ -30,7 +30,10 @@ async function startBackendServer(
       chalk.bgGreen(padTargetName(options.backendProject, targetPadSize))
     );
     childProcess.stdout.on('data', (data) => {
-      if (!frontendServerStarted && data.includes('No errors found.')) {
+      if (
+        !frontendServerStarted &&
+        data.includes('build succeeded, watching for changes...')
+      ) {
         startFrontendServer(options.frontendProject, targetPadSize);
         frontendServerStarted = true;
       }
