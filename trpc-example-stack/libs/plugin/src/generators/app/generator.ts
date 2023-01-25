@@ -187,7 +187,7 @@ function addFullstackServeTarget(tree: Tree, options: AppGeneratorSchema) {
       targets: {
         ...json.targets,
         'serve-fullstack': {
-          executor: '@trpc-example-stack/local-plugin:serve-fullstack',
+          executor: '@trpc-example-stack/plugin:serve-fullstack',
           options: {
             frontendProject: frontEndKabobCase,
             backendProject: backEndKabobCase,
