@@ -7,7 +7,6 @@ import {
 } from '@nrwl/react';
 import { AppGeneratorSchema } from './schema';
 import { Linter } from '@nrwl/linter';
-import { createNode } from 'typescript';
 
 const defaultPorts = {
   frontendPort: 3000,
@@ -86,6 +85,10 @@ async function createTrpcServerLibrary(
   createTrpcServerBoilerPlate(tree, options.name);
   tree.delete(`libs/${trpcServerName}/src/lib/${trpcServerName}.ts`);
   tree.delete(`libs/${trpcServerName}/src/lib/${trpcServerName}.spec.ts`);
+  updateJson(tree, `libs/${trpcServerName}/project.json`, (json) => ({
+    ...json,
+    sourceRoot: `libs/${trpcServerName}/src`,
+  }));
 }
 
 async function createTrpcClientLibrary(
@@ -100,6 +103,10 @@ async function createTrpcClientLibrary(
   });
   createTrpcClientBoilerPlate(tree, options.name);
   tree.delete(`libs/${trpcClientName}/src/lib/${trpcClientName}.ts`);
+  updateJson(tree, `libs/${trpcClientName}/project.json`, (json) => ({
+    ...json,
+    sourceRoot: `libs/${trpcClientName}/src`,
+  }));
 }
 
 function createTrpcServerBoilerPlate(tree: Tree, name: string) {
