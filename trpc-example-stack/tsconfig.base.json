@@ -15,7 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@trpc-example-stack/plugin": ["libs/plugin/src/index.ts"]
+      "@trpc-example-stack/plugin": ["libs/plugin/src/index.ts"],
+      "@trpc-example-stack/test-trpc-client": [
+        "libs/test-trpc-client/src/index.ts"
+      ],
+      "@trpc-example-stack/test-trpc-server": [
+        "libs/test-trpc-server/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
