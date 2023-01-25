@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "executors": {
+    "serve-fullstack": {
+      "implementation": "./src/executors/serve-fullstack/executor",
+      "schema": "./src/executors/serve-fullstack/schema.json",
+      "description": "serve-fullstack executor"
+    }
+  }
+}
