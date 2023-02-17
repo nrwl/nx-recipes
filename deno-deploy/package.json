@@ -1,0 +1,16 @@
+{
+  "name": "deno-deploy",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+  },
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies": {
+    "nx": "15.7.1",
+    "@nrwl/workspace": "15.7.1",
+    "typescript": "~4.8.2",
+    "prettier": "^2.6.2"
+  }
+}
