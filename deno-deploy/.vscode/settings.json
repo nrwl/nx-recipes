@@ -1,5 +1,5 @@
 {
-  "deno.enablePaths": ["apps/webapp"],
+  "deno.enablePaths": ["apps/webapp", "libs/data-access-todos"],
   "deno.unstable": true,
   "deno.importMap": "./import_map.json"
 }

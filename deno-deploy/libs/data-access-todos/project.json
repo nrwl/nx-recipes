@@ -1,0 +1,24 @@
+{
+  "name": "data-access-todos",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/data-access-todos/src",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/deno:test",
+      "outputs": ["coverage/libs/data-access-todos"],
+      "options": {
+        "coverageDirectory": "coverage/libs/data-access-todos",
+        "denoConfig": "libs/data-access-todos/deno.json",
+        "check": "local"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/deno:lint",
+      "options": {
+        "denoConfig": "libs/data-access-todos/deno.json"
+      }
+    }
+  },
+  "tags": []
+}
