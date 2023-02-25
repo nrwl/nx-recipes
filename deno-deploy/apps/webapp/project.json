@@ -1,0 +1,39 @@
+{
+  "name": "webapp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/webapp/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/deno:bundle",
+      "outputs": ["dist/apps/webapp"],
+      "options": {
+        "main": "apps/webapp/src/main.ts",
+        "outputFile": "dist/apps/webapp/main.js",
+        "denoConfig": "apps/webapp/deno.json"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/deno:run",
+      "options": {
+        "buildTarget": "webapp:build",
+        "watch": true
+      }
+    },
+    "test": {
+      "executor": "@nrwl/deno:test",
+      "outputs": ["coverage/apps/webapp"],
+      "options": {
+        "coverageDirectory": "coverage/apps/webapp",
+        "denoConfig": "apps/webapp/deno.json"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/deno:lint",
+      "options": {
+        "denoConfig": "apps/webapp/deno.json"
+      }
+    }
+  },
+  "tags": []
+}
