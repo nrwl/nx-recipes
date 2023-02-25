@@ -1,5 +1,16 @@
-import { serve } from 'https://deno.land/std@0.157.0/http/server.ts';
-import { handler } from './handler.ts';
+import { Application } from 'oak';
 
-console.log('Listening on http://localhost:8000');
-serve(handler);
+const app = new Application();
+app.addEventListener('listen', ({ hostname, port, secure }) => {
+  console.log(
+    `Listening on: ${secure ? 'https://' : 'http://'}${
+      hostname ?? 'localhost'
+    }:${port}`
+  );
+});
+
+app.use((ctx) => {
+  ctx.response.body = 'Hello World!';
+});
+
+await app.listen({ port: Number(Deno.env.get('PORT') || 8000) });
