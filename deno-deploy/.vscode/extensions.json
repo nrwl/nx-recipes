@@ -2,6 +2,7 @@
   "recommendations": [
     "nrwl.angular-console",
     "esbenp.prettier-vscode",
-    "denoland.vscode-deno"
+    "denoland.vscode-deno",
+    "dbaeumer.vscode-eslint"
   ]
 }

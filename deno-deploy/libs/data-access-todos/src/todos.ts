@@ -1,9 +1,4 @@
-interface ToDo {
-  id: string;
-  title: string;
-  description: string;
-  done: boolean;
-}
+import { ToDo } from '@deno-deploy/model-todos';
 
 const todos = new Map<string, ToDo>();
 let count = 0;
