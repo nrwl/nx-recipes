@@ -33,6 +33,20 @@
       "options": {
         "denoConfig": "apps/webapp/deno.json"
       }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "deployctl deploy --project=<Your-Project-Name> --import-map=import_map.json --exclude=node_modules  apps/webapp/src/main.ts --dry-run"
+      },
+      "configurations": {
+        "preview": {
+          "command": "deployctl deploy --project=<Your-Project-Name> --import-map=import_map.json --exclude=node_modules apps/webapp/src/main.ts"
+        },
+        "production": {
+          "command": "deployctl deploy --project=<Your-Project-Name> --import-map=import_map.json --exclude=node_modules --prod apps/webapp/src/main.ts"
+        }
+      }
     }
   },
   "tags": []
