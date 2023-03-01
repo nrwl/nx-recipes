@@ -20,6 +20,9 @@
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore"
       ]
+    },
+    "e2e": {
+      "inputs": ["default", "^production"]
     }
   },
   "namedInputs": {
