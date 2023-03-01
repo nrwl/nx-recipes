@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@deno-deploy/data-access-todos": ["libs/model-todo/index.ts"],
       "@deno-deploy/model-todo": ["libs/model-todo/src/index.ts"]
     }
   },
