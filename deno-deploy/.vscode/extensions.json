@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "nrwl.angular-console",
+    "esbenp.prettier-vscode",
+    "denoland.vscode-deno",
+    "dbaeumer.vscode-eslint"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "oak": "https://deno.land/x/oak@v11.1.0/mod.ts",
+    "@deno-deploy/data-access-todos": "./libs/data-access-todos/mod.ts",
+    "@deno-deploy/model-todos": "./libs/model-todo/src/mod.ts"
+  }
+}

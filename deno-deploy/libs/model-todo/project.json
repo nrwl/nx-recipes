@@ -1,0 +1,16 @@
+{
+  "name": "model-todo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/model-todo/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/model-todo/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
