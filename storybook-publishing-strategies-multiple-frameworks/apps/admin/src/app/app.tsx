@@ -4,7 +4,7 @@ import { AdminUiFooter } from '@publishing-strategies-multiple-frameworks/admin/
 export function App() {
   return (
     <>
-      <AdminUiHeader userName="Welcome" />
+      <AdminUiHeader userName="admin" />
       <AdminUiFooter />
     </>
   );
