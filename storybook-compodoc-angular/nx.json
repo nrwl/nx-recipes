@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "nx-sb-compo",
-  "affected": {
-    "defaultBase": "main"
-  },
+  "npmScope": "storybook-compodoc-angular",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
+      "runner": "nx-cloud",
       "options": {
         "cacheableOperations": [
           "build",
@@ -15,7 +12,7 @@
           "e2e",
           "build-storybook"
         ],
-        "accessToken": "YzIyMzkzNTYtZWVhMy00NjUwLTlkNmUtMzk1NWY5Y2ZkZDk4fHJlYWQtd3JpdGU="
+        "accessToken": "NWNjYTU0OGEtYzViOC00MDJhLTg4NDYtNzlhNGExMGNlNjUyfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -27,19 +24,18 @@
     "test": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
     },
-    "lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
-    },
-    "build-storybook": {
-      "inputs": [
-        "default",
-        "^production",
-        "{workspaceRoot}/.storybook/**/*",
-        "{workspaceRoot}/.storybook/**/*"
-      ]
-    },
     "e2e": {
       "inputs": ["default", "^production"]
+    },
+    "lint": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore"
+      ]
+    },
+    "build-storybook": {
+      "inputs": ["default", "^production", "!{projectRoot}/.storybook/**/*"]
     }
   },
   "namedInputs": {
@@ -50,27 +46,24 @@
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/.storybook/**/*",
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-      "!{projectRoot}/.storybook/**/*",
-      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)"
+      "!{projectRoot}/.storybook/**/*"
     ],
     "sharedGlobals": []
   },
   "generators": {
-    "@nrwl/angular:application": {
+    "@nx/angular:application": {
       "style": "css",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "none"
+      "e2eTestRunner": "cypress"
     },
-    "@nrwl/angular:library": {
+    "@nx/angular:library": {
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": {
+    "@nx/angular:component": {
       "style": "css"
     }
-  },
-  "defaultProject": "web"
+  }
 }

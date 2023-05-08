@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nx-sb-compo-root',
+  selector: 'storybook-compodoc-angular-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

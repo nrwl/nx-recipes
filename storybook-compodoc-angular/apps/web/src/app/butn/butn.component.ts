@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'nx-sb-compo-butn',
-  template: ` <button
+  selector: 'storybook-compodoc-angular-butn',
+  template: `<button
     type="button"
     (click)="onClick.emit($event)"
     [ngClass]="classes"
@@ -48,9 +48,13 @@ export class ButnComponent {
 
   public get classes(): string[] {
     const mode = this.primary
-      ? 'nx-sb-compo-butn--primary'
-      : 'nx-sb-compo-butn--secondary';
+      ? 'storybook-compodoc-angular-butn--primary'
+      : 'storybook-compodoc-angular-butn--secondary';
 
-    return ['nx-sb-compo-butn', `nx-sb-compo-butn--${this.size}`, mode];
+    return [
+      'storybook-compodoc-angular-butn',
+      `storybook-compodoc-angular-butn--${this.size}`,
+      mode,
+    ];
   }
 }

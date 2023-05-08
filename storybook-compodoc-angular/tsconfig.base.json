@@ -10,12 +10,12 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-sb-compo/my-btn": ["libs/my-btn/src/index.ts"]
+      "@storybook-compodoc-angular/my-btn": ["libs/my-btn/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

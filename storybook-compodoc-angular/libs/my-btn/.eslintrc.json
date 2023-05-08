@@ -4,16 +4,12 @@
   "overrides": [
     {
       "files": ["*.ts"],
-      "extends": [
-        "plugin:@nrwl/nx/angular",
-        "plugin:@angular-eslint/template/process-inline-templates"
-      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "nx-sb-compo",
+            "prefix": "storybookCompodocAngular",
             "style": "camelCase"
           }
         ],
@@ -21,15 +17,19 @@
           "error",
           {
             "type": "element",
-            "prefix": "nx-sb-compo",
+            "prefix": "storybook-compodoc-angular",
             "style": "kebab-case"
           }
         ]
-      }
+      },
+      "extends": [
+        "plugin:@nx/angular",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ]
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@nrwl/nx/angular-template"],
+      "extends": ["plugin:@nx/angular-template"],
       "rules": {}
     }
   ]

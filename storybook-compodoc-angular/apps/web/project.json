@@ -2,8 +2,9 @@
   "name": "web",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
+  "prefix": "storybook-compodoc-angular",
   "sourceRoot": "apps/web/src",
-  "prefix": "nx-sb-compo",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -12,7 +13,7 @@
         "outputPath": "dist/apps/web",
         "index": "apps/web/src/index.html",
         "main": "apps/web/src/main.ts",
-        "polyfills": "apps/web/src/polyfills.ts",
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/web/tsconfig.app.json",
         "assets": ["apps/web/src/favicon.ico", "apps/web/src/assets"],
         "styles": ["apps/web/src/styles.css"],
@@ -30,12 +31,6 @@
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
               "maximumError": "4kb"
-            }
-          ],
-          "fileReplacements": [
-            {
-              "replace": "apps/web/src/environments/environment.ts",
-              "with": "apps/web/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -70,17 +65,30 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/web/**/*.ts", "apps/web/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/web"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/web/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "web:build"
       }
     },
     "storybook": {
@@ -113,7 +121,18 @@
           "quiet": true
         }
       }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "web:build-storybook",
+        "staticFilePath": "dist/storybook/web"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "web:build-storybook:ci"
+        }
+      }
     }
-  },
-  "tags": []
+  }
 }
