@@ -1,3 +1,4 @@
+import { runQuery } from '@api/db/utils';
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 const getAllPosts = 'SELECT * from posts';
@@ -9,26 +10,16 @@ VALUES ($1, $2, (
 
 export default async function (fastify: FastifyInstance) {
   fastify.get('/api/posts', async () => {
-    const client = await fastify.pg.connect();
-    try {
-      const { rows } = await client.query(getAllPosts);
-      return rows;
-    } finally {
-      client.release();
-    }
+    const { rows } = await runQuery(fastify.pg, getAllPosts);
+    return rows;
   });
 
   fastify.get(
     '/api/posts/:id',
     async (request: FastifyRequest<{ Params: { id: string } }>) => {
       const { id } = request.params;
-      const client = await fastify.pg.connect();
-      try {
-        const { rows } = await client.query(getPostById, [id]);
-        return rows;
-      } finally {
-        client.release();
-      }
+      const { rows } = await runQuery(fastify.pg, getPostById, [id]);
+      return rows;
     }
   );
 
@@ -40,17 +31,12 @@ export default async function (fastify: FastifyInstance) {
       }>
     ) => {
       const { title, content, author_email } = request.body;
-      const client = await fastify.pg.connect();
-      try {
-        const { rows } = await client.query(createPostWithUserEmail, [
-          title,
-          content,
-          author_email,
-        ]);
-        return rows;
-      } finally {
-        client.release();
-      }
+      const { rows } = await runQuery(fastify.pg, createPostWithUserEmail, [
+        title,
+        content,
+        author_email,
+      ]);
+      return rows;
     }
   );
 }

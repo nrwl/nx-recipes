@@ -13,7 +13,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@api/db/utils": ["db/utils/src/index.ts"]
+    },
     "esModuleInterop": true
   },
   "files": [],
