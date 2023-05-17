@@ -4,7 +4,13 @@ export default async function (fastify: FastifyInstance) {
   fastify.get(
     '/',
     async function (request: FastifyRequest, reply: FastifyReply) {
-      return { message: 'Hello API' };
+      const client = await fastify.pg.connect();
+      try {
+        const { rows } = await client.query('SELECT NOW()');
+        reply.send(rows);
+      } finally {
+        client.release();
+      }
     }
   );
 }

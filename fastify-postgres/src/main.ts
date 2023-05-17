@@ -17,7 +17,5 @@ server.listen({ port, host }, (err) => {
   if (err) {
     server.log.error(err);
     process.exit(1);
-  } else {
-    console.log(`[ ready ] http://${host}:${port}`);
   }
 });
