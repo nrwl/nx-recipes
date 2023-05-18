@@ -1,0 +1,45 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@with-prisma-nest/data-access-inventory": [
+        "libs/data-access-inventory/src/index.ts"
+      ],
+      "@with-prisma-nest/data-access-posts": [
+        "libs/data-access-posts/src/index.ts"
+      ],
+      "@with-prisma-nest/data-access-stores": [
+        "libs/data-access-stores/src/index.ts"
+      ],
+      "@with-prisma-nest/data-access-users": [
+        "libs/data-access-users/src/index.ts"
+      ],
+      "@with-prisma-nest/prisma-client-one": [
+        "libs/prisma-client-one/src/index.ts"
+      ],
+      "@with-prisma-nest/prisma-client-two": [
+        "libs/prisma-client-two/src/index.ts"
+      ],
+      "@with-prisma-nest/prisma-schema-one": [
+        "libs/prisma-schema-one/src/index.ts"
+      ],
+      "@with-prisma-nest/prisma-schema-two": [
+        "libs/prisma-schema-two/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

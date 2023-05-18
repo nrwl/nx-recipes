@@ -1,0 +1,276 @@
+{
+  "info": {
+    "_postman_id": "f0c92014-d514-4695-84ef-eb843db4cf4d",
+    "name": "Nx + NestJS + Prisma Example",
+    "description": "Sample API reference for using Nx with NestJS and Prisma",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Feed",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/feed",
+          "host": ["{{baseUrl}}"],
+          "path": ["feed"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/post/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["post", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Post",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\": \"Hello World\",\n    \"content\": \"Nx + NestJS + Prisma are awesome!\",\n    \"authorEmail\": \"hello@email.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/post",
+          "host": ["{{baseUrl}}"],
+          "path": ["post"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"hello@email.com\",\n    \"name\": \"#1 Nx Fan\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/user",
+          "host": ["{{baseUrl}}"],
+          "path": ["user"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/filter/:searchString",
+          "host": ["{{baseUrl}}"],
+          "path": ["filter", ":searchString"],
+          "variable": [
+            {
+              "key": "searchString",
+              "value": "Nx"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Publish Post",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/publish/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["publish", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Post",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/post/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["post", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Item",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/item/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["item", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Item By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/item/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["item", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Item",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\": \"Nx Book\",\n    \"storeId\": 1,\n    \"quantity\": 100\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/item",
+          "host": ["{{baseUrl}}"],
+          "path": ["item"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Store",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Mega Awesome Store\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/store",
+          "host": ["{{baseUrl}}"],
+          "path": ["store"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Item Quantity",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"quantity\": 50\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/item/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["item", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api",
+      "type": "default"
+    }
+  ]
+}
