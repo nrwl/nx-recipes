@@ -4,12 +4,14 @@ const { readdirSync } = require("fs");
 const BROKEN_RECIPES = [".git", ".github", "deno-deploy"];
 
 function installPackages(cwd) {
+  console.log('Installing packages for ' + cwd);
   const files = readdirSync(cwd);
   if (files.includes("pnpm-lock.yaml")) {
     execSync("pnpm i", { cwd });
   } else if (files.includes("yarn-lock.json")) {
     execSync("yarn", { cwd });
   } else {
+    console.log('npm');
     execSync("npm i --legacy-peer-deps", { cwd });
   }
 }
