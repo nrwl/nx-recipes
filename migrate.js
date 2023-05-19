@@ -7,11 +7,11 @@ function installPackages(cwd) {
   console.log("Installing packages for " + cwd);
   const files = readdirSync(cwd);
   if (files.includes("pnpm-lock.yaml")) {
-    execSync("pnpm ci", { cwd });
+    execSync("pnpm ci", { cwd, stdio: [0, 1, 2] });
   } else if (files.includes("yarn.lock.json")) {
-    execSync("yarn", { cwd });
+    execSync("yarn", { cwd, stdio: [0, 1, 2] });
   } else {
-    execSync("npm ci --legacy-peer-deps", { cwd });
+    execSync("npm ci --legacy-peer-deps", { cwd, stdio: [0, 1, 2] });
   }
 }
 function migrateToLatest(cwd) {
