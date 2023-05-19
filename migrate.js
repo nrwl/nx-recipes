@@ -7,17 +7,16 @@ function installPackages(cwd) {
   console.log("Installing packages for " + cwd);
   const files = readdirSync(cwd);
   if (files.includes("pnpm-lock.yaml")) {
-    execSync("pnpm i", { cwd });
+    execSync("pnpm ci", { cwd });
   } else if (files.includes("yarn.lock.json")) {
     execSync("yarn", { cwd });
   } else {
-    execSync("npm i --legacy-peer-deps", { cwd });
+    execSync("npm ci --legacy-peer-deps", { cwd });
   }
 }
 function migrateToLatest(cwd) {
   console.log(`Migrating ${cwd}...`);
   execSync("CI=true npx nx migrate latest", { cwd, stdio: [0, 1, 2] });
-  installPackages(cwd);
   execSync("CI=true npx nx migrate --run-migrations --no-interactive", {
     cwd,
     stdio: [0, 1, 2],
