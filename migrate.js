@@ -7,7 +7,7 @@ function installPackages(cwd) {
   console.log("Installing packages for " + cwd);
   const files = readdirSync(cwd);
   if (files.includes("pnpm-lock.yaml")) {
-    execSync("pnpm ci", { cwd, stdio: [0, 1, 2] });
+    execSync("pnpm i", { cwd, stdio: [0, 1, 2] });
   } else if (files.includes("yarn.lock.json")) {
     execSync("yarn", { cwd, stdio: [0, 1, 2] });
   } else {
