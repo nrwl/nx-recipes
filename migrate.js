@@ -8,7 +8,7 @@ function installPackages(cwd) {
   const files = readdirSync(cwd);
   if (files.includes("pnpm-lock.yaml")) {
     execSync("pnpm i", { cwd });
-  } else if (files.includes("yarn-lock.json")) {
+  } else if (files.includes("yarn.lock.json")) {
     execSync("yarn", { cwd });
   } else {
     execSync("npm i --legacy-peer-deps", { cwd });
