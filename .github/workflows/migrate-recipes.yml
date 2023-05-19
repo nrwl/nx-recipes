@@ -13,8 +13,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
       - name: Migrate script
-        uses: node18
         run: node migrate.js
 
       - name: Create Pull Request
