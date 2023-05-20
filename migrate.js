@@ -28,12 +28,24 @@ function migrateToLatest(cwd) {
 
 function processAllExamples() {
   const files = readdirSync(".", { withFileTypes: true });
+  let failedMigrations = [];
   files.forEach((file) => {
     if (file.isDirectory() && !BROKEN_RECIPES.includes(file.name)) {
       const cwd = "./" + file.name;
       installPackages(cwd);
-      migrateToLatest(cwd);
+      try {
+        migrateToLatest(cwd);
+      } catch (ex) {
+        console.log(ex);
+        console.log("Continuing to next example...");
+        failedMigrations.push(cwd);
+      }
     }
   });
+  if (failedMigrations.length > 0) {
+    console.log(
+      "The following migrations failed: " + failedMigrations.join(", ")
+    );
+  }
 }
 processAllExamples();
