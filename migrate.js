@@ -1,7 +1,7 @@
 const { execSync } = require("child_process");
 const { readdirSync } = require("fs");
 
-const BROKEN_RECIPES = [".git", ".github", "deno-deploy"];
+const BROKEN_RECIPES = [".git", ".github"];
 
 function installPackages(cwd) {
   console.log("Installing packages for " + cwd);
