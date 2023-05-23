@@ -1,11 +1,12 @@
 {
+  "name": "shared-ui-button",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/shared/ui/button/src",
   "projectType": "library",
   "tags": ["scope:shared", "type:ui"],
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/shared/ui/button/**/*.{ts,tsx,js,jsx}"]
@@ -13,20 +14,18 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/ui/button"],
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/ui/button"],
       "options": {
         "jestConfig": "libs/shared/ui/button/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@nx/storybook:storybook",
       "options": {
         "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": {
-          "configFolder": "libs/shared/ui/button/.storybook"
-        }
+        "configDir": "libs/shared/ui/button/.storybook"
       },
       "configurations": {
         "ci": {
@@ -35,14 +34,12 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/shared-ui-button",
-        "config": {
-          "configFolder": "libs/shared/ui/button/.storybook"
-        }
+        "configDir": "libs/shared/ui/button/.storybook",
+        "outputDir": "dist/storybook/shared-ui-button"
       },
       "configurations": {
         "ci": {

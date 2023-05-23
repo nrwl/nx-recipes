@@ -1,4 +1,5 @@
 {
+  "name": "admin",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/admin/src",
   "projectType": "application",
@@ -61,7 +62,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/admin/**/*.{ts,tsx,js,jsx}"]
@@ -69,7 +70,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/admin"],
+      "outputs": ["{workspaceRoot}/coverage/apps/admin"],
       "options": {
         "jestConfig": "apps/admin/jest.config.ts",
         "passWithNoTests": true

@@ -1,17 +1,16 @@
 {
+  "name": "storybook-host",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/storybook-host/src",
   "projectType": "library",
   "tags": [],
   "targets": {
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@nx/storybook:storybook",
       "options": {
         "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": {
-          "configFolder": "libs/storybook-host/.storybook"
-        }
+        "configDir": "libs/storybook-host/.storybook"
       },
       "configurations": {
         "ci": {
@@ -20,14 +19,12 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/storybook-host",
-        "config": {
-          "configFolder": "libs/storybook-host/.storybook"
-        }
+        "configDir": "libs/storybook-host/.storybook",
+        "outputDir": "dist/storybook/storybook-host"
       },
       "configurations": {
         "ci": {

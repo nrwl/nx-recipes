@@ -1,12 +1,12 @@
-import { getWorkspaceLayout, names, Tree, updateJson } from '@nrwl/devkit';
-import { applicationGenerator as nodeAppGenerator } from '@nrwl/node';
-import { libraryGenerator as jsLibGenerator } from '@nrwl/js';
+import { getWorkspaceLayout, names, Tree, updateJson } from '@nx/devkit';
+import { applicationGenerator as nodeAppGenerator } from '@nx/node';
+import { libraryGenerator as jsLibGenerator } from '@nx/js';
 import {
   applicationGenerator as reactAppGenerator,
   setupTailwindGenerator,
-} from '@nrwl/react';
+} from '@nx/react';
 import { AppGeneratorSchema } from './schema';
-import { Linter } from '@nrwl/linter';
+import { Linter } from '@nx/linter';
 
 const defaultPorts = {
   frontendPort: 3000,

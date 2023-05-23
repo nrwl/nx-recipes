@@ -1,11 +1,12 @@
 {
+  "name": "admin-ui-footer",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/admin/ui/footer/src",
   "projectType": "library",
   "tags": ["scope:admin", "type:ui"],
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/admin/ui/footer/**/*.{ts,tsx,js,jsx}"]
@@ -13,20 +14,18 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/admin/ui/footer"],
+      "outputs": ["{workspaceRoot}/coverage/libs/admin/ui/footer"],
       "options": {
         "jestConfig": "libs/admin/ui/footer/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@nx/storybook:storybook",
       "options": {
         "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": {
-          "configFolder": "libs/admin/ui/footer/.storybook"
-        }
+        "configDir": "libs/admin/ui/footer/.storybook"
       },
       "configurations": {
         "ci": {
@@ -35,14 +34,12 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/admin-ui-footer",
-        "config": {
-          "configFolder": "libs/admin/ui/footer/.storybook"
-        }
+        "configDir": "libs/admin/ui/footer/.storybook",
+        "outputDir": "dist/storybook/admin-ui-footer"
       },
       "configurations": {
         "ci": {

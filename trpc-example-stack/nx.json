@@ -3,7 +3,7 @@
   "npmScope": "trpc-example-stack",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
+      "runner": "nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "MjVjODM5YmEtNTg1NC00ZTI5LWJjMjgtNTcwMGI1M2VmNjgxfHJlYWQtd3JpdGU="
@@ -22,7 +22,7 @@
     }
   },
   "generators": {
-    "@nrwl/react": {
+    "@nx/react": {
       "application": {
         "style": "css",
         "linter": "eslint",
