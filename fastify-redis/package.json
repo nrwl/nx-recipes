@@ -1,0 +1,12 @@
+{
+  "name": "@fastify-redis/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "devDependencies": {
+    "@nx/node": "16.2.2",
+    "@nx/workspace": "16.2.2",
+    "nx": "16.2.2"
+  }
+}
