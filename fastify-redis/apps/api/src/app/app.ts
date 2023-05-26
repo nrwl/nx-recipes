@@ -1,6 +1,8 @@
 import * as path from 'path';
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 import AutoLoad from '@fastify/autoload';
+import { postRoutes } from '@fastify-redis/feat-posts';
+import { userRoutes } from '@fastify-redis/feat-users';
 
 /* eslint-disable-next-line */
 export interface AppOptions {}
@@ -24,4 +26,7 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
     dir: path.join(__dirname, 'routes'),
     options: { ...opts },
   });
+
+  fastify.register(postRoutes);
+  fastify.register(userRoutes);
 }

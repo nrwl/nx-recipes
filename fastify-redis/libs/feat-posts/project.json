@@ -1,0 +1,16 @@
+{
+  "name": "feat-posts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/feat-posts/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/feat-posts/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
