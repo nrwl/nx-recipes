@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@fastify-redis/data-access-posts": [
+        "libs/data-access-posts/src/index.ts"
+      ],
+      "@fastify-redis/data-access-users": [
+        "libs/data-access-users/src/index.ts"
+      ],
+      "@fastify-redis/feat-posts": ["libs/feat-posts/src/index.ts"],
+      "@fastify-redis/feat-users": ["libs/feat-users/src/index.ts"],
+      "@fastify-redis/utils-redis-query": [
+        "libs/utils-redis-query/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "utils-redis-query",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/utils-redis-query/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/utils-redis-query/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
