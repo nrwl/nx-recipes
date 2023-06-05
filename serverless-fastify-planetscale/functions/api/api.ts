@@ -60,8 +60,10 @@ function init() {
     connectionString: process.env.DB_URI,
     promise: true,
   });
+  // set the prefix for the netlify functions url
   app.register(routes, { prefix: '/.netlify/functions/api' });
   return app;
 }
+
 // Note: Netlify deploys this function at the endpoint /.netlify/functions/api
 export const handler: Handler = awsLambdaFastify(init());
