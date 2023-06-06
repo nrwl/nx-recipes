@@ -2,7 +2,10 @@
   "name": "@fastify-mongo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve api | npx pino-pretty",
+    "db": "docker run --name fastify-mongo -p 27017:27017 -d mongo"
+  },
   "private": true,
   "dependencies": {
     "@fastify/autoload": "~5.7.1",
