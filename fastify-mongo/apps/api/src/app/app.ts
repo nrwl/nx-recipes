@@ -1,6 +1,8 @@
 import * as path from 'path';
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 import AutoLoad from '@fastify/autoload';
+import { userRoutes } from '@fastify-mongo/users';
+import { postRoutes } from '@fastify-mongo/posts';
 
 /* eslint-disable-next-line */
 export interface AppOptions {}
@@ -24,4 +26,7 @@ export async function app(fastify: FastifyInstance, opts: AppOptions) {
     dir: path.join(__dirname, 'routes'),
     options: { ...opts },
   });
+
+  fastify.register(userRoutes);
+  fastify.register(postRoutes);
 }
