@@ -4,7 +4,7 @@
     {
       "files": ["*.ts"],
       "extends": [
-        "plugin:@nrwl/nx/angular",
+        "plugin:@nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
@@ -12,7 +12,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "store",
+            "prefix": "myngapp",
             "style": "camelCase"
           }
         ],
@@ -20,7 +20,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "store",
+            "prefix": "myngapp",
             "style": "kebab-case"
           }
         ]
@@ -28,7 +28,7 @@
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@nrwl/nx/angular-template"],
+      "extends": ["plugin:@nx/angular-template"],
       "rules": {}
     }
   ],

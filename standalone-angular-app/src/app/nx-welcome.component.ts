@@ -1,9 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-
-/* eslint-disable */
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'store-nx-welcome',
+  selector: 'myngapp-nx-welcome',
+  standalone: true,
+  imports: [CommonModule],
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -59,7 +60,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
         display: block;
         vertical-align: middle;
       }
-
       svg {
         shape-rendering: auto;
         text-rendering: optimizeLegibility;
@@ -73,7 +73,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
         overflow: scroll;
         padding: 0.5rem 0.75rem;
       }
-
       .shadow {
         box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -81,7 +80,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
       .rounded {
         border-radius: 1.5rem;
       }
-
       .wrapper {
         width: 100%;
       }
@@ -160,7 +158,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
         color: rgba(255, 255, 255, 1);
         width: 66.666667%;
       }
-
       #middle-content {
         align-items: flex-start;
         display: grid;
@@ -168,7 +165,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
         grid-template-columns: 1fr;
         margin-top: 3.5rem;
       }
-
       #learning-materials {
         padding: 2.5rem 2rem;
       }
@@ -244,11 +240,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
       .list-item-link:hover svg:last-child {
         transform: translateX(0.25rem);
       }
-
       #other-links {
       }
       .button-pill {
         padding: 1.5rem 2rem;
+        margin-bottom: 2rem;
         transition-duration: 300ms;
         transition-property: background-color, border-color, color, fill, stroke,
           opacity, box-shadow, transform, filter, backdrop-filter,
@@ -284,20 +280,18 @@ import { Component, ViewEncapsulation } from '@angular/core';
       .button-pill:hover {
         color: rgba(255, 255, 255, 1) !important;
       }
-      #nx-console:hover {
+      .nx-console:hover {
         background-color: rgba(0, 122, 204, 1);
       }
-      #nx-console svg {
+      .nx-console svg {
         color: rgba(0, 122, 204, 1);
       }
-
       #nx-repo:hover {
         background-color: rgba(24, 23, 23, 1);
       }
       #nx-repo svg {
         color: rgba(24, 23, 23, 1);
       }
-
       #nx-cloud {
         margin-bottom: 2rem;
         margin-top: 2rem;
@@ -345,10 +339,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
       #nx-cloud a:hover {
         text-decoration: underline;
       }
-
       #commands {
         padding: 2.5rem 2rem;
-
         margin-top: 3.5rem;
       }
       #commands h2 {
@@ -398,7 +390,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
         margin-right: 1rem;
         width: 1.5rem;
       }
-
       #love {
         color: rgba(107, 114, 128, 1);
         font-size: 0.875rem;
@@ -414,7 +405,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
         display: inline;
         margin-top: -0.25rem;
       }
-
       @media screen and (min-width: 768px) {
         #hero {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -433,10 +423,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
         <div id="welcome">
           <h1>
             <span> Hello there, </span>
-            Welcome store 👋
+            Welcome myngapp 👋
           </h1>
         </div>
-
         <!--  HERO  -->
         <div id="hero" class="rounded">
           <div class="text-container">
@@ -471,7 +460,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
             </svg>
           </div>
         </div>
-
         <!--  MIDDLE CONTENT  -->
         <div id="middle-content">
           <div id="learning-materials" class="rounded shadow">
@@ -551,7 +539,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
               </svg>
             </a>
             <a
-              href="https://www.youtube.com/c/Nrwl_io/videos?utm_source=nx-project&sub_confirmation=1"
+              href="https://www.youtube.com/@NxDevtools/videos?utm_source=nx-project&sub_confirmation=1"
               target="_blank"
               rel="noreferrer"
               class="list-item-link"
@@ -666,8 +654,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
           </div>
           <div id="other-links">
             <a
-              id="nx-console"
-              class="button-pill rounded shadow"
+              class="button-pill rounded shadow nx-console"
               href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console&utm_source=nx-project"
               target="_blank"
               rel="noreferrer"
@@ -684,24 +671,52 @@ import { Component, ViewEncapsulation } from '@angular/core';
                 />
               </svg>
               <span>
-                Install Nx Console
-                <span>Plugin for VSCode</span>
+                Install Nx Console for VSCode
+                <span>The official VSCode plugin for Nx.</span>
+              </span>
+            </a>
+            <a
+              class="button-pill rounded shadow nx-console"
+              href="https://plugins.jetbrains.com/plugin/21060-nx-console"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg
+                fill="currentColor"
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>IntelliJ</title>
+                <path
+                  d="M0 0v24h24V0zm3.723 3.111h5v1.834h-1.39v6.277h1.39v1.834h-5v-1.834h1.444V4.945H3.723zm11.055 0H17v6.5c0 .612-.055 1.111-.222 1.556-.167.444-.39.777-.723 1.11-.277.279-.666.557-1.11.668a3.933 3.933 0 0 1-1.445.278c-.778 0-1.444-.167-1.944-.445a4.81 4.81 0 0 1-1.279-1.056l1.39-1.555c.277.334.555.555.833.722.277.167.611.278.945.278.389 0 .721-.111 1-.389.221-.278.333-.667.333-1.278zM2.222 19.5h9V21h-9z"
+                ></path>
+              </svg>
+              <span>
+                Install Nx Console for JetBrains
+                <span
+                  >Available for WebStorm, Intellij IDEA Ultimate and
+                  more!</span
+                >
               </span>
             </a>
             <div id="nx-cloud" class="rounded shadow">
               <div>
                 <svg
-                  viewBox="0 0 120 120"
-                  fill="none"
+                  id="nx-cloud-logo"
+                  role="img"
                   xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  fill="transparent"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    d="M120 15V30C103.44 30 90 43.44 90 60C90 76.56 76.56 90 60 90C43.44 90 30 103.44 30 120H15C6.72 120 0 113.28 0 105V15C0 6.72 6.72 0 15 0H105C113.28 0 120 6.72 120 15Z"
-                    fill="#0E2039"
+                    stroke-width="2"
+                    d="M23 3.75V6.5c-3.036 0-5.5 2.464-5.5 5.5s-2.464 5.5-5.5 5.5-5.5 2.464-5.5 5.5H3.75C2.232 23 1 21.768 1 20.25V3.75C1 2.232 2.232 1 3.75 1h16.5C21.768 1 23 2.232 23 3.75Z"
                   />
                   <path
-                    d="M120 30V105C120 113.28 113.28 120 105 120H30C30 103.44 43.44 90 60 90C76.56 90 90 76.56 90 60C90 43.44 103.44 30 120 30Z"
-                    fill="white"
+                    stroke-width="2"
+                    d="M23 6v14.1667C23 21.7307 21.7307 23 20.1667 23H6c0-3.128 2.53867-5.6667 5.6667-5.6667 3.128 0 5.6666-2.5386 5.6666-5.6666C17.3333 8.53867 19.872 6 23 6Z"
                   />
                 </svg>
                 <h2>
@@ -746,7 +761,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
             </a>
           </div>
         </div>
-
         <!--  COMMANDS  -->
         <div id="commands" class="rounded shadow">
           <h2>Next steps</h2>
@@ -769,10 +783,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
               Add UI library
             </summary>
             <pre><span># Generate UI lib</span>
-nx g @nrwl/angular:lib ui
-
+nx g @nx/angular:lib ui
 <span># Add a component</span>
-nx g @nrwl/angular:component button --project ui</pre>
+nx g @nx/angular:component button --project ui</pre>
           </details>
           <details>
             <summary>
@@ -812,15 +825,12 @@ nx g @nrwl/angular:component button --project ui</pre>
             </summary>
             <pre><span># see what&apos;s been affected by changes</span>
 nx affected:graph
-
 <span># run tests for current changes</span>
 nx affected:test
-
 <span># run e2e tests for current changes</span>
 nx affected:e2e</pre>
           </details>
         </div>
-
         <p id="love">
           Carefully crafted with
           <svg
