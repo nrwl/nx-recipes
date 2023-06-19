@@ -1,8 +1,8 @@
 name: Run e2e tests
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  pull_request:
+    types: [synchronize, opened, reopened]
 
 jobs:
   e2e:

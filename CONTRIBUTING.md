@@ -11,6 +11,8 @@ We'd love to have new examples being contributed to this repository.
 
 Every example should live within a dedicated folder created at the root of this repository and being completely self-contained.
 
+Make sure there is at least one e2e test in your example that verifies that the core functionality of your example actually works.
+
 The folder should contain a `README.md` file with the following section
 
 ```markdown

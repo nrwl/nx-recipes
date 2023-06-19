@@ -40,3 +40,5 @@ jobs:
           base: main
           title: Nx Migrate update
           body: Update all recipes with nx migrate
+          commit-message: migrate recipes
+          branch: migrate-recipes
