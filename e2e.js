@@ -20,6 +20,7 @@ function runE2eTests(cwd) {
 
 function processAllExamples() {
   const files = readdirSync(".", { withFileTypes: true });
+  const failures = [];
   files.forEach((file) => {
     if (file.isDirectory() && !BROKEN_RECIPES.includes(file.name)) {
       const cwd = "./" + file.name;
@@ -28,9 +29,12 @@ function processAllExamples() {
         installPackages(cwd);
         runE2eTests(cwd);
       } catch (ex) {
-
+        failures.push(ex);
       }
     }
   });
+  if (failures.length > 0) {
+    throw new Error('E2E Tests Failed');
+  }
 }
 processAllExamples();
