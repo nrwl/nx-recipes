@@ -1,0 +1,8 @@
+:root {
+  --color-foreground: #fff;
+  --color-background: #143157;
+  --color-links: hsl(214, 73%, 69%);
+  --color-border: #275da8;
+  --font-body: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+}
