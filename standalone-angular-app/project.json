@@ -1,22 +1,22 @@
 {
-  "name": "store",
+  "name": "myngapp",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
+  "prefix": "myngapp",
   "sourceRoot": "./src",
-  "prefix": "store",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/store",
+        "outputPath": "dist/myngapp",
         "index": "./src/index.html",
         "main": "./src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "./tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
         "assets": ["./src/favicon.ico", "./src/assets"],
-        "styles": ["./src/styles.scss"],
+        "styles": ["./src/styles.css"],
         "scripts": []
       },
       "configurations": {
@@ -50,10 +50,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "store:build:production"
+          "browserTarget": "myngapp:build:production"
         },
         "development": {
-          "browserTarget": "store:build:development"
+          "browserTarget": "myngapp:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -61,24 +61,35 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "store:build"
+        "browserTarget": "myngapp:build"
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["./src/**/*.ts", "./src/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
         "jestConfig": "jest.config.app.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "myngapp:build"
       }
     }
-  },
-  "tags": []
+  }
 }

@@ -10,13 +10,14 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@store/cart": ["cart/src/index.ts"],
-      "@store/ui": ["ui/src/index.ts"]
+      "@myngapp/modules/orders": ["modules/orders/src/index.ts"],
+      "@myngapp/modules/products": ["modules/products/src/index.ts"],
+      "@myngapp/modules/shared/ui": ["modules/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { NxWelcomeComponent } from './nx-welcome.component';
 
 @Component({
-  selector: 'store-root',
+  standalone: true,
+  imports: [NxWelcomeComponent, RouterModule],
+  selector: 'myngapp-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'store';
+  title = 'myngapp';
 }
