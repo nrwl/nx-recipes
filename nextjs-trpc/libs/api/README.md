@@ -1,7 +1,5 @@
 # api
 
-This library was generated with [Nx](https://nx.dev).
+This is the shared API containing router, procedures, etc. It is used by both the Express server and the Next.js webapp.
 
-## Running unit tests
-
-Run `nx test api` to execute the unit tests via [Jest](https://jestjs.io).
+Read the tRPC docs for more details: https://trpc.io/docs/getting-started.
