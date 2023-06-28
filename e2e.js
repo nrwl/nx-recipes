@@ -1,7 +1,7 @@
 const { execSync } = require("child_process");
 const { readdirSync } = require("fs");
 
-const BROKEN_RECIPES = [".git", ".github", "deno-deploy"];
+const BROKEN_RECIPES = ["deno-deploy"];
 
 function installPackages(cwd) {
   const files = readdirSync(cwd);
@@ -15,14 +15,20 @@ function installPackages(cwd) {
 }
 
 function runE2eTests(cwd) {
-  execSync("CI=true npx nx run-many --target=e2e --parallel=false", { cwd, stdio: [0,1,2] });
+  execSync("CI=true npx nx run-many --target=e2e --parallel=false", {
+    cwd,
+    stdio: [0, 1, 2]
+  });
 }
 
 function processAllExamples() {
   const files = readdirSync(".", { withFileTypes: true });
   const failures = [];
-  files.forEach((file) => {
-    if (file.isDirectory() && !BROKEN_RECIPES.includes(file.name)) {
+  files.forEach(file => {
+    if (
+      file.isDirectory() &&
+      (!BROKEN_RECIPES.includes(file.name) || !file.name.startsWith("."))
+    ) {
       const cwd = "./" + file.name;
       console.log(cwd);
       try {
@@ -34,7 +40,7 @@ function processAllExamples() {
     }
   });
   if (failures.length > 0) {
-    throw new Error('E2E Tests Failed');
+    throw new Error("E2E Tests Failed");
   }
 }
 processAllExamples();

@@ -15,6 +15,11 @@ The workspace structure is as follows:
 ```treeview
 .
 ├── apps
+│   ├── server
+│   │   ├── src
+│   │   │   └── main.ts
+│   │   └── ...
+│   ├── server-e2e
 │   ├── webapp
 │   │   ├── app
 │   │   │   ├── api
@@ -39,17 +44,19 @@ The workspace structure is as follows:
 
 **Notes:**
 
-- The tRPC API is defined in `libs/api` and is adapted into the Next.js API in `apps/webapp/app/api/trpc/[trpc]/route.ts`.
+- The shared tRPC API is defined in the `@acme/api` library (`libs/api`).
+- The Express server uses the `@trpc/server/adapters/express` adapter to handle requests to the `/trpc` route.
+- The Next.js app has a server component (`apps/webapp/app/page.tsx`) that uses `createTRPCProxyClient` to interface with the Express server using tRPC.
 - The root tRPC router (`AppRouter`) is defined in `libs/api/src/lib/root.ts`, and combines additional routers in defined in the `libs/api/src/lib/routes` folder (currently contains the `greetingRouter`).
-- The server component `apps/webapp/app/page.tsx` calls the `/api/trpc` endpoint to fetch data for rendering.
 - There is no data fetching on the client-side.
-- The `app/webapp-e2e` project tests the webapp using Cypress.
+- The `apps/webapp-e2e` project tests the webapp using Cypress.
+- The `apps/server-e2e` project tests the server using Jest.
 
 ## How to run it
 
 1. Clone the repo
 2. Install dependencies: `npm i`
-3. Run the webapp: `nx serve webapp`
+3. Run the server and webapp: `npx nx run-many -t=serve` (or `npm start`)
 
 Once the webapp is running, you can view it at http://localhost:4200. Notice that the data-fetching is done on the server-side (you can verify this by disabling JavaScript in your browser).
 
@@ -89,7 +96,7 @@ export type AppRouter = typeof appRouter;
 
 ## Consuming new API route
 
-There is no additional wiring needed to consume the new API route. The `AppRouter` is automatically adapted into the Next.js API in `apps/webapp/app/api/trpc/[trpc]/route.ts`. You can call the new route from the server component `apps/webapp/app/page.tsx`:
+There is no additional wiring needed to consume the new API route. The `AppRouter` is automatically adapted into the Express server in `apps/server/src/main.ts`. You can call the new route from the server component `apps/webapp/app/page.tsx`:
 
 ```tsx
 // apps/webapp/app/page.tsx
