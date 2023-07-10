@@ -27,7 +27,7 @@ function processAllExamples() {
   files.forEach(file => {
     if (
       file.isDirectory() &&
-      (!BROKEN_RECIPES.includes(file.name) || !file.name.startsWith("."))
+      (!BROKEN_RECIPES.includes(file.name) && !file.name.startsWith("."))
     ) {
       const cwd = "./" + file.name;
       console.log(cwd);
