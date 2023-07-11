@@ -33,4 +33,4 @@ Clone it locally, install all dependencies using `npm install`. You can then run
 
 Alternatively 👇
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/nrwl/nx-recipes/tree/main/standalone-angular-app?file=README.md)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/nrwl/nx-recipes/tree/main/angular-standalone?file=README.md)
