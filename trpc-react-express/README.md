@@ -17,7 +17,7 @@ After cloning the workspace, a fullstack application called `test` already exist
 You can create more full-stack applications, giving them any name you want with the command:
 
 ```
-npx nx g @trpc-example-stack/local-plugin:app <your desired name here>
+npx nx g @trpc-react-express/local-plugin:app <your desired name here>
 ```
 
 You can also run the full-stack serve executor by running the command: `npx nx serve-fullstack test-web`.

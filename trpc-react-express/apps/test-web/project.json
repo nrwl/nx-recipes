@@ -70,7 +70,7 @@
       }
     },
     "serve-fullstack": {
-      "executor": "@trpc-example-stack/plugin:serve-fullstack",
+      "executor": "@trpc-react-express/plugin:serve-fullstack",
       "options": {
         "frontendProject": "test-web",
         "backendProject": "test-server"
