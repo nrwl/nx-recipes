@@ -15,11 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@trpc-example-stack/plugin": ["libs/plugin/src/index.ts"],
-      "@trpc-example-stack/test-trpc-client": [
+      "@trpc-react-express/plugin": ["libs/plugin/src/index.ts"],
+      "@trpc-react-express/test-trpc-client": [
         "libs/test-trpc-client/src/index.ts"
       ],
-      "@trpc-example-stack/test-trpc-server": [
+      "@trpc-react-express/test-trpc-server": [
         "libs/test-trpc-server/src/index.ts"
       ]
     }

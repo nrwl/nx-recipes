@@ -1,4 +1,4 @@
-import { createTestTrpcClient } from '@trpc-example-stack/test-trpc-client';
+import { createTestTrpcClient } from '@trpc-react-express/test-trpc-client';
 import { useEffect, useState } from 'react';
 
 export function App() {

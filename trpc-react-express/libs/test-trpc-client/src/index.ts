@@ -1,4 +1,4 @@
-import { TestTrpcRouter } from '@trpc-example-stack/test-trpc-server';
+import { TestTrpcRouter } from '@trpc-react-express/test-trpc-server';
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 
 export const createTestTrpcClient = () =>

@@ -5,7 +5,7 @@
 
 import express from 'express';
 import * as trpcExpress from '@trpc/server/adapters/express';
-import { trpcRouter } from '@trpc-example-stack/test-trpc-server';
+import { trpcRouter } from '@trpc-react-express/test-trpc-server';
 import { environment } from './environments/environment';
 
 const app = express();

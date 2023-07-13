@@ -233,7 +233,7 @@ function addFullstackServeTarget(tree: Tree, options: AppGeneratorSchema) {
       targets: {
         ...json.targets,
         'serve-fullstack': {
-          executor: '@trpc-example-stack/plugin:serve-fullstack',
+          executor: '@trpc-react-express/plugin:serve-fullstack',
           options: {
             frontendProject: frontEndKabobCase,
             backendProject: backEndKabobCase,
