@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": true,
+    "importHelpers": true,
+    "verbatimModuleSyntax": true,
+    "target": "esnext",
+    "jsx": "preserve",
+    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
+    "jsxImportSource": "vue",
+    "module": "esnext",
+    "lib": ["es2020", "dom", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@my-vue/icons": ["libs/icons/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
