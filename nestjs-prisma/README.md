@@ -125,7 +125,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 
 You can also reexport the generated Prisma types for NestJS if you wish in the projects public api `index.ts` file
 
-```
+```ts
 // other exports in libs index.ts
 export { Prisma, <any other generated types> } from '@prisma/client/<generated-name-space>';
 import { PrismaService } from './lib/src/prisma.service.ts'
