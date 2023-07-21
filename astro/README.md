@@ -1,54 +1,59 @@
-# Astro Starter Kit: Basics
+# Astro
 
-```
-npm create astro@latest -- --template basics
-```
+[![standalone application](https://img.shields.io/static/v1?label=Nx%20setup&message=standalone%20app&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#standalone-applications)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Write a short, one sentence description of the example.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## What's inside?
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+Outline the structure of the example, the relevant part people should go and look at etc.
 
-## 🚀 Project Structure
+### Creating Workspace
 
-Inside of your Astro project, you'll see the following folders and files:
+Create a new astro app
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```shell
+❯ npm create astro@latest
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Add Nx via [`nx init`](https://nx.dev/recipes/adopting-nx/adding-to-existing-project)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```shell
+❯ npx nx@latest init
+Need to install the following packages:
+  nx@16.5.3
+Ok to proceed? (y) y
 
-Any static assets, like images, can be placed in the `public/` directory.
+ >  NX   🐳 Nx initialization
 
-## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+ >  NX   🧑‍🔧 Please answer the following questions about the scripts found in your package.json in order to generate task runner configuration
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+✔ Which of the following scripts are cacheable? (Produce the same output given the same input, e.g. build, test and lint usually are, serve and start are not). You can use spacebar to select one or more scripts. · build
 
-## 👀 Want to learn more?
+✔ Does the "build" script create any outputs? If not, leave blank, otherwise provide a path (e.g. dist, lib, build, coverage) · dist
+✔ Enable distributed caching to make your CI faster · No
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+ >  NX   📦 Installing dependencies
+
+
+added 512 packages, and audited 513 packages in 11s
+
+181 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+ >  NX   🎉 Done!
+
+   - Enabled computation caching!
+   - Learn more at https://nx.dev/recipes/adopting-nx/adding-to-existing-project.
+```
+
+## How to run it
+
+Describe how to run the examples. Like specific Nx commands the viewer might want to run/try.
+
+## Learn more
+
+This is a section of bullet points with more info, pointing to Nx docs, blog posts, videos etc.
