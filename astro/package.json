@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "nx exec -- astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "e2e": "nx exec -- playwright test",
+    "lint": "nx run-many --target=lint"
   },
   "dependencies": {
     "astro": "^2.8.5"
@@ -17,6 +19,7 @@
     "@nx/eslint-plugin": "16.2.2",
     "@nx/js": "16.5.4",
     "@nx/linter": "16.2.2",
+    "@playwright/test": "^1.36.1",
     "@types/node": "18.7.1",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
@@ -31,6 +34,12 @@
       "build": {
         "outputs": [
           "{projectRoot}/dist"
+        ]
+      },
+      "e2e": {
+        "outputs": [
+          "{projectRoot}/test-results",
+          "{projectRoot}/playwright-report"
         ]
       }
     },
