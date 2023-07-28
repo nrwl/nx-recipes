@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+import Footer from '@myrepo/components/Footer.astro';
+import Header from '@myrepo/components/Header.astro';
+
+const identity = {
+  intro: 'Nx is a smart, fast, extensible build system for any repo.',
+  about: 'Nx is open source and has an active community.',
+  features: [
+    'Integrates with any repo',
+    'Remote Caching',
+    'Distrubed Task Execution',
+    'Interactive Graph',
+    'Plugable',
+  ],
+};
+
+const featureColor = 'darkblue';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style define:vars={{ featureColor }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .feature {
+        color: var(--featureColor);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <Header title="Astro + Nx" />
+
+    <p>Here are a few facts about Nx:</p>
+    <ul>
+      <li>{identity.intro}</li>
+      <li>
+        {identity.about}
+      </li>
+    </ul>
+    <p>Best features are:</p>
+    <ul>
+      {
+        identity.features.map((feature) => (
+          <li data-testid="feature" class="feature">
+            {feature}
+          </li>
+        ))
+      }
+    </ul>
+    <Footer />
+  </body>
+</html>
