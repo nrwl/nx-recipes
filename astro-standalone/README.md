@@ -2,13 +2,13 @@
 
 [![standalone application](https://img.shields.io/static/v1?label=Nx%20setup&message=standalone%20app&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#standalone-applications)
 
-Integrate Nx into an [Astro](https://astro.build)
+Integrate Nx into an [Astro](https://astro.build) project.
 
 ## What's inside?
 
 This example takes an existing [Astro](https://astro.build) application, adds [Nx](https://nx.dev) to it, and extracts common components into it's own Nx project va the [`@nx/js` plugin](https://nx.dev/packages/js/generators/library#@nx/js:library). This example also has [Playwright](https://playwright.dev) setup to run basic e2e tests on the Astro application.
 
-### Creating Workspace
+### How did we set this up?
 
 Create a new Astro app
 
@@ -63,7 +63,7 @@ Install the `@nx/js` plugin.
 > Note the version should match the version of `nx` in your `package.json`
 
 ```shell
-npm i -DE @nx/js
+npm i -D @nx/js
 ```
 
 Use the [library generator](https://nx.dev/packages/js/generators/library#@nx/js:library)
