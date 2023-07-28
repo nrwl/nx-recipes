@@ -4,11 +4,11 @@
 
 Source code for the React standalone application tutorial on the Nx docs:
 - Tutorial: https://nx.dev/getting-started/react-standalone-tutorial
-- Video: https://youtu.be/dqCZteGFP4k
+- Video: https://youtu.be/OQ-Zc5tcxJE
 
 ## What's inside?
 
-This example contains a single Vite-based React application that has been generated with the `react-standlone` preset. It contains a single root-level application and two libraries, `cart` and `ui` that are imported into the app.
+This example contains a single Vite-based React application that has been generated with the `react-standlone` preset. It contains a single root-level application and local libraries within the `modules` folder.
 
 Follow through the tutorial linked above for more details.
 
@@ -16,8 +16,8 @@ Follow through the tutorial linked above for more details.
 
 Install all dependencies using `npm install`. You can then run commands Like
 
-- `npx nx build` to build the React application
 - `npx nx serve` to serve the app
+- `npx nx build` to build the React application
 - you can use `npx nx graph` to visualize the structure
 
 ## Learn more
