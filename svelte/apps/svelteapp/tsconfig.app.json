@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "esnext",
+    "ignoreDeprecations": "5.0",
+    "isolatedModules": true,
+    "sourceMap": true,
+    "types": ["svelte", "node", "vite/client"],
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "checkJs": true
+  },
+  "files": [],
+  "include": [],
+  "references": []
+}
