@@ -6,10 +6,19 @@
   "private": true,
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nx/eslint-plugin": "16.2.2",
     "@nx/js": "16.6.0",
+    "@nx/linter": "16.2.2",
     "@nx/workspace": "16.6.0",
     "@types/node": "^18.17.1",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "~8.15.0",
+    "eslint-config-prettier": "8.1.0",
     "nuxt": "^3.6.5",
-    "nx": "16.6.0"
-  }
+    "nx": "16.6.0",
+    "prettier": "^2.6.2",
+    "typescript": "~5.1.3"
+  },
+  "dependencies": {}
 }
