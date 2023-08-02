@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "demo",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -8,9 +8,14 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.1",
-    "nuxt": "^3.6.5"
+  "nx": {
+    "targets": {
+      "build": {
+        "outputs": [
+          "{projectRoot}/.output",
+          "{projectRoot}/.nuxt"
+        ]
+      }
+    }
   }
 }

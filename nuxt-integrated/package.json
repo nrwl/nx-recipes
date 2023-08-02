@@ -2,13 +2,14 @@
   "name": "@nuxt-integrated/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-  },
+  "scripts": {},
   "private": true,
-  "dependencies": {
-  },
   "devDependencies": {
-    "nx": "16.6.0",
-    "@nx/workspace": "16.6.0"
+    "@nuxt/devtools": "latest",
+    "@nx/js": "16.6.0",
+    "@nx/workspace": "16.6.0",
+    "@types/node": "^18.17.1",
+    "nuxt": "^3.6.5",
+    "nx": "16.6.0"
   }
 }

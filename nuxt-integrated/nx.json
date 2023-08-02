@@ -13,6 +13,9 @@
       }
     }
   },
+  "plugins": [
+    "nx/plugins/package-json"
+  ],
   "targetDefaults": {
     "build": {
       "dependsOn": [
@@ -27,6 +30,8 @@
   "namedInputs": {
     "default": [
       "{projectRoot}/**/*",
+      "!{projectRoot}/.nuxt/**/*",
+      "!{projectRoot}/.output/**/*",
       "sharedGlobals"
     ],
     "production": [
