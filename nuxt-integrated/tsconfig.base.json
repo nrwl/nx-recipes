@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nuxt-integrated/ui": ["libs/ui/src/index.ts"],
       "@nuxt-integrated/utils": ["libs/utils/src/index.ts"]
     }
   },
