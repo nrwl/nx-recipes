@@ -4,7 +4,7 @@ import {z} from "zod"
 const inputSchema = z.object({
   username: z.string()
 })
-  // .optional()
+  .optional()
 // add/remove this .optional() call and see the ts error in trpc-react-express/apps/test-web/src/app/app.tsx
 
 const t = initTRPC.create();
