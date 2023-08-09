@@ -16,6 +16,10 @@
           "{projectRoot}/.nuxt"
         ]
       }
-    }
+    },
+    "tags": ["scope:demo"],
+    "implicitDependencies": [
+      "tag:scope:demo"
+    ]
   }
 }
