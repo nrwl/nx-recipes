@@ -2,7 +2,7 @@
 
 [![integrated monorepo](https://img.shields.io/static/v1?label=Nx%20setup&message=integrated%20monorepo&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#integrated-repos)
 
-An example repository showing how to use [Svelte](https://svelte.dev/) with [Nx](https://nx.dev) leveraging the [nxext-svelte](https://nxext.dev/docs/svelte/overview.html) plugin.
+An example repository showing how to use [Svelte](https://svelte.dev/) with [Nx](https://nx.dev).
 
 ## What's inside
 
@@ -46,5 +46,4 @@ npx nx e2e svelteapp-e2e
 You can find out more detail you can take a look at the following:
 
 - [Nx](https://nx.dev)
-- [Vue](https://vuejs.org/)
-- [Nxext-svelte Plugin](https://nxext.dev/docs/svelte/overview.html)
+- [Svelte](https://svelte.dev/)
