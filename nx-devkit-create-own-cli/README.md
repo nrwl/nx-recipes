@@ -5,6 +5,7 @@
 This sample repo shows how to use Nx (in particular the Nx Devkit) as a platform to build your own CLI on top.
 
 - Check out the video tutorial: https://youtu.be/ocllb5KEXZk
+- Blog post: https://blog.nrwl.io/create-your-own-create-react-app-cli-d1bf13904e35?sk=a156dddcf85223e7d3e57312955714ea
 
 ## What's inside?
 
@@ -37,4 +38,5 @@ npx create-my-own-react-app@latest mytestapp
 ## Learn more
 
 - [Video tutorial: ](https://youtu.be/ocllb5KEXZk)
+- [Blog: Create Your own create-react-app CLI](https://blog.nrwl.io/create-your-own-create-react-app-cli-d1bf13904e35?sk=a156dddcf85223e7d3e57312955714ea)
 - [Extending Nx](https://nx.dev/extending-nx/intro/getting-started)
