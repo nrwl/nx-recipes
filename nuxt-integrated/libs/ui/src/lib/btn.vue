@@ -12,9 +12,11 @@ const dec = () => {
 </script>
 <template>
   <div>
-    <button @:click="dec">-</button>
-    <button @:click="incr">+</button>
+    <button data-testid="decrement" @:click="dec">-</button>
+    <button data-testid="increment" @:click="incr">+</button>
 
-    {{ count }}
+    <p data-testid="count">
+      {{ count }}
+    </p>
   </div>
 </template>

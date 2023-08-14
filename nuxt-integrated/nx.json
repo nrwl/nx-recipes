@@ -19,9 +19,11 @@
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore"
       ]
+    },
+    "e2e": {
+      "inputs": ["default", "^production"]
     }
   },
-  "plugins": ["nx/plugins/package-json"],
   "namedInputs": {
     "default": [
       "{projectRoot}/**/*",

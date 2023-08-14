@@ -2,19 +2,25 @@
   "name": "@nuxt-integrated/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx build demo",
+    "e2e": "nx e2e demo-e2e"
+  },
   "private": true,
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nx/eslint-plugin": "16.7.0-rc.0",
     "@nx/js": "16.7.0-rc.0",
     "@nx/linter": "16.7.0-rc.0",
+    "@nx/playwright": "16.7.0-rc.0",
     "@nx/workspace": "16.7.0-rc.0",
+    "@playwright/test": "^1.36.0",
     "@types/node": "^18.17.1",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "eslint": "8.46.0",
     "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-playwright": "^0.15.3",
     "nuxt": "^3.6.5",
     "nx": "16.7.0-rc.0",
     "prettier": "^2.6.2",
@@ -22,4 +28,3 @@
   },
   "dependencies": {}
 }
-

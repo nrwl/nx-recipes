@@ -5,5 +5,5 @@ const { data } = await useFetch('/api/greet?name=Nuxt');
 </script>
 <template>
   <Btn />
-  <pre>{{ data }}</pre>
+  <pre data-testid="api-results">{{ data }}</pre>
 </template>
