@@ -24,6 +24,7 @@
       "inputs": ["default", "^production"]
     }
   },
+  "plugins": ["nx/plugins/package-json"],
   "namedInputs": {
     "default": [
       "{projectRoot}/**/*",

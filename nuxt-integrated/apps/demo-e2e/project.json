@@ -16,5 +16,6 @@
         "lintFilePatterns": ["apps/demo-e2e/**/*.{js,ts}"]
       }
     }
-  }
+  },
+  "implicitDependencies": ["demo"]
 }
