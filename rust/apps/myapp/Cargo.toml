@@ -1,0 +1,12 @@
+[package]
+name = "myapp"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+actix-web = "4"
+cats = { path = "../../libs/cats" }
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

@@ -1,0 +1,13 @@
+[package]
+name = "cats"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4"
+
+[dependencies.serde]
+version = "1"
+features = ["derive"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
