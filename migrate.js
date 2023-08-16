@@ -1,7 +1,18 @@
 const { execSync } = require("child_process");
-const { readdirSync } = require("fs");
+const { readdirSync, existsSync } = require("fs");
 
-const BROKEN_RECIPES = [".git", ".github"];
+const BROKEN_RECIPES = [];
+function isRecipe(file) {
+  const cwd = `./${file.name}`;
+
+  return file.isDirectory() &&
+    !file.name.startsWith(".") &&
+    !BROKEN_RECIPES.includes(file.name) &&
+    existsSync(`${cwd}/nx.json`) &&
+    // TODO(caleb): this might not be true for nx wrapper repos?
+    existsSync(`${cwd}/package.json`)
+
+}
 
 function installPackages(cwd) {
   console.log("Installing packages for " + cwd);
@@ -16,8 +27,8 @@ function installPackages(cwd) {
 }
 function migrateToLatest(cwd) {
   console.log(`Migrating ${cwd}...`);
-  execSync("CI=true npx nx migrate latest", { cwd, stdio: [0, 1, 2] });
-  execSync("CI=true npx nx migrate --run-migrations --no-interactive", {
+  execSync("CI=true npx nx migrate next", { cwd, stdio: [0, 1, 2] });
+  execSync("CI=true npx nx migrate --run-migrations --no-interactive --if-exists", {
     cwd,
     stdio: [0, 1, 2],
     timeout: 60000,
@@ -30,10 +41,10 @@ function processAllExamples() {
   const files = readdirSync(".", { withFileTypes: true });
   let failedMigrations = [];
   files.forEach((file) => {
-    if (file.isDirectory() && !BROKEN_RECIPES.includes(file.name)) {
-      const cwd = "./" + file.name;
-      installPackages(cwd);
+    if (isRecipe(file)) {
+      const cwd = `./${file.name}`;
       try {
+        installPackages(cwd);
         migrateToLatest(cwd);
       } catch (ex) {
         console.log(ex);
