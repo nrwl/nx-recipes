@@ -1,0 +1,17 @@
+{
+  "name": "myapp-e2e",
+  "schema": "../../node_modules/nx/schema/project-schema.json",
+  "root": "apps/myapp-e2e",
+  "sourceRoot": "apps/myapp-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "apps/myapp-e2e/jest.config.ts",
+        "runInBand": true
+      },
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"]
+    }
+  }
+}
