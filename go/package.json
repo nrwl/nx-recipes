@@ -1,0 +1,10 @@
+{
+  "name": "go",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "devDependencies": {
+    "nx": "16.5.5"
+  }
+}
