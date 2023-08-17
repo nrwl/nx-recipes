@@ -10,8 +10,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/svelteapp",
-        "svelteConfig": "apps/svelteapp/svelte.config.cjs"
+        "outputPath": "dist/apps/svelteapp"
       },
       "configurations": {
         "development": {
@@ -26,8 +25,7 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "svelteapp:build",
-        "svelteConfig": "apps/svelteapp/svelte.config.cjs"
+        "buildTarget": "svelteapp:build"
       },
       "configurations": {
         "development": {
