@@ -1,0 +1,17 @@
+{
+  "name": "workspace-1",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "nx build",
+    "test": "nx test",
+    "prepare": "nx g @nx-dotnet/core:restore"
+  },
+  "devDependencies": {
+    "@nrwl/js": "16.7.0",
+    "@nx-dotnet/core": "^1.22.0",
+    "@nx/linter": "16.7.0",
+    "@nx/workspace": "16.7.0",
+    "nx": "16.7.0"
+  }
+}
