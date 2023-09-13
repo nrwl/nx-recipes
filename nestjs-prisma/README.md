@@ -120,29 +120,15 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
   async onModuleInit() {
     await this.$connect();
   }
-
-  async enableShutdownHooks(app: INestApplication) {
-    this.$on('beforeExit', async () => {
-      await app.close();
-    });
-  }
 }
 ```
 
-You can also reexport the generated Prisma types and shutdown function for NestJS if you wish in the projects public api `index.ts` file
+You can also reexport the generated Prisma types for NestJS if you wish in the projects public api `index.ts` file
 
-```
+```ts
 // other exports in libs index.ts
 export { Prisma, <any other generated types> } from '@prisma/client/<generated-name-space>';
 import { PrismaService } from './lib/src/prisma.service.ts'
-
-export async function registerPrismaShutdown(app: INestApplication) {
-  // recommended by NestJS
-  // https://docs.nestjs.com/recipes/prisma#issues-with-enableshutdownhooks
-  const prismaService = app.get(PrismaService);
-  await prismaService.enableShutdownHooks(app);
-}
-
 ```
 
 ## Using NestJS Prisma Client
@@ -164,8 +150,6 @@ These libraries are able to leverage the generated clients that Prisma gave us, 
 In the [api](./apps/api/) project, the [`app.controller.ts`](./apps/api/src/app/app.controller.ts) is where all the data-source libraries are imported and used.
 
 > In a real world application, you'd have multiple controllers and not all located in a single controller. This example is focused on the Prisma setup and kept it simpler with just 1 controller.
-
-In the apps [`main.ts`](./apps/api/src/main.ts) bootstrap function, we call a function added to each Prisma Client NestJS service to make sure prisma correctly shutsdown when the app is exiting. You can read more about why in the [NestJS docs](https://docs.nestjs.com/recipes/prisma#issues-with-enableshutdownhooks)
 
 ## Learn more
 

@@ -7,14 +7,11 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
-import { registerPrismaShutdown as registerPrismaOneShutdown } from '@with-prisma-nest/prisma-client-one';
-import { registerPrismaShutdown as registerPrismaTwoShutdown } from '@with-prisma-nest/prisma-client-two';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  await registerPrismaOneShutdown(app);
-  await registerPrismaTwoShutdown(app);
+  app.enableShutdownHooks();
 
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);

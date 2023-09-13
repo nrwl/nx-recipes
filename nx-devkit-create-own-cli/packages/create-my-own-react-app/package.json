@@ -1,0 +1,13 @@
+{
+  "name": "create-my-own-react-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "create-nx-workspace": "16.6.0"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "bin": {
+    "create-my-own-react-app": "./bin/index.js"
+  }
+}

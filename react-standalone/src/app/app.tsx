@@ -1,24 +1,19 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import { Cart } from '@store/cart';
-import styles from './app.module.scss';
-import { Banner } from '@store/ui';
+import { Route, Routes } from 'react-router-dom';
+import { ProductList } from '@myreactapp/modules/products';
+import { OrderList } from '@myreactapp/modules/orders';
+
+function Home() {
+  return <h1>Welcome to the App</h1>;
+}
 
 export function App() {
   return (
     <Routes>
-      <Route path="/" element={<Shop />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/products" element={<ProductList />}></Route>
+      <Route path="/orders" element={<OrderList />}></Route>
     </Routes>
   );
 }
 
 export default App;
-
-function Shop() {
-  return (
-    <div className={styles['container']}>
-      <Banner text="Shop"></Banner>
-      <Link to="/cart">View Cart</Link>
-    </div>
-  );
-}

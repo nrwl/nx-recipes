@@ -3,7 +3,7 @@
   "npmScope": "storybook-compodoc-angular",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx-cloud",
+      "runner": "nx/tasks-runners/default",
       "options": {
         "cacheableOperations": [
           "build",
@@ -11,8 +11,7 @@
           "test",
           "e2e",
           "build-storybook"
-        ],
-        "accessToken": "NWNjYTU0OGEtYzViOC00MDJhLTg4NDYtNzlhNGExMGNlNjUyfHJlYWQtd3JpdGU="
+        ]
       }
     }
   },
