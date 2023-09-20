@@ -9,12 +9,12 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'products',
-    loadChildren: () =>
-      import('@angular-monorepo/products').then((m) => m.ProductsModule),
+    loadComponent: () =>
+      import('@angular-monorepo/products').then((m) => m.ProductListComponent),
   },
   {
     path: 'orders',
-    loadChildren: () =>
-      import('@angular-monorepo/orders').then((m) => m.OrdersModule),
+    loadComponent: () =>
+      import('@angular-monorepo/orders').then((m) => m.OrderListComponent),
   },
 ];

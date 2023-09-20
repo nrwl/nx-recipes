@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { OrderListComponent } from './order-list.component';
+import { SharedUiComponent } from './shared-ui.component';
 
-describe('OrderListComponent', () => {
-  let component: OrderListComponent;
-  let fixture: ComponentFixture<OrderListComponent>;
+describe('SharedUiComponent', () => {
+  let component: SharedUiComponent;
+  let fixture: ComponentFixture<SharedUiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OrderListComponent],
+      imports: [SharedUiComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(OrderListComponent);
+    fixture = TestBed.createComponent(SharedUiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
