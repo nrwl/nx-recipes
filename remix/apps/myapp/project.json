@@ -6,23 +6,14 @@
   "tags": [],
   "targets": {
     "build": {
-      "command": "remix build",
+      "executor": "@nx/remix:build",
       "options": {
-        "cwd": "apps/myapp"
+        "outputPath": "{projectRoot}"
       }
     },
     "serve": {
-      "command": "remix dev",
-      "options": {
-        "cwd": "apps/myapp"
-      }
-    },
-    "start": {
-      "dependsOn": ["build"],
-      "command": "remix-serve build",
-      "options": {
-        "cwd": "apps/myapp"
-      }
+      "executor": "@nx/remix:serve",
+      "options": {}
     },
     "typecheck": {
       "command": "tsc",
@@ -32,7 +23,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/apps/myapp"],
+      "outputs": ["{workspaceRoot}/coverage/apps/myapp"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/myapp"

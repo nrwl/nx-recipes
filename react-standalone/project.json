@@ -54,7 +54,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/myreactapp"],
+      "outputs": ["{projectRoot}/coverage/myreactapp"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "coverage/myreactapp"

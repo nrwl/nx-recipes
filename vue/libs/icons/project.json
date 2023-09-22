@@ -13,7 +13,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/icons"],
+      "outputs": ["{workspaceRoot}/coverage/libs/icons"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/icons"

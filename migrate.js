@@ -22,12 +22,13 @@ function installPackages(cwd) {
   } else if (files.includes("yarn.lock")) {
     execSync("yarn", { cwd, stdio: [0, 1, 2] });
   } else {
-    execSync("npm ci --legacy-peer-deps", { cwd, stdio: [0, 1, 2] });
+    execSync("npm i ---peer-deps", { cwd, stdio: [0, 1, 2] });
   }
 }
 function migrateToLatest(cwd) {
   console.log(`Migrating ${cwd}...`);
   execSync("CI=true npx nx migrate next", { cwd, stdio: [0, 1, 2] });
+  installPackages(cwd);
   execSync("CI=true npx nx migrate --run-migrations --no-interactive --if-exists", {
     cwd,
     stdio: [0, 1, 2],

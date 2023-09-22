@@ -6,7 +6,7 @@
   "targets": {
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["../..//coverage/libs/data-access"],
+      "outputs": ["../coverage/libs/data-access"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/data-access"

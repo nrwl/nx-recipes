@@ -1,5 +1,5 @@
 import { ServeFullstackExecutorSchema } from './schema';
-import { ExecutorContext } from '@nrwl/devkit';
+import { ExecutorContext } from '@nx/devkit';
 import { ChildProcess, exec } from 'child_process';
 import * as chalk from 'chalk';
 

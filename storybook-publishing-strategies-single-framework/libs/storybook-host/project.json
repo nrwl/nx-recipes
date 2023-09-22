@@ -1,4 +1,5 @@
 {
+  "name": "storybook-host",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/storybook-host/src",
   "projectType": "library",
@@ -14,28 +15,25 @@
   ],
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/storybook-host/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/storybook-host"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/storybook-host"],
       "options": {
         "jestConfig": "libs/storybook-host/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@nx/storybook:storybook",
       "options": {
-        "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": {
-          "configFolder": "libs/storybook-host/.storybook"
-        }
+        "configDir": "libs/storybook-host/.storybook"
       },
       "configurations": {
         "ci": {
@@ -44,14 +42,11 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
       "options": {
-        "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/storybook-host",
-        "config": {
-          "configFolder": "libs/storybook-host/.storybook"
-        }
+        "configDir": "libs/storybook-host/.storybook",
+        "outputDir": "dist/storybook/storybook-host"
       },
       "configurations": {
         "ci": {

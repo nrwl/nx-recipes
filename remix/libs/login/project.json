@@ -14,7 +14,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/login"],
+      "outputs": ["{workspaceRoot}/coverage/libs/login"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/login"
