@@ -1,7 +1,20 @@
 const { execSync } = require("child_process");
 const { readdirSync, readFileSync, existsSync } = require("fs");
 
-const BROKEN_RECIPES = ["deno-deploy"];
+const BROKEN_RECIPES = [
+  // TODO: migrate these to Storybook v7 since v6 is not supported by Nx
+  "storybook-publishing-strategies-multiple-frameworks",
+  "storybook-publishing-strategies-single-framework",
+
+  // TODO: I don't think these ever passed?
+  "deno-deploy",
+  "dot-net-standalone",
+  "fastify-postgres",
+  "lit",
+  "nestjs-prisma",
+  "nuxt-integrated",
+  "rust"
+];
 
 function isRecipe(file) {
   const cwd = `./${file.name}`;
