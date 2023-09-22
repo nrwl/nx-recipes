@@ -51,12 +51,12 @@ function processAllExamples() {
         installPackages(cwd);
         runE2eTests(cwd);
       } catch (ex) {
-        failures.push(ex);
+        failures.push(file.name);
       }
     }
   });
   if (failures.length > 0) {
-    throw new Error("E2E Tests Failed");
+    throw new Error(`E2E Tests Failed:\n${failures.join('\n')}`);
   }
 }
 processAllExamples();
