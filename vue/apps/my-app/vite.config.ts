@@ -2,7 +2,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { fileURLToPath } from 'url';
 
 export default defineConfig({
@@ -21,9 +21,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    viteTsConfigPaths({
-      root: '../../',
-    }),
+    nxViteTsPaths(),
   ],
 
   resolve: {

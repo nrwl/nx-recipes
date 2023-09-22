@@ -13,8 +13,7 @@
     },
     "serve": {
       "executor": "@nx/remix:serve",
-      "options": {
-      }
+      "options": {}
     },
     "typecheck": {
       "command": "tsc",
@@ -24,7 +23,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/apps/myapp"],
+      "outputs": ["{workspaceRoot}/coverage/apps/myapp"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/myapp"

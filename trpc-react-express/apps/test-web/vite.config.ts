@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/test-web',
@@ -18,9 +18,7 @@ export default defineConfig({
 
   plugins: [
     react(),
-    viteTsConfigPaths({
-      root: '../../',
-    }),
+    nxViteTsPaths(),
   ],
 
   // Uncomment this if you are using workers.

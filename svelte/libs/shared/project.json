@@ -21,7 +21,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/shared"],
+      "outputs": ["{workspaceRoot}/coverage/libs/shared"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/shared"

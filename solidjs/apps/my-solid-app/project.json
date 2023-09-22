@@ -40,7 +40,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/apps/my-solid-app"],
+      "outputs": ["{workspaceRoot}/coverage/apps/my-solid-app"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/my-solid-app"
