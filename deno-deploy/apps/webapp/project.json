@@ -6,7 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/deno:bundle",
-      "outputs": ["dist/apps/webapp"],
+      "outputs": ["{workspaceRoot}/dist/apps/webapp"],
       "options": {
         "main": "apps/webapp/src/main.ts",
         "outputFile": "dist/apps/webapp/main.js",
@@ -22,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/deno:test",
-      "outputs": ["coverage/apps/webapp"],
+      "outputs": ["{workspaceRoot}/coverage/apps/webapp"],
       "options": {
         "coverageDirectory": "coverage/apps/webapp",
         "denoConfig": "apps/webapp/deno.json"

@@ -9,7 +9,7 @@ Source code for the integrated monorepo tutorial on the Nx docs:
 
 ## What's inside?
 
-Leverages the [@nrwl/js](https://nx.dev/packages/js) Nx plugin to setup an integrated monorepo with two packages, `is-even` and `is-odd`.
+Leverages the [@nx/js](https://nx.dev/packages/js) Nx plugin to setup an integrated monorepo with two packages, `is-even` and `is-odd`.
 
 ## How to run it
 

@@ -14,7 +14,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/modules/shared/ui"],
+      "outputs": ["{workspaceRoot}/coverage/modules/shared/ui"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../../coverage/modules/shared/ui"

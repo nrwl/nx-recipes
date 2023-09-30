@@ -5,18 +5,20 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/esbuild:esbuild",
+      "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/test-server",
         "format": ["cjs"],
         "main": "apps/test-server/src/main.ts",
         "tsConfig": "apps/test-server/tsconfig.app.json",
-        "assets": ["apps/test-server/src/assets"]
+        "assets": ["apps/test-server/src/assets"],
+        "generatePackageJson": true,
+        "thirdParty": true
       }
     },
     "serve": {
-      "executor": "@nrwl/js:node",
+      "executor": "@nx/js:node",
       "options": {
         "buildTarget": "test-server:build"
       },
@@ -27,7 +29,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/test-server/**/*.ts"]
