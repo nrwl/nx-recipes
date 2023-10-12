@@ -10,43 +10,43 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@publishing-strategies-single-framework/admin/ui/footer": [
+      "@storybook-publishing-strategies-single-framework/admin-ui-footer": [
         "libs/admin/ui/footer/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/admin/ui/header": [
+      "@storybook-publishing-strategies-single-framework/admin-ui-header": [
         "libs/admin/ui/header/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/client/ui/footer": [
+      "@storybook-publishing-strategies-single-framework/client-ui-footer": [
         "libs/client/ui/footer/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/client/ui/header": [
+      "@storybook-publishing-strategies-single-framework/client-ui-header": [
         "libs/client/ui/header/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/shared/ui/button": [
+      "@storybook-publishing-strategies-single-framework/shared-ui-button": [
         "libs/shared/ui/button/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/shared/ui/main": [
+      "@storybook-publishing-strategies-single-framework/shared-ui-main": [
         "libs/shared/ui/main/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/shared/ui/notification": [
+      "@storybook-publishing-strategies-single-framework/shared-ui-notification": [
         "libs/shared/ui/notification/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/storybook-host": [
-        "libs/storybook-host/src/index.ts"
+      "@storybook-publishing-strategies-single-framework/storybook-host": [
+        "storybook-host/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/storybook-host-admin": [
-        "libs/storybook-host-admin/src/index.ts"
+      "@storybook-publishing-strategies-single-framework/storybook-host-admin": [
+        "storybook-host-admin/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/storybook-host-client": [
-        "libs/storybook-host-client/src/index.ts"
+      "@storybook-publishing-strategies-single-framework/storybook-host-client": [
+        "storybook-host-client/src/index.ts"
       ],
-      "@publishing-strategies-single-framework/storybook-host-shared": [
-        "libs/storybook-host-shared/src/index.ts"
+      "@storybook-publishing-strategies-single-framework/storybook-host-shared": [
+        "storybook-host-shared/src/index.ts"
       ]
     }
   },

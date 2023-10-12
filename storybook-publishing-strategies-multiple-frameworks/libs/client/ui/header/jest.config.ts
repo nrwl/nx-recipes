@@ -3,7 +3,6 @@ export default {
   displayName: 'client-ui-header',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  globals: {},
   coverageDirectory: '../../../../coverage/libs/client/ui/header',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [

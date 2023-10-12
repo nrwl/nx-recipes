@@ -1,21 +1,28 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
 import { HeaderComponent } from './header.component';
 
-export default {
-  title: 'HeaderComponent',
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<HeaderComponent> = {
   component: HeaderComponent,
-  decorators: [
-    moduleMetadata({
-      imports: [],
-    }),
-  ],
-} as Meta<HeaderComponent>;
+  title: 'HeaderComponent',
+};
+export default meta;
+type Story = StoryObj<HeaderComponent>;
 
-const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
-  props: args,
-});
+export const Primary: Story = {
+  args: {
+    clientName: 'Test Client',
+  },
+};
 
-export const Primary = Template.bind({});
-Primary.args = {
-  clientName: 'Test Client',
+export const Heading: Story = {
+  args: {
+    clientName: 'Test Client',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/header works!/gi)).toBeTruthy();
+  },
 };

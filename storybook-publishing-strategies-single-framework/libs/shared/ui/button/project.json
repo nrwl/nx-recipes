@@ -12,12 +12,20 @@
         "lintFilePatterns": ["libs/shared/ui/button/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/shared/ui/button"],
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "jestConfig": "libs/shared/ui/button/jest.config.ts",
-        "passWithNoTests": true
+        "outputPath": "dist/libs/shared/ui/button"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "storybook": {
@@ -36,12 +44,30 @@
       "executor": "@nx/storybook:build",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "configDir": "libs/shared/ui/button/.storybook",
-        "outputDir": "dist/storybook/shared-ui-button"
+        "outputDir": "dist/storybook/shared-ui-button",
+        "configDir": "libs/shared/ui/button/.storybook"
       },
       "configurations": {
         "ci": {
           "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/shared/ui/button/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "shared-ui-button:build-storybook",
+        "staticFilePath": "dist/storybook/shared-ui-button"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "shared-ui-button:build-storybook:ci"
         }
       }
     }

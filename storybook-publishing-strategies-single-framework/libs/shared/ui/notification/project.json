@@ -12,12 +12,20 @@
         "lintFilePatterns": ["libs/shared/ui/notification/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/shared/ui/notification"],
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "jestConfig": "libs/shared/ui/notification/jest.config.ts",
-        "passWithNoTests": true
+        "outputPath": "dist/libs/shared/ui/notification"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "storybook": {
@@ -36,12 +44,30 @@
       "executor": "@nx/storybook:build",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "configDir": "libs/shared/ui/notification/.storybook",
-        "outputDir": "dist/storybook/shared-ui-notification"
+        "outputDir": "dist/storybook/shared-ui-notification",
+        "configDir": "libs/shared/ui/notification/.storybook"
       },
       "configurations": {
         "ci": {
           "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/shared/ui/notification/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "shared-ui-notification:build-storybook",
+        "staticFilePath": "dist/storybook/shared-ui-notification"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "shared-ui-notification:build-storybook:ci"
         }
       }
     }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'publishing-strategies-multiple-frameworks-header',
+  selector: 'storybook-publishing-strategies-multiple-frameworks-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })

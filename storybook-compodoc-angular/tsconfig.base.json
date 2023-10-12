@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@storybook-compodoc-angular/my-btn": ["libs/my-btn/src/index.ts"]
+      "@storybook-compodoc-angular/my-btn": ["my-btn/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
