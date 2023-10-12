@@ -1,14 +1,24 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { AdminUiFooter } from './admin-ui-footer';
 
-export default {
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<typeof AdminUiFooter> = {
   component: AdminUiFooter,
   title: 'AdminUiFooter',
-} as ComponentMeta<typeof AdminUiFooter>;
+};
+export default meta;
+type Story = StoryObj<typeof AdminUiFooter>;
 
-const Template: ComponentStory<typeof AdminUiFooter> = (args) => (
-  <AdminUiFooter {...args} />
-);
+export const Primary = {
+  args: {},
+};
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Heading: Story = {
+  args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Welcome to AdminUiFooter!/gi)).toBeTruthy();
+  },
+};

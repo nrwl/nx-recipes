@@ -1,5 +1,5 @@
 import styles from './shared-ui-main.module.css';
-import { SharedUiButton } from '@publishing-strategies-single-framework/shared/ui/button';
+import { SharedUiButton } from '@storybook-publishing-strategies-single-framework/shared-ui-button';
 export interface SharedUiMainProps {
   text: string;
 }

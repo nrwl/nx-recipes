@@ -1,16 +1,28 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { AdminUiHeader } from './admin-ui-header';
 
-export default {
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<typeof AdminUiHeader> = {
   component: AdminUiHeader,
   title: 'AdminUiHeader',
-} as ComponentMeta<typeof AdminUiHeader>;
+};
+export default meta;
+type Story = StoryObj<typeof AdminUiHeader>;
 
-const Template: ComponentStory<typeof AdminUiHeader> = (args) => (
-  <AdminUiHeader {...args} />
-);
+export const Primary = {
+  args: {
+    userName: '',
+  },
+};
 
-export const Primary = Template.bind({});
-Primary.args = {
-  userName: 'Ada',
+export const Heading: Story = {
+  args: {
+    userName: '',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Welcome to AdminUiHeader!/gi)).toBeTruthy();
+  },
 };

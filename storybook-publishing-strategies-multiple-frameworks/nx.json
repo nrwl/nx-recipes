@@ -1,9 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "publishing-strategies-multiple-frameworks",
-  "affected": {
-    "defaultBase": "main"
-  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx-cloud",
@@ -15,7 +11,7 @@
           "e2e",
           "build-storybook"
         ],
-        "accessToken": "M2I2NWI5ZWMtMTA5Ni00NjYyLWE4NWMtNTBjZjNkODM1NDgwfHJlYWQtd3JpdGU="
+        "accessToken": "OTcxY2RjMjAtYWM0OS00YjcwLWJjNjAtMmViNjk2OThjNTQ5fHJlYWQtd3JpdGU="
       }
     }
   },
@@ -27,17 +23,18 @@
     "test": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
     },
-    "e2e": {
-      "inputs": ["default", "^production"]
-    },
     "lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js"
+      ]
     },
     "build-storybook": {
       "inputs": [
         "default",
         "^production",
-        "{workspaceRoot}/.storybook/**/*",
         "{projectRoot}/.storybook/**/*",
         "{projectRoot}/tsconfig.storybook.json"
       ]
@@ -50,20 +47,22 @@
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/test-setup.[jt]s",
       "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/eslint.config.js",
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-      "!{projectRoot}/tsconfig.storybook.json",
-      "!{projectRoot}/src/test-setup.[jt]s"
+      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/tsconfig.storybook.json"
     ],
-    "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
+    "sharedGlobals": []
   },
   "generators": {
     "@nx/angular:application": {
       "style": "css",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "e2eTestRunner": "none"
     },
     "@nx/angular:library": {
       "linter": "eslint",
@@ -76,6 +75,7 @@
       "application": {
         "style": "css",
         "linter": "eslint",
+        "bundler": "vite",
         "babel": true
       },
       "component": {
@@ -83,9 +83,9 @@
       },
       "library": {
         "style": "css",
-        "linter": "eslint"
+        "linter": "eslint",
+        "unitTestRunner": "none"
       }
     }
-  },
-  "defaultProject": "client"
+  }
 }

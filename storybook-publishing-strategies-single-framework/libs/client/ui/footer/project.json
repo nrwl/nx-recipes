@@ -12,12 +12,20 @@
         "lintFilePatterns": ["libs/client/ui/footer/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/client/ui/footer"],
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "jestConfig": "libs/client/ui/footer/jest.config.ts",
-        "passWithNoTests": true
+        "outputPath": "dist/libs/client/ui/footer"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "storybook": {
@@ -36,12 +44,30 @@
       "executor": "@nx/storybook:build",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "configDir": "libs/client/ui/footer/.storybook",
-        "outputDir": "dist/storybook/client-ui-footer"
+        "outputDir": "dist/storybook/client-ui-footer",
+        "configDir": "libs/client/ui/footer/.storybook"
       },
       "configurations": {
         "ci": {
           "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/client/ui/footer/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "client-ui-footer:build-storybook",
+        "staticFilePath": "dist/storybook/client-ui-footer"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "client-ui-footer:build-storybook:ci"
         }
       }
     }

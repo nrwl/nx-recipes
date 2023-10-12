@@ -1,16 +1,28 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SharedUiButton } from './shared-ui-button';
 
-export default {
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<typeof SharedUiButton> = {
   component: SharedUiButton,
   title: 'SharedUiButton',
-} as ComponentMeta<typeof SharedUiButton>;
+};
+export default meta;
+type Story = StoryObj<typeof SharedUiButton>;
 
-const Template: ComponentStory<typeof SharedUiButton> = (args) => (
-  <SharedUiButton {...args} />
-);
+export const Primary = {
+  args: {
+    ctaText: '',
+  },
+};
 
-export const Primary = Template.bind({});
-Primary.args = {
-  ctaText: 'Click me!',
+export const Heading: Story = {
+  args: {
+    ctaText: '',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Welcome to SharedUiButton!/gi)).toBeTruthy();
+  },
 };
