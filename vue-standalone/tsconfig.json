@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {},
+    "allowJs": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compileOnSave": false,
+  "exclude": ["node_modules", "tmp"]
+}
