@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import SharedUiSharedUi from './shared-ui.vue';
+import SharedUi from './shared-ui.vue';
 
-describe('SharedUiSharedUi', () => {
+describe('SharedUi', () => {
   it('renders properly', () => {
-    const wrapper = mount(SharedUiSharedUi, {});
-    expect(wrapper.text()).toContain('Welcome to SharedUiSharedUi');
+    const wrapper = mount(SharedUi, {});
+    expect(wrapper.text()).toContain('Welcome to SharedUi');
   });
 });

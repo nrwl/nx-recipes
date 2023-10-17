@@ -3,7 +3,7 @@ defineProps<{}>();
 </script>
 
 <template>
-  <p>Welcome to SharedUiSharedUi!</p>
+  <p>Welcome to SharedUi!</p>
 </template>
 
 <style scoped></style>

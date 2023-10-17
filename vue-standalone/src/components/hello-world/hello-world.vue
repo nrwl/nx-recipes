@@ -3,7 +3,7 @@ defineProps<{}>();
 </script>
 
 <template>
-  <p>Welcome to AppHelloWorld!</p>
+  <p>Welcome to HelloWorld!</p>
 </template>
 
 <style scoped></style>

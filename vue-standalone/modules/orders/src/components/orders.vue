@@ -3,7 +3,7 @@ defineProps<{}>();
 </script>
 
 <template>
-  <p>Welcome to OrdersOrders!</p>
+  <p>Welcome to Orders!</p>
 </template>
 
 <style scoped></style>

@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import OrdersOrders from './orders.vue';
+import Orders from './orders.vue';
 
-describe('OrdersOrders', () => {
+describe('Orders', () => {
   it('renders properly', () => {
-    const wrapper = mount(OrdersOrders, {});
-    expect(wrapper.text()).toContain('Welcome to OrdersOrders');
+    const wrapper = mount(Orders, {});
+    expect(wrapper.text()).toContain('Welcome to Orders');
   });
 });

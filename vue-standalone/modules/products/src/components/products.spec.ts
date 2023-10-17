@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import ProductsProducts from './products.vue';
+import Products from './products.vue';
 
-describe('ProductsProducts', () => {
+describe('Products', () => {
   it('renders properly', () => {
-    const wrapper = mount(ProductsProducts, {});
-    expect(wrapper.text()).toContain('Welcome to ProductsProducts');
+    const wrapper = mount(Products, {});
+    expect(wrapper.text()).toContain('Welcome to Products');
   });
 });

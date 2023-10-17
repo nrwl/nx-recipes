@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import AppHelloWorld from './hello-world.vue';
+import HelloWorld from './hello-world.vue';
 
-describe('AppHelloWorld', () => {
+describe('HelloWorld', () => {
   it('renders properly', () => {
-    const wrapper = mount(AppHelloWorld, {});
-    expect(wrapper.text()).toContain('Welcome to AppHelloWorld');
+    const wrapper = mount(HelloWorld, {});
+    expect(wrapper.text()).toContain('Welcome to HelloWorld');
   });
 });
