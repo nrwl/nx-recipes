@@ -2,6 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "sourceMap": false,
+    "moduleResolution": "node",
     "outDir": "../dist/out-tsc",
     "allowJs": true,
     "types": ["cypress", "node"]

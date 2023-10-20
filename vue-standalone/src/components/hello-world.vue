@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps<{}>();
+// defineProps<{}>()
 </script>
 
 <template>
-  <p>Welcome to SharedUi!</p>
+  <p>Welcome to HelloWorld!</p>
 </template>
 
 <style scoped></style>

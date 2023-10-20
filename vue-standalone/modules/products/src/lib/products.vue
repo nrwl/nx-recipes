@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps<{}>();
+// defineProps<{}>()
 </script>
 
 <template>
-  <p>Welcome to HelloWorld!</p>
+  <p>Welcome to Products!</p>
 </template>
 
 <style scoped></style>

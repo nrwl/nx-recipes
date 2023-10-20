@@ -1,1 +1,1 @@
-export { default as Orders } from './components/orders.vue';
+export { default as Orders } from './lib/orders.vue';
