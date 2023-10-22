@@ -41,3 +41,5 @@ Thumbs.db
 
 **/prisma/dev.db
 **/prisma/dev.db-journal
+
+.nx/cache

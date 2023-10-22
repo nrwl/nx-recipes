@@ -6,7 +6,7 @@ import {
   setupTailwindGenerator,
 } from '@nx/react';
 import { AppGeneratorSchema } from './schema';
-import { Linter } from '@nx/linter';
+import { Linter } from '@nx/eslint';
 
 const defaultPorts = {
   frontendPort: 3000,
