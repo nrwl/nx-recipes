@@ -13,7 +13,10 @@ const BROKEN_RECIPES = [
   "lit",
   "nestjs-prisma",
   "nuxt-integrated",
-  "rust"
+  "pnpm-workspace",
+  "rust",
+  "storybook-compodoc-angular",
+  "trpc-react-express",
 ];
 
 function isRecipe(file) {
