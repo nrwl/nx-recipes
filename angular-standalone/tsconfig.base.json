@@ -15,9 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@myngapp/modules/orders": ["modules/orders/src/index.ts"],
-      "@myngapp/modules/products": ["modules/products/src/index.ts"],
-      "@myngapp/modules/shared/ui": ["modules/shared/ui/src/index.ts"]
+      "@myngapp/orders": ["modules/orders/src/index.ts"],
+      "@myngapp/products": ["modules/products/src/index.ts"],
+      "@myngapp/shared-ui": ["modules/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

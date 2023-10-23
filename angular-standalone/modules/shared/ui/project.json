@@ -1,5 +1,5 @@
 {
-  "name": "modules-shared-ui",
+  "name": "shared-ui",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "modules/shared/ui/src",
   "prefix": "myngapp",
