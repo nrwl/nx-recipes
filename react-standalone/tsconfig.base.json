@@ -15,9 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@myreactapp/modules/orders": ["modules/orders/src/index.ts"],
-      "@myreactapp/modules/products": ["modules/products/src/index.ts"],
-      "@myreactapp/modules/shared/ui": ["modules/shared/ui/src/index.ts"]
+      "@myreactapp/orders": ["modules/orders/src/index.ts"],
+      "@myreactapp/products": ["modules/products/src/index.ts"],
+      "@myreactapp/ui": ["modules/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

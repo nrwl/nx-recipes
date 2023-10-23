@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'modules-orders',
+  displayName: 'orders',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../coverage/modules/orders',

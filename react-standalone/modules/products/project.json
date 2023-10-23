@@ -1,5 +1,5 @@
 {
-  "name": "modules-products",
+  "name": "products",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "modules/products/src",
   "projectType": "library",
@@ -14,7 +14,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["{workspaceRoot}/coverage/modules/products"],
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/modules/products"

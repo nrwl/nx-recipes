@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import { ProductList } from '@myreactapp/modules/products';
-import { OrderList } from '@myreactapp/modules/orders';
+import { ProductList } from '@myreactapp/products';
+import { OrderList } from '@myreactapp/orders';
 
 function Home() {
-  return <h1>Welcome to the App</h1>;
+  return <h1>Home</h1>;
 }
 
 export function App() {

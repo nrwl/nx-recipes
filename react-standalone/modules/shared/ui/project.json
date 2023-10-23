@@ -1,5 +1,5 @@
 {
-  "name": "modules-shared-ui",
+  "name": "ui",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "modules/shared/ui/src",
   "projectType": "library",
@@ -14,7 +14,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["{workspaceRoot}/coverage/modules/shared/ui"],
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../../coverage/modules/shared/ui"
