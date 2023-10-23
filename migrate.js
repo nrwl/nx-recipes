@@ -27,7 +27,7 @@ function installPackages(cwd) {
 }
 function migrateToLatest(cwd) {
   console.log(`Migrating ${cwd}...`);
-  execSync("CI=true npx nx migrate next", { cwd, stdio: [0, 1, 2] });
+  execSync("CI=true npx nx migrate latest", { cwd, stdio: [0, 1, 2] });
   installPackages(cwd);
   execSync("CI=true npx nx migrate --run-migrations --no-interactive --if-exists", {
     cwd,

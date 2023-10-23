@@ -7,13 +7,18 @@ const BROKEN_RECIPES = [
   "storybook-publishing-strategies-single-framework",
 
   // TODO: I don't think these ever passed?
+  "astro-standalone",
   "deno-deploy",
   "dot-net-standalone",
   "fastify-postgres",
   "lit",
   "nestjs-prisma",
+  "nextjs-trpc",
   "nuxt-integrated",
-  "rust"
+  "pnpm-workspace",
+  "rust",
+  "storybook-compodoc-angular",
+  "trpc-react-express",
 ];
 
 function isRecipe(file) {

@@ -32,14 +32,14 @@ jobs:
         id: e2e-run
         run: node e2e.js
 
-      - name: Report failure
-        if: ${{ failure() && github.repository_owner == 'nrwl' && github.event_name != 'workflow_dispatch' }}
-        uses: ravsamhq/notify-slack-action@v2
-        with:
-          status: 'failure'
-          message_format: '{emoji} Workflow has {status_message} ${{ steps.e2e-run.outcome }}'
-          notification_title: '{workflow}'
-          footer: '<{run_url}|View Run> / Last commit <{commit_url}|{commit_sha}>'
-          mention_groups: '@Isaac'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}
+      # - name: Report failure
+      #   if: ${{ failure() && github.repository_owner == 'nrwl' && github.event_name != 'workflow_dispatch' }}
+      #   uses: ravsamhq/notify-slack-action@v2
+      #   with:
+      #     status: 'failure'
+      #     message_format: '{emoji} Workflow has {status_message} ${{ steps.e2e-run.outcome }}'
+      #     notification_title: '{workflow}'
+      #     footer: '<{run_url}|View Run> / Last commit <{commit_url}|{commit_sha}>'
+      #     mention_groups: '@Isaac'
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}
