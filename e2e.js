@@ -12,6 +12,7 @@ const BROKEN_RECIPES = [
   "fastify-postgres",
   "lit",
   "nestjs-prisma",
+  "nextjs-trpc",
   "nuxt-integrated",
   "pnpm-workspace",
   "rust",

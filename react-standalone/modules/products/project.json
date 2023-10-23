@@ -6,7 +6,7 @@
   "tags": ["scope:products", "type:feature"],
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["modules/products/**/*.{ts,tsx,js,jsx}"]
