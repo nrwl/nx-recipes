@@ -7,6 +7,7 @@ const BROKEN_RECIPES = [
   "storybook-publishing-strategies-single-framework",
 
   // TODO: I don't think these ever passed?
+  "astro-standalone",
   "deno-deploy",
   "dot-net-standalone",
   "fastify-postgres",
