@@ -5,7 +5,7 @@
   "scripts": {},
   "private": true,
   "devDependencies": {
-    "nx": "16.9.0-rc.0"
+    "nx": "17.0.1"
   }
 }
 

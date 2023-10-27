@@ -1,0 +1,78 @@
+{
+  "name": "myvueapp",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "./src",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx,vue}"]
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/myvueapp",
+        "skipTypeCheck": true
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "myvueapp:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "myvueapp:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "myvueapp:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "myvueapp:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "myvueapp:build:development"
+        },
+        "production": {
+          "buildTarget": "myvueapp:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "coverage/myvueapp"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "myvueapp:build"
+      }
+    }
+  }
+}

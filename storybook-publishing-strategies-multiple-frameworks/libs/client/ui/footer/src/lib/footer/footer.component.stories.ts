@@ -1,19 +1,24 @@
-import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
 import { FooterComponent } from './footer.component';
 
-export default {
-  title: 'FooterComponent',
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<FooterComponent> = {
   component: FooterComponent,
-  decorators: [
-    moduleMetadata({
-      imports: [],
-    }),
-  ],
-} as Meta<FooterComponent>;
+  title: 'FooterComponent',
+};
+export default meta;
+type Story = StoryObj<FooterComponent>;
 
-const Template: Story<FooterComponent> = (args: FooterComponent) => ({
-  props: args,
-});
+export const Primary: Story = {
+  args: {},
+};
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Heading: Story = {
+  args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/footer works!/gi)).toBeTruthy();
+  },
+};

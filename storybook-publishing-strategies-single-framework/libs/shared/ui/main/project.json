@@ -6,18 +6,26 @@
   "tags": ["scope:shared", "type:ui"],
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/shared/ui/main/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/shared/ui/main"],
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "jestConfig": "libs/shared/ui/main/jest.config.ts",
-        "passWithNoTests": true
+        "outputPath": "dist/libs/shared/ui/main"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "storybook": {
@@ -36,12 +44,30 @@
       "executor": "@nx/storybook:build",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "configDir": "libs/shared/ui/main/.storybook",
-        "outputDir": "dist/storybook/shared-ui-main"
+        "outputDir": "dist/storybook/shared-ui-main",
+        "configDir": "libs/shared/ui/main/.storybook"
       },
       "configurations": {
         "ci": {
           "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/shared/ui/main/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "shared-ui-main:build-storybook",
+        "staticFilePath": "dist/storybook/shared-ui-main"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "shared-ui-main:build-storybook:ci"
         }
       }
     }

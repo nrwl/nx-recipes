@@ -8,10 +8,10 @@
     "prepare": "nx g @nx-dotnet/core:restore"
   },
   "devDependencies": {
-    "@nrwl/js": "16.7.0",
+    "@nrwl/js": "17.0.1",
     "@nx-dotnet/core": "^1.22.0",
-    "@nx/linter": "16.7.0",
-    "@nx/workspace": "16.7.0",
-    "nx": "16.7.0"
+    "@nx/workspace": "17.0.1",
+    "nx": "17.0.1",
+    "@nx/eslint": "17.0.1"
   }
 }

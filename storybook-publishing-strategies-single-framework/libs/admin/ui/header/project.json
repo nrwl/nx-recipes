@@ -6,18 +6,26 @@
   "tags": ["scope:admin", "type:ui"],
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/admin/ui/header/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/admin/ui/header"],
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "jestConfig": "libs/admin/ui/header/jest.config.ts",
-        "passWithNoTests": true
+        "outputPath": "dist/libs/admin/ui/header"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "storybook": {
@@ -36,12 +44,30 @@
       "executor": "@nx/storybook:build",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "configDir": "libs/admin/ui/header/.storybook",
-        "outputDir": "dist/storybook/admin-ui-header"
+        "outputDir": "dist/storybook/admin-ui-header",
+        "configDir": "libs/admin/ui/header/.storybook"
       },
       "configurations": {
         "ci": {
           "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/admin/ui/header/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "admin-ui-header:build-storybook",
+        "staticFilePath": "dist/storybook/admin-ui-header"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "admin-ui-header:build-storybook:ci"
         }
       }
     }

@@ -11,9 +11,13 @@
   ],
   "exclude": [
     "src/**/*.spec.ts",
+    "src/**/*.test.ts",
     "src/**/*.spec.js",
+    "src/**/*.test.js",
     "src/**/*.spec.tsx",
-    "src/**/*.spec.jsx"
+    "src/**/*.test.tsx",
+    "src/**/*.spec.jsx",
+    "src/**/*.test.js"
   ],
   "include": [
     "src/**/*.stories.ts",
@@ -21,6 +25,7 @@
     "src/**/*.stories.jsx",
     "src/**/*.stories.tsx",
     "src/**/*.stories.mdx",
-    ".storybook/*.js"
+    ".storybook/*.js",
+    ".storybook/*.ts"
   ]
 }

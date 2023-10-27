@@ -1,30 +1,27 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
-    }
-  },
   "targetDefaults": {
     "build": {
+      "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
-    "e2e": {
-      "inputs": ["default", "^production"]
-    },
-    "test": {
-      "inputs": ["default", "^production"]
-    },
     "lint": {
+      "cache": true,
       "inputs": [
         "default",
         "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore"
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js"
       ]
+    },
+    "test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    },
+    "e2e": {
+      "cache": true,
+      "inputs": ["default", "^production"]
     }
   },
   "namedInputs": {
@@ -33,9 +30,10 @@
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/.eslintrc.json"
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.js"
     ],
-    "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
+    "sharedGlobals": []
   },
   "generators": {
     "@nx/react": {
@@ -55,5 +53,6 @@
       }
     }
   },
-  "defaultProject": "myreactapp"
+  "defaultProject": "myreactapp",
+  "nxCloudAccessToken": "N2JmODNhOTctOTdkMi00YjczLWEyZTktZWVmZjNhMWU1MmUxfHJlYWQtd3JpdGU="
 }

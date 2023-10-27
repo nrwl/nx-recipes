@@ -3,14 +3,14 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true
   },
-
   "exclude": ["../**/*.spec.ts"],
   "include": [
-    "../**/*.stories.ts",
-    "../**/*.stories.js",
-    "../**/*.stories.jsx",
-    "../**/*.stories.tsx",
-    "../**/*.stories.mdx",
-    "*.js"
+    "../src/**/*.stories.ts",
+    "../src/**/*.stories.js",
+    "../src/**/*.stories.jsx",
+    "../src/**/*.stories.tsx",
+    "../src/**/*.stories.mdx",
+    "*.js",
+    "*.ts"
   ]
 }

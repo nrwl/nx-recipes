@@ -1,0 +1,59 @@
+{
+  "name": "storybook-host-admin",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "storybook-host-admin/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["storybook-host-admin/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "storybook-host-admin/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/storybook-host-admin",
+        "configDir": "storybook-host-admin/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c storybook-host-admin/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "storybook-host-admin:build-storybook",
+        "staticFilePath": "dist/storybook/storybook-host-admin"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "storybook-host-admin:build-storybook:ci"
+        }
+      }
+    }
+  }
+}

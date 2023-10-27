@@ -1,0 +1,722 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppButtonComponent",
+            "id": "component-AppButtonComponent-3522ef472262e33f48649dbed83939ad28017e2c38c3341a45b1c379dedc36617977199284c00ae0262a59ed2d24b3d5fc718e8bcd0bd2b85895d20f77d1efe0",
+            "file": "apps/my-app/src/app/app-button/app-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-compodoc-angular-app-button",
+            "styleUrls": [
+                "./app-button.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app-button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhat background color to use\n",
+                    "description": "<p>What background color to use</p>\n",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "pos": 598,
+                            "end": 611,
+                            "flags": 8421376,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 330,
+                            "tagName": {
+                                "pos": 599,
+                                "end": 607,
+                                "flags": 8421376,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nButton contents\n\n",
+                    "description": "<p>Button contents</p>\n",
+                    "line": 33,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "primary",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
+                    "description": "<p>Is this the principal call to action on the page?</p>\n",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nHow large should the button be?\n",
+                    "description": "<p>How large should the button be?</p>\n",
+                    "line": 25,
+                    "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional click handler\n",
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 40,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'storybook-compodoc-angular-app-button',\n  templateUrl: './app-button.component.html',\n  styleUrls: ['./app-button.component.css'],\n})\nexport class AppButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  // eslint-disable-next-line @angular-eslint/no-output-on-prefix\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary\n      ? 'storybook-compodoc-angular-app-button--primary'\n      : 'storybook-compodoc-angular-app-button--secondary';\n\n    return [\n      'storybook-compodoc-angular-app-button',\n      `storybook-compodoc-angular-app-button--${this.size}`,\n      mode,\n    ];\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".storybook-compodoc-angular-app-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-compodoc-angular-app-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-compodoc-angular-app-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-compodoc-angular-app-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-compodoc-angular-app-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-compodoc-angular-app-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "styleUrl": "./app-button.component.css"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 42
+                    }
+                }
+            },
+            "templateData": "<button\n  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>\n"
+        },
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-c1dbff79f2eb244276c5727dcee5fa5e07d2f5bae914b9abedf8533132b41c4d03309e79c4c5d06078896415163762cdcd466f56e46b2c4812780f779bb4dd0a",
+            "file": "apps/my-app/src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-compodoc-angular-root",
+            "styleUrls": [
+                "./app.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'my-app'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'storybook-compodoc-angular-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css'],\n})\nexport class AppComponent {\n  title = 'my-app';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.css"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<storybook-compodoc-angular-app-button\n  [primary]=\"false\"\n  [backgroundColor]=\"'#ff0000'\"\n  [size]=\"'medium'\"\n  [label]=\"'Hello App button'\"\n></storybook-compodoc-angular-app-button>\n\n<storybook-compodoc-angular-button\n  [primary]=\"true\"\n  [backgroundColor]=\"'#00ff00'\"\n  [size]=\"'small'\"\n  [label]=\"'Hello Button'\"\n></storybook-compodoc-angular-button>\n"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-7ca3a154a06926c3b7f6499759208cb21e8e0fe5e95e056db9e075562d5ef01acd10c619ada7c75e08f7dd2491ed3634ab65a38cc2c2b9d949e6986605f09fc5",
+            "file": "my-btn/src/lib/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-compodoc-angular-button",
+            "styleUrls": [
+                "./button.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhat background color to use\n",
+                    "description": "<p>What background color to use</p>\n",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "pos": 583,
+                            "end": 596,
+                            "flags": 8421376,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 330,
+                            "tagName": {
+                                "pos": 584,
+                                "end": 592,
+                                "flags": 8421376,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nButton contents\n\n",
+                    "description": "<p>Button contents</p>\n",
+                    "line": 33,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "primary",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
+                    "description": "<p>Is this the principal call to action on the page?</p>\n",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nHow large should the button be?\n",
+                    "description": "<p>How large should the button be?</p>\n",
+                    "line": 25,
+                    "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional click handler\n",
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 40,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'storybook-compodoc-angular-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.css'],\n})\nexport class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  // eslint-disable-next-line @angular-eslint/no-output-on-prefix\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary\n      ? 'storybook-compodoc-angular-button--primary'\n      : 'storybook-compodoc-angular-button--secondary';\n\n    return [\n      'storybook-compodoc-angular-button',\n      `storybook-compodoc-angular-button--${this.size}`,\n      mode,\n    ];\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".storybook-compodoc-angular-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-compodoc-angular-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-compodoc-angular-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-compodoc-angular-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-compodoc-angular-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-compodoc-angular-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "styleUrl": "./button.component.css"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 42
+                    }
+                }
+            },
+            "templateData": "<button\n  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>\n"
+        }
+    ],
+    "modules": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "config",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "apps/my-app/.storybook/main.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StorybookConfig",
+                "defaultValue": "{\n  stories: [\n    '../src/app/**/*.stories.@(js|jsx|ts|tsx|mdx)',\n    '../../../my-btn/**/*.stories.ts',\n  ],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
+            },
+            {
+                "name": "Heading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: false,\n    backgroundColor: '',\n    size: 'medium',\n    label: 'My App Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByRole('button')).toHaveTextContent('My App Button');\n  },\n}"
+            },
+            {
+                "name": "Heading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "my-btn/src/lib/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: false,\n    backgroundColor: '',\n    size: 'medium',\n    label: 'My Lib Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByRole('button')).toHaveTextContent('My Lib Button');\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "apps/my-app/src/app/app.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AppComponent>",
+                "defaultValue": "{\n  component: AppComponent,\n  title: 'AppComponent',\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AppButtonComponent>",
+                "defaultValue": "{\n  component: AppButtonComponent,\n  title: 'AppButtonComponent',\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "my-btn/src/lib/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "apps/my-app/src/app/app.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {},\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: false,\n    backgroundColor: '',\n    size: 'medium',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "my-btn/src/lib/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: false,\n    backgroundColor: '',\n    size: 'medium',\n    label: 'Button',\n  },\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<AppComponent>",
+                "file": "apps/my-app/src/app/app.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<AppButtonComponent>",
+                "file": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "my-btn/src/lib/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "apps/my-app/.storybook/main.ts": [
+                {
+                    "name": "config",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/my-app/.storybook/main.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StorybookConfig",
+                    "defaultValue": "{\n  stories: [\n    '../src/app/**/*.stories.@(js|jsx|ts|tsx|mdx)',\n    '../../../my-btn/**/*.stories.ts',\n  ],\n  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: true,\n    defaultName: 'Docs',\n  },\n}"
+                }
+            ],
+            "apps/my-app/src/app/app-button/app-button.component.stories.ts": [
+                {
+                    "name": "Heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: false,\n    backgroundColor: '',\n    size: 'medium',\n    label: 'My App Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByRole('button')).toHaveTextContent('My App Button');\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AppButtonComponent>",
+                    "defaultValue": "{\n  component: AppButtonComponent,\n  title: 'AppButtonComponent',\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: false,\n    backgroundColor: '',\n    size: 'medium',\n    label: 'Button',\n  },\n}"
+                }
+            ],
+            "my-btn/src/lib/button/button.component.stories.ts": [
+                {
+                    "name": "Heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "my-btn/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: false,\n    backgroundColor: '',\n    size: 'medium',\n    label: 'My Lib Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByRole('button')).toHaveTextContent('My Lib Button');\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "my-btn/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\n  component: ButtonComponent,\n  title: 'ButtonComponent',\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "my-btn/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: false,\n    backgroundColor: '',\n    size: 'medium',\n    label: 'Button',\n  },\n}"
+                }
+            ],
+            "apps/my-app/src/app/app.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/my-app/src/app/app.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AppComponent>",
+                    "defaultValue": "{\n  component: AppComponent,\n  title: 'AppComponent',\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "apps/my-app/src/app/app.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {},\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "apps/my-app/src/app/app.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AppComponent>",
+                    "file": "apps/my-app/src/app/app.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "apps/my-app/src/app/app-button/app-button.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AppButtonComponent>",
+                    "file": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "my-btn/src/lib/button/button.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "my-btn/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 13,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "apps/my-app/.storybook/main.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "config",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Heading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "apps/my-app/src/app/app-button/app-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "apps/my-app/src/app/app-button/app-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppButtonComponent",
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
+            },
+            {
+                "filePath": "apps/my-app/src/app/app.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "apps/my-app/src/app/app.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "apps/my-app/src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "my-btn/src/lib/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Heading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "my-btn/src/lib/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "my-btn/src/lib/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "my-btn/src/lib/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
+            }
+        ]
+    }
+}

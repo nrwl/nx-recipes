@@ -1,0 +1,78 @@
+{
+  "name": "my-btn",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "my-btn/src",
+  "prefix": "storybook-compodoc-angular",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "my-btn/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["my-btn/**/*.ts", "my-btn/**/*.html"]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "my-btn/.storybook",
+        "browserTarget": "my-btn:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/my-btn",
+        "configDir": "my-btn/.storybook",
+        "browserTarget": "my-btn:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c my-btn/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "my-btn:build-storybook",
+        "staticFilePath": "dist/storybook/my-btn"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "my-btn:build-storybook:ci"
+        }
+      }
+    }
+  }
+}

@@ -54,14 +54,14 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["{projectRoot}/coverage/myreactapp"],
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "coverage/myreactapp"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]

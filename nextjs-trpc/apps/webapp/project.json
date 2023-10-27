@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nx/next:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/webapp"
@@ -46,9 +44,7 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/webapp/jest.config.ts",
         "passWithNoTests": true
@@ -61,14 +57,10 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/webapp/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["apps/webapp/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

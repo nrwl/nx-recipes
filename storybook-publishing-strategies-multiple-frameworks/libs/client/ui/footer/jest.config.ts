@@ -3,7 +3,6 @@ export default {
   displayName: 'client-ui-footer',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  globals: {},
   coverageDirectory: '../../../../coverage/libs/client/ui/footer',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [

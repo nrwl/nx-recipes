@@ -1,16 +1,28 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SharedUiMain } from './shared-ui-main';
 
-export default {
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<typeof SharedUiMain> = {
   component: SharedUiMain,
   title: 'SharedUiMain',
-} as ComponentMeta<typeof SharedUiMain>;
+};
+export default meta;
+type Story = StoryObj<typeof SharedUiMain>;
 
-const Template: ComponentStory<typeof SharedUiMain> = (args) => (
-  <SharedUiMain {...args} />
-);
+export const Primary = {
+  args: {
+    text: '',
+  },
+};
 
-export const Primary = Template.bind({});
-Primary.args = {
-  text: 'Some text for the main component',
+export const Heading: Story = {
+  args: {
+    text: '',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Welcome to SharedUiMain!/gi)).toBeTruthy();
+  },
 };
