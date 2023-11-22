@@ -14,8 +14,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
       "options": {
-        "jestConfig": "apps/server-e2e/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "apps/server-e2e/jest.config.ts"
       }
     },
     "lint": {

@@ -1,0 +1,26 @@
+{
+  "migrations": [
+    {
+      "version": "17.1.0-beta.2",
+      "description": "Move jest executor options to nx.json targetDefaults",
+      "implementation": "./src/migrations/update-17-1-0/move-options-to-target-defaults",
+      "package": "@nx/jest",
+      "name": "move-options-to-target-defaults"
+    },
+    {
+      "cli": "nx",
+      "version": "17.0.2",
+      "description": "Remove deprecated build options",
+      "implementation": "./src/migrations/update-17-0-0/remove-deprecated-build-options",
+      "package": "@nx/js",
+      "name": "update-17-0-0-remove-deprecated-build-options"
+    },
+    {
+      "version": "17.1.0-beta.1",
+      "description": "Updates for @typescript-utils/utils v6.9.1+",
+      "implementation": "./src/migrations/update-17-1-0/update-typescript-eslint",
+      "package": "@nx/eslint",
+      "name": "update-typescript-eslint"
+    }
+  ]
+}
