@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "npx nx lint",
-    "serve-functions": "npx nx serve-functions",
+    "serve-functions": "npx nx serve-netlify-functions",
     "deploy-functions": "npx nx deploy-functions"
   },
   "private": true,
