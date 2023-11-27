@@ -53,10 +53,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "angular-store:build:production"
+          "buildTarget": "angular-store:build:production"
         },
         "development": {
-          "browserTarget": "angular-store:build:development"
+          "buildTarget": "angular-store:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,7 +64,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "angular-store:build"
+        "buildTarget": "angular-store:build"
       }
     },
     "lint": {
@@ -81,14 +81,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/angular-store/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/angular-store/jest.config.ts"
       }
     },
     "serve-static": {
