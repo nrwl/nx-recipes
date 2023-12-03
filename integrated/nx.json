@@ -10,12 +10,18 @@
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
       "cache": true
     },
-    "test": {
+    "@nx/jest:jest": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
-      "cache": true
-    },
-    "e2e": {
-      "cache": true
+      "cache": true,
+      "options": {
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
     }
   },
   "namedInputs": {

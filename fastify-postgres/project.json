@@ -63,14 +63,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "jest.config.ts"
       }
     },
     "docker-build": {

@@ -72,7 +72,7 @@
         }
       }
     },
-    "serve-functions": {
+    "serve-netlify-functions": {
       "command": "npx netlify dev"
     },
     "deploy": {

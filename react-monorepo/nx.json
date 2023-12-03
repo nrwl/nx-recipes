@@ -13,10 +13,6 @@
       "inputs": ["default", "^production"],
       "cache": true
     },
-    "test": {
-      "inputs": ["default", "^production"],
-      "cache": true
-    },
     "lint": {
       "inputs": [
         "default",
@@ -24,6 +20,10 @@
         "{workspaceRoot}/.eslintignore",
         "{workspaceRoot}/eslint.config.js"
       ],
+      "cache": true
+    },
+    "@nx/vite:test": {
+      "inputs": ["default", "^production"],
       "cache": true
     }
   },
