@@ -43,7 +43,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "babel-jest": "28.1.1",
     "babel-loader": "8.1.0",
-    "cypress": "^10.7.0",
+    "cypress": "^13.6.2",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
