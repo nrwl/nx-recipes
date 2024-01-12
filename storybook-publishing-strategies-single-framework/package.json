@@ -26,7 +26,7 @@
     "@nrwl/nx-cloud": "latest",
     "@nrwl/react": "^14.7.5",
     "@nrwl/storybook": "^14.7.5",
-    "@nrwl/web": "14.7.5",
+    "@nrwl/web": "14.8.9",
     "@nrwl/workspace": "14.7.5",
     "@storybook/addon-essentials": "~6.5.9",
     "@storybook/builder-webpack5": "~6.5.9",
