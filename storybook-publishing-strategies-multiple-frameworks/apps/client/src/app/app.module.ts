@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-
-import { ClientUiHeaderModule } from '@publishing-strategies-multiple-frameworks/client/ui/header';
-import { ClientUiFooterModule } from '@publishing-strategies-multiple-frameworks/client/ui/footer';
+import { ClientUiFooterModule } from '@storybook-publishing-strategies-multiple-frameworks/client-ui-footer';
+import { ClientUiHeaderModule } from '@storybook-publishing-strategies-multiple-frameworks/client-ui-header';
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, ClientUiHeaderModule, ClientUiFooterModule],
+  imports: [BrowserModule, ClientUiFooterModule, ClientUiHeaderModule],
   providers: [],
   bootstrap: [AppComponent],
 })

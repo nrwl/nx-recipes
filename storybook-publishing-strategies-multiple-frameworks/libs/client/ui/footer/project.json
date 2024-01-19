@@ -1,18 +1,28 @@
 {
-  "projectType": "library",
+  "name": "client-ui-footer",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/ui/footer/src",
-  "prefix": "publishing-strategies-multiple-frameworks",
+  "prefix": "storybook-publishing-strategies-multiple-frameworks",
+  "tags": [],
+  "projectType": "library",
   "targets": {
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/client/ui/footer"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/client/ui/footer/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "libs/client/ui/footer/**/*.ts",
@@ -48,7 +58,24 @@
           "quiet": true
         }
       }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/client/ui/footer/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "client-ui-footer:build-storybook",
+        "staticFilePath": "dist/storybook/client-ui-footer"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "client-ui-footer:build-storybook:ci"
+        }
+      }
     }
-  },
-  "tags": []
+  }
 }

@@ -1,0 +1,45 @@
+name: Run e2e tests
+
+on:
+  pull_request:
+    types: [synchronize, opened, reopened]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    name: Run e2e tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: E2E script
+        id: e2e-run
+        run: node e2e.js
+
+      # - name: Report failure
+      #   if: ${{ failure() && github.repository_owner == 'nrwl' && github.event_name != 'workflow_dispatch' }}
+      #   uses: ravsamhq/notify-slack-action@v2
+      #   with:
+      #     status: 'failure'
+      #     message_format: '{emoji} Workflow has {status_message} ${{ steps.e2e-run.outcome }}'
+      #     notification_title: '{workflow}'
+      #     footer: '<{run_url}|View Run> / Last commit <{commit_url}|{commit_sha}>'
+      #     mention_groups: '@Isaac'
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}

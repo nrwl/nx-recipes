@@ -1,32 +1,38 @@
 {
+  "name": "client-ui-footer",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/client/ui/footer/src",
   "projectType": "library",
   "tags": ["scope:client", "type:ui"],
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/client/ui/footer/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/client/ui/footer"],
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "jestConfig": "libs/client/ui/footer/jest.config.ts",
-        "passWithNoTests": true
+        "outputPath": "dist/libs/client/ui/footer"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@nx/storybook:storybook",
       "options": {
-        "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": {
-          "configFolder": "libs/client/ui/footer/.storybook"
-        }
+        "configDir": "libs/client/ui/footer/.storybook"
       },
       "configurations": {
         "ci": {
@@ -35,18 +41,33 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
       "options": {
-        "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/client-ui-footer",
-        "config": {
-          "configFolder": "libs/client/ui/footer/.storybook"
-        }
+        "outputDir": "dist/storybook/client-ui-footer",
+        "configDir": "libs/client/ui/footer/.storybook"
       },
       "configurations": {
         "ci": {
           "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/client/ui/footer/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "client-ui-footer:build-storybook",
+        "staticFilePath": "dist/storybook/client-ui-footer"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "client-ui-footer:build-storybook:ci"
         }
       }
     }

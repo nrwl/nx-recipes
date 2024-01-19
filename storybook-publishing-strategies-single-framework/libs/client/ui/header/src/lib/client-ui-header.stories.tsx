@@ -1,16 +1,28 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { ClientUiHeader } from './client-ui-header';
 
-export default {
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<typeof ClientUiHeader> = {
   component: ClientUiHeader,
   title: 'ClientUiHeader',
-} as ComponentMeta<typeof ClientUiHeader>;
+};
+export default meta;
+type Story = StoryObj<typeof ClientUiHeader>;
 
-const Template: ComponentStory<typeof ClientUiHeader> = (args) => (
-  <ClientUiHeader {...args} />
-);
+export const Primary = {
+  args: {
+    title: '',
+  },
+};
 
-export const Primary = Template.bind({});
-Primary.args = {
-  title: 'Hello User',
+export const Heading: Story = {
+  args: {
+    title: '',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Welcome to ClientUiHeader!/gi)).toBeTruthy();
+  },
 };

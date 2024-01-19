@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "App",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "frontendPort": {
+      "type": "number",
+      "description": "Port to use when serving the frontend project locally"
+    },
+    "backendPort": {
+      "type": "number",
+      "description": "Port to use when serving the backend project locally"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

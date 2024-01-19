@@ -1,7 +1,7 @@
-import { ClientUiHeader } from '@publishing-strategies-single-framework/client/ui/header';
-import { ClientUiFooter } from '@publishing-strategies-single-framework/client/ui/footer';
-import { SharedUiMain } from '@publishing-strategies-single-framework/shared/ui/main';
-import { SharedUiNotification } from '@publishing-strategies-single-framework/shared/ui/notification';
+import { ClientUiHeader } from '@storybook-publishing-strategies-single-framework/client-ui-header';
+import { ClientUiFooter } from '@storybook-publishing-strategies-single-framework/client-ui-footer';
+import { SharedUiMain } from '@storybook-publishing-strategies-single-framework/shared-ui-main';
+import { SharedUiNotification } from '@storybook-publishing-strategies-single-framework/shared-ui-notification';
 
 export function App() {
   return (

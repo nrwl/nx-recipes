@@ -1,17 +1,30 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { SharedUiNotification } from './shared-ui-notification';
 
-export default {
+import { within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
+const meta: Meta<typeof SharedUiNotification> = {
   component: SharedUiNotification,
   title: 'SharedUiNotification',
-} as ComponentMeta<typeof SharedUiNotification>;
+};
+export default meta;
+type Story = StoryObj<typeof SharedUiNotification>;
 
-const Template: ComponentStory<typeof SharedUiNotification> = (args) => (
-  <SharedUiNotification {...args} />
-);
+export const Primary = {
+  args: {
+    alertText: '',
+    alertColor: '',
+  },
+};
 
-export const Primary = Template.bind({});
-Primary.args = {
-  alertText: 'Error!',
-  alertColor: '#ff0000',
+export const Heading: Story = {
+  args: {
+    alertText: '',
+    alertColor: '',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Welcome to SharedUiNotification!/gi)).toBeTruthy();
+  },
 };

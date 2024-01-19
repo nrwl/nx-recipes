@@ -1,0 +1,66 @@
+{
+  "name": "my-lit-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/my-lit-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/my-lit-app",
+        "format": ["esm"],
+        "bundle": true,
+        "thirdParty": true,
+        "main": "apps/my-lit-app/src/main.ts",
+        "tsConfig": "apps/my-lit-app/tsconfig.app.json",
+        "assets": ["apps/my-lit-app/src/assets", "apps/my-lit-app/index.html"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "minify": true,
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "http-server dist/apps/my-lit-app",
+          "nx watch --projects=my-lit-app --includeDependentProjects -- nx build my-lit-app"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/my-lit-app/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/my-lit-app/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

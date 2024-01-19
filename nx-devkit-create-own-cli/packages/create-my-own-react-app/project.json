@@ -1,0 +1,41 @@
+{
+  "name": "create-my-own-react-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/create-my-own-react-app/bin",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/create-my-own-react-app",
+        "main": "packages/create-my-own-react-app/bin/index.ts",
+        "tsConfig": "packages/create-my-own-react-app/tsconfig.lib.json",
+        "assets": ["packages/create-my-own-react-app/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs create-my-own-react-app {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/create-my-own-react-app/**/*.ts",
+          "packages/create-my-own-react-app/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/create-my-own-react-app/jest.config.ts"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["my-own-react"]
+}

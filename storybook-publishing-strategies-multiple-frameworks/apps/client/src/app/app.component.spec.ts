@@ -1,19 +1,27 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from "@publishing-strategies-multiple-frameworks/client/ui/header";
-import {FooterComponent} from "@publishing-strategies-multiple-frameworks/client/ui/footer";
+import { NxWelcomeComponent } from './nx-welcome.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, HeaderComponent, FooterComponent],
+      imports: [],
+      declarations: [AppComponent, NxWelcomeComponent],
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Welcome client'
+    );
   });
 
+  it(`should have as title 'client'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('client');
+  });
 });

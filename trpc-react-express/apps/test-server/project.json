@@ -1,0 +1,40 @@
+{
+  "name": "test-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/test-server/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/test-server",
+        "format": ["cjs"],
+        "main": "apps/test-server/src/main.ts",
+        "tsConfig": "apps/test-server/tsconfig.app.json",
+        "assets": ["apps/test-server/src/assets"],
+        "generatePackageJson": true,
+        "thirdParty": true
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "test-server:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "test-server:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/test-server/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,33 @@
+{
+  "name": "myapp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/myapp",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/remix:build",
+      "options": {
+        "outputPath": "{projectRoot}"
+      }
+    },
+    "serve": {
+      "executor": "@nx/remix:serve",
+      "options": {}
+    },
+    "typecheck": {
+      "command": "tsc",
+      "options": {
+        "cwd": "apps/myapp"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{workspaceRoot}/coverage/apps/myapp"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/myapp"
+      }
+    }
+  }
+}

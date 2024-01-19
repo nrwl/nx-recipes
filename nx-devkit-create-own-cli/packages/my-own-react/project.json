@@ -1,0 +1,63 @@
+{
+  "name": "my-own-react",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/my-own-react/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/my-own-react",
+        "main": "packages/my-own-react/src/index.ts",
+        "tsConfig": "packages/my-own-react/tsconfig.lib.json",
+        "assets": [
+          "packages/my-own-react/*.md",
+          {
+            "input": "./packages/my-own-react/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/my-own-react/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/my-own-react",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/my-own-react",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs my-own-react {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/my-own-react/**/*.ts",
+          "packages/my-own-react/package.json",
+          "packages/my-own-react/generators.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/my-own-react/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

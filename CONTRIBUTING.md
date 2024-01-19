@@ -11,7 +11,9 @@ We'd love to have new examples being contributed to this repository.
 
 Every example should live within a dedicated folder created at the root of this repository and being completely self-contained.
 
-The folder should contain a `README.md` file with the following section
+Make sure there is at least one e2e test in your example that verifies that the core functionality of your example actually works.
+
+The folder should follow the `<framework>-<tech-1>-<tech-2>-...-<tech-n>` naming convention (e.g. `remix`, `remix-prisma`, `remix-prisma-flyio`), or for non-JS recipes use `<lang>-<tech-1>-<tech-2>-...-<tech-n>` (e.g. `rust`, `rust-hyper`, `java-gradle`, `java-springboot`). It must also contain a `README.md` file with the following section
 
 ```markdown
 # Example Title

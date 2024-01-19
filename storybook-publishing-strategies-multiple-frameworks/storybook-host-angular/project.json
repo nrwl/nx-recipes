@@ -1,0 +1,81 @@
+{
+  "name": "storybook-host-angular",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "storybook-host-angular/src",
+  "prefix": "storybook-publishing-strategies-multiple-frameworks",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "storybook-host-angular/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "storybook-host-angular/**/*.ts",
+          "storybook-host-angular/**/*.html"
+        ]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4401,
+        "configDir": "storybook-host-angular/.storybook",
+        "browserTarget": "storybook-host-angular:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/storybook-host-angular",
+        "configDir": "storybook-host-angular/.storybook",
+        "browserTarget": "storybook-host-angular:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c storybook-host-angular/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "storybook-host-angular:build-storybook",
+        "staticFilePath": "dist/storybook/storybook-host-angular"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "storybook-host-angular:build-storybook:ci"
+        }
+      }
+    }
+  }
+}
