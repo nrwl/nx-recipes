@@ -6,24 +6,27 @@ on:
       - main
   pull_request:
 
+permissions:
+  actions: read
+  contents: read
+
 jobs:
   main:
-    name: Nx Cloud - Main Job
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.13.0
-    with:
-      main-branch-name: main
-      number-of-agents: 3
-      init-commands: |
-        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
-      parallel-commands: |
-        npx nx-cloud record -- npx nx format:check
-      parallel-commands-on-agents: |
-        npx nx affected --target=lint --parallel=3
-        npx nx affected --target=test --parallel=3 --ci --code-coverage
-        npx nx affected --target=build --parallel=3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Cache node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - uses: nrwl/nx-set-shas@v4
 
-  agents:
-    name: Nx Cloud - Agents
-    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.13.0
-    with:
-      number-of-agents: 3
+      # uncomment to enable task distribution
+      # - run: npx nx-cloud start-ci-run --distributes-on="5 linux-medium"
+
+      - run: npx nx-cloud record -- nx format:check
+      - run: npx nx affected -t=lint,test,build --parallel=3

@@ -1,32 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "workspaceLayout": {
-    "projectNameAndRootFormat": "as-provided"
-  },
-  "targetDefaults": {
-    "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"],
-      "cache": true
-    },
-    "e2e": {
-      "inputs": ["default", "^production"],
-      "cache": true
-    },
-    "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore",
-        "{workspaceRoot}/eslint.config.js"
-      ],
-      "cache": true
-    },
-    "@nx/vite:test": {
-      "inputs": ["default", "^production"],
-      "cache": true
-    }
-  },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
@@ -34,17 +7,45 @@
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/eslint.config.js"
+      "!{projectRoot}/eslint.config.js",
+      "!{projectRoot}/cypress/**/*",
+      "!{projectRoot}/**/*.cy.[jt]s?(x)",
+      "!{projectRoot}/cypress.config.[jt]s"
     ],
     "sharedGlobals": []
   },
+  "plugins": [
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "previewTargetName": "preview",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "componentTestingTargetName": "component-test"
+      }
+    }
+  ],
   "generators": {
     "@nx/react": {
       "application": {
+        "babel": true,
         "style": "css",
         "linter": "eslint",
-        "bundler": "vite",
-        "babel": true
+        "bundler": "vite"
       },
       "component": {
         "style": "css"
@@ -56,5 +57,5 @@
       }
     }
   },
-  "nxCloudAccessToken": "Y2I5YjkyZTgtNjYxYy00NGQyLWJjODUtYzFjODU5MzE2M2IxfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "M2YzYTcwMWMtYjdlMS00MTU0LTgwOWUtM2VlNmMzMmUzYjQ5fHJlYWQtd3JpdGU="
 }
