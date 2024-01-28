@@ -64,10 +64,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/test-web/**/*.{ts,tsx,js,jsx}"]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "serve-fullstack": {
       "executor": "@trpc-react-express/plugin:serve-fullstack",

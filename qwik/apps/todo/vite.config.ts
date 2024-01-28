@@ -5,6 +5,14 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { qwikNxVite } from 'qwik-nx/plugins';
 
 export default defineConfig({
+  root: __dirname,
+  build: {
+    outDir: '../../dist/apps/todo',
+    reportCompressedSize: true,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
   cacheDir: '../../node_modules/.vite/apps/todo',
   plugins: [
     qwikNxVite(),
@@ -31,6 +39,11 @@ export default defineConfig({
     },
   },
   test: {
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '../../coverage/apps/todo',
+      provider: 'v8',
+    },
     globals: true,
     cache: {
       dir: '../../node_modules/.vitest',

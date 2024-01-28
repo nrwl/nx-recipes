@@ -69,13 +69,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "apps/inventory/**/*.ts",
-          "apps/inventory/**/*.html"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",

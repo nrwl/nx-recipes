@@ -7,10 +7,7 @@
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/admin/ui/header/**/*.{ts,tsx,js,jsx}"]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "build": {
       "executor": "@nx/vite:build",

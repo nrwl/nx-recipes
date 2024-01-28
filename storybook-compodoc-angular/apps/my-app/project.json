@@ -50,10 +50,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "my-app:build:production"
+          "buildTarget": "my-app:build:production"
         },
         "development": {
-          "browserTarget": "my-app:build:development"
+          "buildTarget": "my-app:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -61,28 +61,18 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "my-app:build"
+        "buildTarget": "my-app:build"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/my-app/**/*.ts", "apps/my-app/**/*.html"]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/my-app/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/my-app/jest.config.ts"
       }
     },
     "storybook": {

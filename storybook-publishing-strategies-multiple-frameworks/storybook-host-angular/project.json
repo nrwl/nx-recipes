@@ -10,25 +10,12 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "storybook-host-angular/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "storybook-host-angular/jest.config.ts"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "storybook-host-angular/**/*.ts",
-          "storybook-host-angular/**/*.html"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "storybook": {
       "executor": "@storybook/angular:start-storybook",
