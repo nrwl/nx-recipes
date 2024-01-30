@@ -5,20 +5,5 @@
   "prefix": "angular-monorepo",
   "tags": ["type:feature", "scope:orders"],
   "projectType": "library",
-  "targets": {
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "libs/orders/jest.config.ts"
-      }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/orders/**/*.ts", "libs/orders/**/*.html"]
-      }
-    }
-  }
+  "targets": {}
 }

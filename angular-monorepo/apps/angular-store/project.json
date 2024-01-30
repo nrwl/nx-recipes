@@ -7,12 +7,12 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/angular-store",
         "index": "apps/angular-store/src/index.html",
-        "main": "apps/angular-store/src/main.ts",
+        "browser": "apps/angular-store/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/angular-store/tsconfig.app.json",
         "assets": [
@@ -39,12 +39,9 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "sourceMap": true
         }
       },
       "defaultConfiguration": "production"
@@ -67,27 +64,11 @@
         "buildTarget": "angular-store:build"
       }
     },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "apps/angular-store/**/*.ts",
-          "apps/angular-store/**/*.html"
-        ]
-      }
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "apps/angular-store/jest.config.ts"
-      }
-    },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "angular-store:build"
+        "buildTarget": "angular-store:build",
+        "staticFilePath": "dist/apps/angular-store/browser"
       }
     }
   }
