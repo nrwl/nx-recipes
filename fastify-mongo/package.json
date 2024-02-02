@@ -11,7 +11,7 @@
     "@fastify/autoload": "~5.7.1",
     "@fastify/mongodb": "^7.0.0",
     "@fastify/sensible": "~5.2.0",
-    "axios": "^1.0.0",
+    "axios": "^1.6.0",
     "fastify": "~4.13.0",
     "fastify-plugin": "~4.5.0",
     "tslib": "^2.3.0"
