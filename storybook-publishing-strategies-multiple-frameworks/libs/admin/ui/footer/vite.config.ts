@@ -5,6 +5,7 @@ import * as path from 'path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
+  root: __dirname,
   cacheDir: '../../../../node_modules/.vite/admin-ui-footer',
 
   plugins: [
@@ -25,6 +26,9 @@ export default defineConfig({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
+    outDir: '../../../../dist/libs/admin/ui/footer',
+    reportCompressedSize: true,
+    commonjsOptions: { transformMixedEsModules: true },
     entry: 'src/index.ts',
     name: 'admin-ui-footer',
     fileName: 'index',

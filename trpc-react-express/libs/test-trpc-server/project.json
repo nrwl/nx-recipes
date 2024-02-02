@@ -29,10 +29,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/test-trpc-server/**/*.ts"]
-      }
+      "outputs": ["{options.outputFile}"]
     }
   },
   "sourceRoot": "libs/test-trpc-server/src"
