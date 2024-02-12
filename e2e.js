@@ -50,7 +50,7 @@ function installPackages(cwd) {
     execSync("yarn", { cwd });
   } else {
     checkLockfileForLocalhost(`${cwd}/package-lock.json`)
-    execSync("npm i --legacy-peer-deps", { cwd });
+    execSync("npm ci --legacy-peer-deps", { cwd });
   }
 }
 
