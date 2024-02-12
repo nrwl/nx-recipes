@@ -55,7 +55,7 @@ function installPackages(cwd) {
 }
 
 function runE2eTests(cwd) {
-  execSync("CI=true npx nx run-many --target=e2e --parallel=false", {
+  execSync("CI=true npx nx run-many --target=e2e --parallel=1", {
     cwd,
     stdio: [0, 1, 2]
   });
