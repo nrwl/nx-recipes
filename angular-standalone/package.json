@@ -17,7 +17,7 @@
     "@angular/platform-browser": "~17.1.0",
     "@angular/platform-browser-dynamic": "~17.1.0",
     "@angular/router": "~17.1.0",
-    "@nx/angular": "18.0.0-canary.20240130-bb3cf3a",
+    "@nx/angular": "18.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
@@ -32,15 +32,15 @@
     "@angular/cli": "~17.1.0",
     "@angular/compiler-cli": "~17.1.0",
     "@angular/language-service": "~17.1.0",
-    "@nx/cypress": "18.0.0-canary.20240130-bb3cf3a",
-    "@nx/eslint": "18.0.0-canary.20240130-bb3cf3a",
-    "@nx/eslint-plugin": "18.0.0-canary.20240130-bb3cf3a",
-    "@nx/jest": "18.0.0-canary.20240130-bb3cf3a",
-    "@nx/js": "18.0.0-canary.20240130-bb3cf3a",
-    "@nx/web": "18.0.0-canary.20240130-bb3cf3a",
-    "@nx/workspace": "18.0.0-canary.20240130-bb3cf3a",
+    "@nx/cypress": "18.0.5",
+    "@nx/eslint": "18.0.5",
+    "@nx/eslint-plugin": "18.0.5",
+    "@nx/jest": "18.0.5",
+    "@nx/js": "18.0.5",
+    "@nx/web": "18.0.5",
+    "@nx/workspace": "18.0.5",
     "@schematics/angular": "~17.1.0",
-    "@swc-node/register": "~1.6.7",
+    "@swc-node/register": "1.8.0",
     "@swc/core": "~1.3.85",
     "@swc/helpers": "~0.5.2",
     "@types/jest": "^29.4.0",
@@ -55,7 +55,7 @@
     "jest-environment-jsdom": "^29.4.1",
     "jest-preset-angular": "~13.1.4",
     "jsonc-eslint-parser": "^2.1.0",
-    "nx": "18.0.0-canary.20240130-bb3cf3a",
+    "nx": "18.0.5",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
@@ -65,3 +65,4 @@
     "includedScripts": []
   }
 }
+
