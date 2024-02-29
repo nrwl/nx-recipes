@@ -3,7 +3,7 @@ export default {
   displayName: 'angular-store',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/angular-store',
+  coverageDirectory: '../../coverage/apps/angular-store-changed',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

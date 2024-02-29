@@ -9,11 +9,11 @@ const routes = [
   { path: '/', component: NxWelcome },
   {
     path: '/products',
-    component: () => import('@myvueapp/products').then((m) => m.Products),
+    component: () => import('@myvueapp/products').then((m) => m.ProductList),
   },
   {
     path: '/orders',
-    component: () => import('@myvueapp/orders').then((m) => m.Orders),
+    component: () => import('@myvueapp/orders').then((m) => m.OrderList),
   },
 ];
 

@@ -9,10 +9,12 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'products',
-    loadComponent: () => import('@myngapp/products').then((m) => m.ProductsComponent),
+    loadComponent: () =>
+      import('@myngapp/products').then((m) => m.ProductsComponent),
   },
   {
     path: 'orders',
-    loadComponent: () => import('@myngapp/orders').then((m) => m.OrdersComponent),
+    loadComponent: () =>
+      import('@myngapp/orders').then((m) => m.OrdersComponent),
   },
 ];

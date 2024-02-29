@@ -2,12 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "types": ["vite/client"],
-    "lib": ["ES2016", "DOM", "DOM.Iterable"]
+    "types": ["vite/client"]
   },
   "exclude": [
     "src/**/__tests__/*",
@@ -18,7 +13,9 @@
     "src/**/*.spec.js",
     "src/**/*.test.js",
     "src/**/*.spec.jsx",
-    "src/**/*.test.jsx"
+    "src/**/*.test.jsx",
+    "src/**/*.spec.vue",
+    "src/**/*.test.vue"
   ],
   "include": [
     "src/**/*.js",

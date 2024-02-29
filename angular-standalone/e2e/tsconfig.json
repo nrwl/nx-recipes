@@ -1,10 +1,11 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "sourceMap": false,
-    "outDir": "../dist/out-tsc",
     "allowJs": true,
+    "outDir": "../dist/out-tsc",
+    "module": "commonjs",
     "types": ["cypress", "node"],
+    "sourceMap": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -12,5 +13,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "cypress.config.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "cypress.config.ts",
+    "**/*.cy.ts",
+    "**/*.cy.js",
+    "**/*.d.ts"
+  ]
 }

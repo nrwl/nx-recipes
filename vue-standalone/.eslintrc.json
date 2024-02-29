@@ -1,10 +1,49 @@
 {
+  "root": true,
   "ignorePatterns": ["!**/*"],
+  "plugins": ["@nx"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx", "*.vue"],
       "rules": {
-        "vue/multi-word-component-names": "off"
+        "vue/multi-word-component-names": "off",
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["type:feature", "type:ui"]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["type:ui"]
+              },
+              {
+                "sourceTag": "scope:orders",
+                "onlyDependOnLibsWithTags": [
+                  "scope:orders",
+                  "scope:products",
+                  "scope:shared"
+                ]
+              },
+              {
+                "sourceTag": "scope:products",
+                "onlyDependOnLibsWithTags": ["scope:products", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              }
+            ]
+          }
+        ]
       }
     }
   ],
@@ -12,7 +51,6 @@
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/eslint-config-typescript",
-    "@vue/eslint-config-prettier/skip-formatting",
-    "./.eslintrc.base.json"
+    "@vue/eslint-config-prettier/skip-formatting"
   ]
 }

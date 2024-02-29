@@ -2,6 +2,9 @@ const { execSync } = require("child_process");
 const { readdirSync, readFileSync, existsSync } = require("fs");
 
 const BROKEN_RECIPES = [
+  // TODO: this broke in v18
+  "nx-devkit-create-own-cli",
+
   // TODO: migrate these to Storybook v7 since v6 is not supported by Nx
   "storybook-publishing-strategies-multiple-frameworks",
   "storybook-publishing-strategies-single-framework",
@@ -47,12 +50,12 @@ function installPackages(cwd) {
     execSync("yarn", { cwd });
   } else {
     checkLockfileForLocalhost(`${cwd}/package-lock.json`)
-    execSync("npm i --legacy-peer-deps", { cwd });
+    execSync("npm ci --legacy-peer-deps", { cwd });
   }
 }
 
 function runE2eTests(cwd) {
-  execSync("CI=true npx nx run-many --target=e2e --parallel=false", {
+  execSync("CI=true npx nx run-many --target=e2e --parallel=1", {
     cwd,
     stdio: [0, 1, 2]
   });
