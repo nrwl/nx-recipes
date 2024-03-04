@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <p>Welcome to Orders!</p>
+  <p>Welcome to OrderList!</p>
 </template>
 
 <style scoped></style>

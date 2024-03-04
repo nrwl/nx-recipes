@@ -1,8 +1,5 @@
 import styles from './product-list.module.css';
 
-// This import is not allowed 👇
-import { OrderList } from '@react-monorepo/orders';
-
 /* eslint-disable-next-line */
 export interface ProductListProps {}
 

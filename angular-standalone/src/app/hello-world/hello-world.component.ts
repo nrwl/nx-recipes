@@ -6,6 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './hello-world.component.html',
-  styleUrls: ['./hello-world.component.css'],
+  styleUrl: './hello-world.component.css',
 })
 export class HelloWorldComponent {}
