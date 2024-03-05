@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "reactlib": {
+      "factory": "./src/generators/reactlib/generator",
+      "schema": "./src/generators/reactlib/schema.json",
+      "description": "reactlib generator"
+    }
+  }
+}
