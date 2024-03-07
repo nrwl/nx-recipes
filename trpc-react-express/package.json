@@ -65,7 +65,7 @@
     "@swc/helpers": "~0.4.11",
     "@trpc/client": "^10.8.1",
     "@trpc/server": "^10.8.1",
-    "axios": "^1.0.0",
+    "axios": "^1.6.6",
     "core-js": "^3.6.5",
     "express": "^4.18.1",
     "react": "18.2.0",
