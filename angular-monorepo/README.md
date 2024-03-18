@@ -4,7 +4,7 @@
 
 
 Source code for the Angular monorepo application tutorial on the Nx docs:
-- Tutorial: https://nx.dev/getting-started/angular-monorepo-tutorial
+- Tutorial: https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial
 
 ## What's inside?
 
