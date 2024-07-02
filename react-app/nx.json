@@ -5,7 +5,8 @@
       "cache": true
     },
     "build": {
-      "cache": true
+      "cache": true,
+      "dependsOn": ["typecheck"]
     },
     "lint": {
       "cache": true
@@ -26,8 +27,7 @@
     {
       "plugin": "@nx/eslint/plugin",
       "options": {
-        "targetName": "eslint:lint",
-        "extensions": ["ts", "tsx", "js", "jsx", "html", "vue"]
+        "targetName": "lint"
       }
     }
   ],

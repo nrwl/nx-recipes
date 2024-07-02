@@ -1,8 +1,5 @@
 import styles from './orders.module.css';
 
-/* eslint-disable-next-line */
-export interface OrdersProps {}
-
 export function Orders() {
   return (
     <div className={styles['container']}>

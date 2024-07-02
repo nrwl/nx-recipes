@@ -1,20 +1,30 @@
-# Tutorial: Standalone React Application
+# React + TypeScript + Vite
 
-[![standalone application](https://img.shields.io/static/v1?label=Nx%20setup&message=standalone%20app&color=blue)](https://nx.dev/concepts/integrated-vs-package-based#standalone-applications)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Source code for the React standalone application tutorial on the Nx docs:
-- Tutorial: https://nx.dev/getting-started/react-standalone-tutorial
+Currently, two official plugins are available:
 
-## What's inside?
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-This example contains a single Vite-based React application that has been generated with the `npm create vite` command. It contains a single root-level application and local libraries within the `modules` folder.
+## Expanding the ESLint configuration
 
-Follow through the tutorial linked above for more details.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## How to run it
+- Configure the top-level `parserOptions` property like this:
 
-Install all dependencies using `npm install`. You can then run commands Like
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-- `npx nx serve` to serve the app
-- `npx nx build` to build the React application
-- you can use `npx nx graph` to visualize the structure
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

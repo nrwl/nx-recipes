@@ -14,6 +14,7 @@ export default defineConfig({
   // },
 
   test: {
+    watch: false,
     globals: true,
     cache: { dir: '../../../node_modules/.vitest/modules/shared/ui' },
     environment: 'jsdom',

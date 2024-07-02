@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "modules/orders/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["type:feature", "scope:orders"],
   "// targets": "to see all targets run: nx show project orders --web",
   "targets": {}
 }
