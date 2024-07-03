@@ -1,0 +1,12 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "orders": ["modules/orders/src/index.ts"],
+      "products": ["modules/products/src/index.ts"],
+      "ui": ["modules/shared/ui/src/index.ts"]
+    }
+  }
+}
