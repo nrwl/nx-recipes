@@ -1,0 +1,16 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "orders": ["modules/orders/src/index.ts"],
+      "products": ["modules/products/src/index.ts"],
+      "ui": ["modules/shared/ui/src/index.ts"]
+    }
+  }
+}
