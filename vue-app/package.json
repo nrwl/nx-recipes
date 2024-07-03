@@ -8,7 +8,7 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "nx vite:preview",
     "test:unit": "nx test",
-    "test:e2e": "playwright test",
+    "e2e": "playwright test",
     "build-only": "nx vite:build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
