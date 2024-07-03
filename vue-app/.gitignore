@@ -33,4 +33,6 @@ test-results/
 playwright-report/
 
 
+
 .nx/cache
+.nx/workspace-data

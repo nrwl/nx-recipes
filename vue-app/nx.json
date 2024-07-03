@@ -2,12 +2,20 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
     "test:e2e": {
-      "outputs": [
-        "{projectRoot}/playwright-report"
-      ],
+      "outputs": ["{projectRoot}/playwright-report"],
       "cache": true
     },
+    "build": {
+      "dependsOn": [
+        "type-check",
+        {
+          "target": "build-only",
+          "params": "forward"
+        }
+      ]
+    },
     "build-only": {
+      "outputs": ["{projectRoot}/dist"],
       "cache": true
     },
     "type-check": {
@@ -32,15 +40,7 @@
     {
       "plugin": "@nx/eslint/plugin",
       "options": {
-        "targetName": "eslint:lint",
-        "extensions": [
-          "ts",
-          "tsx",
-          "js",
-          "jsx",
-          "html",
-          "vue"
-        ]
+        "targetName": "lint"
       }
     }
   ]

@@ -9,7 +9,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 export default defineConfig({
   plugins: [vue(), vueJsx(), nxViteTsPaths()],
   build: {
-    outDir: 'dist/vue-app'
+    outDir: 'dist/vue-app',
   },
   resolve: {
     alias: {

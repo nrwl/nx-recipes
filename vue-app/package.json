@@ -5,28 +5,27 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "nx exec -- echo 'Ran type-check and build-only'",
+    "build": "run-p type-check \"build-only {@}\" --",
     "preview": "nx vite:preview",
     "test:unit": "nx test",
     "test:e2e": "playwright test",
-    "e2e": "nx test:e2e vue-app",
     "build-only": "nx vite:build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@nx/eslint-plugin": "19.1.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@nx/eslint": "19.1.2",
-    "@nx/js": "19.1.2",
-    "@nx/playwright": "19.1.2",
-    "@nx/vite": "19.1.2",
-    "@nx/vue": "19.1.2",
-    "@nx/web": "19.1.2",
+    "@nx/eslint": "^19.3.2",
+    "@nx/eslint-plugin": "19.3.2",
+    "@nx/js": "19.3.2",
+    "@nx/playwright": "^19.3.2",
+    "@nx/vite": "^19.3.2",
+    "@nx/vue": "^19.3.2",
+    "@nx/web": "19.3.2",
     "@playwright/test": "^1.43.0",
     "@rushstack/eslint-patch": "^1.8.0",
     "@swc-node/register": "~1.9.1",
@@ -48,7 +47,7 @@
     "eslint-plugin-vue": "^9.23.0",
     "jsdom": "^24.0.0",
     "npm-run-all2": "^6.1.2",
-    "nx": "19.1.2",
+    "nx": "19.3.2",
     "prettier": "^3.2.5",
     "typescript": "~5.4.0",
     "vite": "^5.2.8",
@@ -56,17 +55,5 @@
     "vitest": "^1.4.0",
     "vue-tsc": "^2.0.11"
   },
-  "nx": {
-    "targets": {
-      "build": {
-        "dependsOn": [
-          "type-check",
-          {
-            "target": "build-only",
-            "params": "forward"
-          }
-        ]
-      }
-    }
-  }
+  "nx": {}
 }

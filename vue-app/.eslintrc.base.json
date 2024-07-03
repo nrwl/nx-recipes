@@ -1,16 +1,15 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "extends": ["plugin:vue/vue3-essential"],
   "plugins": ["@nx"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx", "*.vue"],
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
         "@nx/enforce-module-boundaries": [
           "error",
           {
-            "enforceBuildableLibDependency": false,
+            "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
               {
@@ -27,7 +26,11 @@
               },
               {
                 "sourceTag": "scope:orders",
-                "onlyDependOnLibsWithTags": ["scope:orders", "scope:products", "scope:shared"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:orders",
+                  "scope:products",
+                  "scope:shared"
+                ]
               },
               {
                 "sourceTag": "scope:products",
