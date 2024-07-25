@@ -1,5 +1,3 @@
-import { getGreeting } from '../support/app.po';
-
 describe('inventory-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
@@ -8,6 +6,6 @@ describe('inventory-e2e', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains(/Welcome/);
+    cy.get('angular-monorepo-product-list').contains(/product-list/);
   });
 });
