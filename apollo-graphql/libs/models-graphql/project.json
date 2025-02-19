@@ -1,0 +1,12 @@
+{
+  "name": "models-graphql",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/models-graphql/src",
+  "projectType": "library",
+  "tags": [],
+"targets": {
+    "codegen": {
+      "command": "npx graphql-codegen --config {projectRoot}/codegen.ts"
+    }
+}
+}
