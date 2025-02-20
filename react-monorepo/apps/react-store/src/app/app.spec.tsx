@@ -10,6 +10,8 @@ describe('App', () => {
 
   it('should have a greeting as the title', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/Welcome react-store/gi)).toBeTruthy();
+    expect(
+      getByText(new RegExp('Welcome @react-monorepo/react-store', 'gi'))
+    ).toBeTruthy();
   });
 });

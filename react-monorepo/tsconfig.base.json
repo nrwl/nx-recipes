@@ -1,24 +1,20 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "composite": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
     "importHelpers": true,
-    "target": "es2015",
+    "isolatedModules": true,
+    "lib": ["es2022"],
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "moduleResolution": "bundler",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@react-monorepo/orders": ["libs/orders/src/index.ts"],
-      "@react-monorepo/products": ["libs/products/src/index.ts"],
-      "@react-monorepo/shared-ui": ["libs/shared/ui/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+    "strict": true,
+    "target": "es2022"
+  }
 }

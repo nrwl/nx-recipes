@@ -6,23 +6,46 @@
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/eslint.config.js",
+      "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/cypress/**/*",
       "!{projectRoot}/**/*.cy.[jt]s?(x)",
       "!{projectRoot}/cypress.config.[jt]s"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml",
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
+  "nxCloudId": "67b778cd8d11d87a19b998ad",
   "plugins": [
+    {
+      "plugin": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.lib.json",
+          "buildDepsName": "build-deps",
+          "watchDepsName": "watch-deps"
+        }
+      }
+    },
     {
       "plugin": "@nx/vite/plugin",
       "options": {
         "buildTargetName": "build",
-        "previewTargetName": "preview",
         "testTargetName": "test",
         "serveTargetName": "serve",
-        "serveStaticTargetName": "serve-static"
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
       }
     },
     {
@@ -35,10 +58,20 @@
       "plugin": "@nx/cypress/plugin",
       "options": {
         "targetName": "e2e",
-        "componentTestingTargetName": "component-test"
+        "openTargetName": "open-cypress",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci"
       }
     }
   ],
+  "targetDefaults": {
+    "test": {
+      "dependsOn": ["^build", "^build", "^build", "^build", "^build"]
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
+    }
+  },
   "generators": {
     "@nx/react": {
       "application": {
@@ -56,6 +89,5 @@
         "unitTestRunner": "vitest"
       }
     }
-  },
-  "nxCloudAccessToken": "M2YzYTcwMWMtYjdlMS00MTU0LTgwOWUtM2VlNmMzMmUzYjQ5fHJlYWQtd3JpdGU="
+  }
 }

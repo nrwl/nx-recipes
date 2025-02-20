@@ -1,9 +1,8 @@
 import styles from './products.module.css';
+// This import is not allowed 👇
+import { Orders } from '@react-monorepo/orders';
 
-/* eslint-disable-next-line */
-export interface ProductsProps {}
-
-export function Products(props: ProductsProps) {
+export function Products() {
   return (
     <div className={styles['container']}>
       <h1>Welcome to Products!</h1>
