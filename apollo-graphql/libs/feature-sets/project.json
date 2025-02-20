@@ -1,0 +1,12 @@
+{
+  "name": "feature-sets",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/feature-sets/src",
+  "projectType": "library",
+  "tags": [],
+"targets": {
+    "codegen": {
+      "command": "npx graphql-codegen --config {projectRoot}/codegen.ts"
+    }
+}
+}

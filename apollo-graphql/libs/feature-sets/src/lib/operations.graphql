@@ -1,0 +1,17 @@
+mutation addSet($name: String!, $year: String!, $numParts: Int!) {
+  addSet(name: $name, year: $year, numParts: $numParts) {
+    id
+    name
+    numParts
+    year
+  }
+}
+
+query setList {
+  allSets{
+    id
+    name
+    numParts
+    year
+  }
+}
