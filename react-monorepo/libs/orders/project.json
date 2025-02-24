@@ -1,8 +1,0 @@
-{
-  "name": "orders",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/orders/src",
-  "projectType": "library",
-  "tags": ["type:feature", "scope:orders"],
-  "targets": {}
-}

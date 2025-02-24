@@ -10,6 +10,8 @@ describe('App', () => {
 
   it('should have a greeting as the title', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/Welcome inventory/gi)).toBeTruthy();
+    expect(
+      getByText(new RegExp('Welcome @react-monorepo/inventory', 'gi'))
+    ).toBeTruthy();
   });
 });
