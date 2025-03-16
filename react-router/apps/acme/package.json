@@ -1,0 +1,24 @@
+{
+  "name": "acme",
+  "private": true,
+  "type": "module",
+  "scripts": {},
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@react-router/node": "^7.2.0",
+    "@react-router/serve": "^7.2.0",
+    "isbot": "^4.4.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-router": "^7.2.0"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.2.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0"
+  }
+}

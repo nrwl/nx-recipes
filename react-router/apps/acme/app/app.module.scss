@@ -1,0 +1,17 @@
+/* Your styles goes here. */
+/* You can add global styles to this file, and also import other style files */
+nav {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #000;
+}
