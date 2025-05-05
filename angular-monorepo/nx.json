@@ -22,6 +22,9 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "e2e-ci--**/**": {
+      "dependsOn": ["^angular-store:build", "^inventory:build"]
     }
   },
   "plugins": [
@@ -60,5 +63,6 @@
       "style": "css"
     }
   },
-  "nxCloudAccessToken": "NjMxZDBjYzgtNTJmNS00NWY0LWFiOTMtOTljYWQ1OTNjZTc3fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NjMxZDBjYzgtNTJmNS00NWY0LWFiOTMtOTljYWQ1OTNjZTc3fHJlYWQtd3JpdGU=",
+  "useLegacyCache": true
 }
