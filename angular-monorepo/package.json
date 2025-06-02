@@ -38,7 +38,7 @@
     "@types/jest": "29.5.14",
     "@types/node": "18.16.9",
     "@typescript-eslint/utils": "^8.29.0",
-    "angular-eslint": "^20.0.0-alpha.1",
+    "angular-eslint": "^20.0.0-beta.1",
     "cypress": "14.3.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
