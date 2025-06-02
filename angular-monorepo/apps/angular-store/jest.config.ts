@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'angular-store',
   preset: '../../jest.preset.js',

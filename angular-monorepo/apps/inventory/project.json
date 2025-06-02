@@ -7,20 +7,20 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
+      "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/inventory",
-        "index": "apps/inventory/src/index.html",
         "browser": "apps/inventory/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/inventory/tsconfig.app.json",
         "assets": [
-          "apps/inventory/src/favicon.ico",
-          "apps/inventory/src/assets"
+          {
+            "glob": "**/*",
+            "input": "apps/inventory/public"
+          }
         ],
-        "styles": ["apps/inventory/src/styles.css"],
-        "scripts": []
+        "styles": ["apps/inventory/src/styles.css"]
       },
       "configurations": {
         "production": {
@@ -32,8 +32,8 @@
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
             }
           ],
           "outputHashing": "all"
@@ -47,7 +47,8 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "inventory:build:production"
@@ -59,16 +60,29 @@
       "defaultConfiguration": "development"
     },
     "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "executor": "@angular/build:extract-i18n",
       "options": {
         "buildTarget": "inventory:build"
       }
     },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/inventory/jest.config.ts"
+      }
+    },
     "serve-static": {
+      "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "inventory:build",
-        "staticFilePath": "dist/apps/inventory/browser"
+        "port": 4200,
+        "staticFilePath": "dist/apps/inventory/browser",
+        "spa": true
       }
     }
   }
