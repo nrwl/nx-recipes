@@ -70,7 +70,7 @@ It's helpful to add a target in the `project.json` to run Prisma. The important 
       "options": {
         "cwd": "<path-to-library-root>"
       }
-    }
+    },
     "generate-types": {
       "command": "prisma generate",
       "options": {
