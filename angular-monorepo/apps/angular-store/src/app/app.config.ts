@@ -1,10 +1,15 @@
-import { ApplicationConfig } from '@angular/core';
 import {
-  provideRouter,
-  withEnabledBlockingInitialNavigation,
-} from '@angular/router';
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(appRoutes, withEnabledBlockingInitialNavigation())],
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(appRoutes),
+  ],
 };
