@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Reactlib",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What library name would you like to use?"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the package",
+      "default": "A package generated via a Nx generator",
+      "x-prompt": "What is the package about?"
+    }
+  },
+  "required": ["name"]
+}
