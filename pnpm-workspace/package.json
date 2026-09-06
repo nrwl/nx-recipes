@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nx": "17.1.3"
+    "nx": "23.2.0"
   }
 }
-
