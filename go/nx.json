@@ -16,5 +16,6 @@
     "test": {
       "cache": true
     }
-  }
+  },
+  "useInferencePlugins": false
 }
