@@ -1,6 +1,6 @@
 /* eslint disable */
 
-export default {
+module.exports = {
   transform: {
     '^.+\\.[tj]sx?$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
@@ -9,4 +9,4 @@ export default {
   globals: {},
   displayName: 'myapp-e2e',
   preset: '../../jest.preset.js',
-}
+};
