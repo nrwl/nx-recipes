@@ -16,5 +16,6 @@
       "cache": true
     }
   },
-  "nxCloudAccessToken": "MzgzYjUyNTgtYzhmMy00MWI3LThiZDItYWE1YzZhOTMyZjJkfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "MzgzYjUyNTgtYzhmMy00MWI3LThiZDItYWE1YzZhOTMyZjJkfHJlYWQtd3JpdGU=",
+  "useInferencePlugins": false
 }
