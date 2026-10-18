@@ -47,5 +47,6 @@
   },
   "plugins": [
     "@monodon/rust"
-  ]
+  ],
+  "useInferencePlugins": false
 }
