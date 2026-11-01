@@ -17,7 +17,12 @@
     "paths": {
       "@nx-apollo/feature-sets": ["libs/feature-sets/src/index.ts"],
       "@nx-apollo/models-graphql": ["libs/models-graphql/src/index.ts"]
-    }
+    },
+    "strict": false,
+    "noUncheckedSideEffectImports": false,
+    "types": ["*"],
+    "esModuleInterop": false,
+    "ignoreDeprecations": "6.0"
   },
   "exclude": ["node_modules", "tmp"]
 }
