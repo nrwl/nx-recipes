@@ -16,5 +16,9 @@
     "test": {
       "cache": true
     }
+  },
+  "useInferencePlugins": false,
+  "affected": {
+    "legacy": true
   }
 }
